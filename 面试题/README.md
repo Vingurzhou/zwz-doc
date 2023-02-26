@@ -1,22 +1,20 @@
 # 面试题
 
 <!-- TOC -->
-
 * [面试题](#面试题)
-    * [go](#go)
-        * [协程内存](#协程内存)
-        * [为什么叫GO111MODULE](#为什么叫go111module)
-        * [gmp](#gmp)
-        * [channel状态](#channel状态)
-        * [结构体比较](#结构体比较)
-        * [make和new区别](#make和new区别)
-        * [时间函数增加一天](#时间函数增加一天)
-        * [goroutine内跑goroutine](#goroutine内跑goroutine)
-    * [redis](#redis)
-        * [持久化](#持久化)
-        * [集群](#集群)
-        * [哨兵](#哨兵)
-
+  * [go](#go)
+    * [协程内存](#协程内存)
+    * [为什么叫GO111MODULE](#为什么叫go111module)
+    * [gmp](#gmp)
+    * [channel状态](#channel状态)
+    * [结构体比较](#结构体比较)
+    * [make和new区别](#make和new区别)
+    * [时间函数增加一天](#时间函数增加一天)
+    * [goroutine内跑goroutine](#goroutine内跑goroutine)
+  * [redis](#redis)
+    * [持久化](#持久化)
+    * [集群](#集群)
+    * [哨兵](#哨兵)
 <!-- TOC -->
 
 ## go
