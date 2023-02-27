@@ -86,7 +86,25 @@ Channel是异步进行的, channel存在3种状态：
 `time.Now().AddDate(0, 0, 1)`
 
 ### goroutine内跑goroutine
+### recover
+在一个 defer 延迟执行的函数中调用 recover ，它便能捕捉/中断 panic。
+```go
+// 错误的 recover 调用示例
+func main() {
+recover() // 什么都不会捕捉
+panic("not good") // 发生 panic，主程序退出
+recover() // 不会被执行
+println("ok")
+}
 
+// 正确的 recover 调用示例
+func main() {
+defer func() {
+fmt.Println("recovered: ", recover())
+}()
+panic("not good")
+}
+```
 ## redis
 
 ### 持久化
@@ -94,9 +112,6 @@ Channel是异步进行的, channel存在3种状态：
 | Redis DataBase                      | Append-Only File                    |
 |-------------------------------------|-------------------------------------|
 | 指定的时间间隔内对Redis的内存数据进行快照，然后将快照保存到磁盘上 | 将每个写操作都记录到一个日志文件中，以便在Redis重新启动时进行恢复 |
-|                                     |                                     |
-
-`
 
 ### 集群
 
