@@ -5,7 +5,9 @@
   * [byte](#byte)
   * [recover](#recover)
   * [interface](#interface)
-  * [字符串](#字符串)
+  * [string](#string)
+    * [1](#1)
+    * [2](#2)
   * [map](#map)
   * [struct](#struct)
 <!-- TOC -->
@@ -149,8 +151,8 @@ func main() {
 
 此代码检查 的基础类型是否object为int，如果是，则执行内部 switch 语句以确定打印哪种情况。如果object不是int，它会向控制台打印一条消息，指示未知类型。
 
-## 字符串
-
+## string
+### 1
 ```go
 
 package main
@@ -172,7 +174,24 @@ func main() {
 
 该程序运行时，会输出字符串“张三”的字节数。实际输出将取决于系统的编码及其表示汉字的方式，但它可能是 6 个或 9
 个字节，因为字符“张”和“三”在 UTF-8 编码中可以分别由三个字节表示。
+### 2
+在 Go 中，字符串是不可变的，这意味着一旦创建了一个字符串，就不能直接修改它。因此，如果想要修改字符串，我们必须先将其转换为可变的类型，例如切片或字节数组，然后再修改它。
 
+使用字节数组比使用字符串切片更高效，因为字节数组可以直接修改，而不需要分配新的内存空间。以下是使用字节数组来将 "hello" 修改为 "h周llo" 的示例代码：
+```go
+package main
+
+import "fmt"
+
+func main() {
+	str := "hello"
+	bytes := []byte(str)         // 将字符串转换为字节数组
+	bytes[1] = '周'              // 修改字节数组中的第二个字符
+	modifiedStr := string(bytes) // 将字节数组转换为字符串
+	fmt.Println(modifiedStr)     // 输出：h周llo
+}
+
+```
 ## map
 
 ```go
