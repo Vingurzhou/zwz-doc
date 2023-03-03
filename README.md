@@ -4,6 +4,7 @@
 - [备忘录](./备忘录/README.md)
 - [笔记](./笔记/README.md)
    - [git](./笔记/git/README.md)
+   - [k8s](./笔记/k8s/README.md)
    - [mysql](./笔记/mysql/README.md)
 - [笔试题](./笔试题/README.md)
 - [面试题](./面试题/README.md)

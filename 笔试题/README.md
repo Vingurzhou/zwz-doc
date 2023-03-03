@@ -10,6 +10,7 @@
     * [2](#2)
   * [map](#map)
   * [struct](#struct)
+  * [channel](#channel)
 <!-- TOC -->
 ## slice
 
@@ -105,7 +106,8 @@ fmt.Printf()如果发生恐慌，第二个延迟函数会从恐慌中恢复，�
 
 第三个延迟函数使用fmt.Printf().
 
-当panic()调用该函数时，它会导致运行时错误并立即终止程序执行。但是，在终止程序执行之前，它会按照将延迟函数添加到延迟堆栈的相反顺序执行延迟函数。因此，该程序的输出将是：
+当panic()调用该函数时，它会导致运行时错误并立即终止程序执行。但是，在终止程序执行之前，它会按照将延迟函数添加到延迟堆栈的相反顺序执行延迟函数。
+因此，该程序的输出将是：
 `errorJohn`
 
 将变量的值修改为“Lee”panic()
@@ -257,5 +259,9 @@ func main() {
 	people.SetAge(45)
 	fmt.Printf("%s,%d", people.GetName(), people.GetAge())
 }
+
+```
+## channel
+```go
 
 ```
