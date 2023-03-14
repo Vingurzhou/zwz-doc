@@ -1,9 +1,12 @@
-## mysql
-
-###  设置远程权限
+# mysql
+<!-- TOC -->
+* [mysql](#mysql)
+  * [设置远程权限](#设置远程权限)
+<!-- TOC -->
+##  设置远程权限
 ```shell
 $ docker exec -it zwoastro-mysql mysql -uroot -p
-##输入密码：PXDN93VRKUm8TeE7
+#输入密码：PXDN93VRKUm8TeE7
 use mysql;
 update user set host='%' where user='root';
 FLUSH PRIVILEGES;

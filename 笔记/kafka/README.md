@@ -1,6 +1,9 @@
-## kafka
-
-### 创建topic
+# kafka
+<!-- TOC -->
+* [kafka](#kafka)
+  * [创建topic](#创建topic)
+<!-- TOC -->
+## 创建topic
 
 ```shell
 $ docker exec -it kafka /bin/sh

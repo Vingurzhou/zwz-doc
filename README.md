@@ -10,5 +10,6 @@
    - [k8s](./笔记/k8s/README.md)
    - [kafka](./笔记/kafka/README.md)
    - [mysql](./笔记/mysql/README.md)
+   - [wooey](./笔记/wooey/README.md)
 - [笔试题](./笔试题/README.md)
 - [面试题](./面试题/README.md)

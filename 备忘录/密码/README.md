@@ -8,6 +8,7 @@
   * [smartproxy](#smartproxy)
   * [ui.appen.com.cn](#uiappencomcn)
   * [zwo test mysql](#zwo-test-mysql)
+  * [92资源站](#92资源站)
 <!-- TOC -->
 
 ## jetbrain
@@ -39,3 +40,7 @@ https://beta.openai.com/overview OpenAI主页面
 ## zwo test mysql
 `jdbc:mysql://39.100.143.110:3306`
 `Zwo2020-`
+
+## [92资源站](https://www.92ydl.com/)
+`chuanpu`
+`Chuanpu111`
