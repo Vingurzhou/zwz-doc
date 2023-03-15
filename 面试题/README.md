@@ -1,49 +1,51 @@
 # 面试题
 
 <!-- TOC -->
+
 * [面试题](#面试题)
-  * [go](#go)
-    * [协程内存](#协程内存)
-    * [为什么叫GO111MODULE](#为什么叫go111module)
-    * [gmp](#gmp)
-    * [channel状态](#channel状态)
-    * [结构体比较](#结构体比较)
-    * [make和new区别](#make和new区别)
-    * [时间函数增加一天](#时间函数增加一天)
-    * [goroutine内跑goroutine](#goroutine内跑goroutine)
-    * [判断错误类型](#判断错误类型)
-    * [recover](#recover)
-    * [控制goroutine关闭](#控制goroutine关闭)
-    * [map要注意什么](#map要注意什么)
-    * [数组和切片区别](#数组和切片区别)
-    * [golang中的对象池](#golang中的对象池)
-    * [golang是怎么控制抢占式调度的](#golang是怎么控制抢占式调度的)
-    * [golang内存逃逸懂吗](#golang内存逃逸懂吗)
-    * [往缓冲满了的channel发送数据会怎么样](#往缓冲满了的channel发送数据会怎么样)
-    * [哪些引用类型哪些是值类型](#哪些引用类型哪些是值类型)
-  * [redis](#redis)
-    * [持久化](#持久化)
-    * [集群](#集群)
-    * [哨兵](#哨兵)
-  * [linux](#linux)
-    * [linux bridge](#linux-bridge)
-    * [proc目录内是什么](#proc目录内是什么)
-  * [网络协议](#网络协议)
-    * [HTTP（Hypertext Transfer Protocol）](#httphypertext-transfer-protocol)
-    * [HTTPS（HTTP Secure）](#httpshttp-secure)
-    * [FTP（File Transfer Protocol）](#ftpfile-transfer-protocol)
-    * [SMTP（Simple Mail Transfer Protocol）](#smtpsimple-mail-transfer-protocol)
-    * [POP3（Post Office Protocol version 3）](#pop3post-office-protocol-version-3)
-    * [IMAP（Internet Message Access Protocol）](#imapinternet-message-access-protocol)
-    * [DNS（Domain Name System）](#dnsdomain-name-system)
-    * [TCP（Transmission Control Protocol）](#tcptransmission-control-protocol)
-    * [UDP（User Datagram Protocol）](#udpuser-datagram-protocol)
-    * [ICMP（Internet Control Message Protocol）](#icmpinternet-control-message-protocol)
-    * [IP（Internet Protocol）](#ipinternet-protocol)
-  * [etcd](#etcd)
-  * [mysql](#mysql)
-    * [数据库索引](#数据库索引)
-  * [数据结构和算法](#数据结构和算法)
+    * [go](#go)
+        * [协程内存](#协程内存)
+        * [为什么叫GO111MODULE](#为什么叫go111module)
+        * [gmp](#gmp)
+        * [channel状态](#channel状态)
+        * [结构体比较](#结构体比较)
+        * [make和new区别](#make和new区别)
+        * [时间函数增加一天](#时间函数增加一天)
+        * [goroutine内跑goroutine](#goroutine内跑goroutine)
+        * [判断错误类型](#判断错误类型)
+        * [recover](#recover)
+        * [控制goroutine关闭](#控制goroutine关闭)
+        * [map要注意什么](#map要注意什么)
+        * [数组和切片区别](#数组和切片区别)
+        * [golang中的对象池](#golang中的对象池)
+        * [golang是怎么控制抢占式调度的](#golang是怎么控制抢占式调度的)
+        * [golang内存逃逸懂吗](#golang内存逃逸懂吗)
+        * [往缓冲满了的channel发送数据会怎么样](#往缓冲满了的channel发送数据会怎么样)
+        * [哪些引用类型哪些是值类型](#哪些引用类型哪些是值类型)
+    * [redis](#redis)
+        * [持久化](#持久化)
+        * [集群](#集群)
+        * [哨兵](#哨兵)
+    * [linux](#linux)
+        * [linux bridge](#linux-bridge)
+        * [proc目录内是什么](#proc目录内是什么)
+    * [网络协议](#网络协议)
+        * [HTTP（Hypertext Transfer Protocol）](#httphypertext-transfer-protocol)
+        * [HTTPS（HTTP Secure）](#httpshttp-secure)
+        * [FTP（File Transfer Protocol）](#ftpfile-transfer-protocol)
+        * [SMTP（Simple Mail Transfer Protocol）](#smtpsimple-mail-transfer-protocol)
+        * [POP3（Post Office Protocol version 3）](#pop3post-office-protocol-version-3)
+        * [IMAP（Internet Message Access Protocol）](#imapinternet-message-access-protocol)
+        * [DNS（Domain Name System）](#dnsdomain-name-system)
+        * [TCP（Transmission Control Protocol）](#tcptransmission-control-protocol)
+        * [UDP（User Datagram Protocol）](#udpuser-datagram-protocol)
+        * [ICMP（Internet Control Message Protocol）](#icmpinternet-control-message-protocol)
+        * [IP（Internet Protocol）](#ipinternet-protocol)
+    * [etcd](#etcd)
+    * [mysql](#mysql)
+        * [数据库索引](#数据库索引)
+    * [数据结构和算法](#数据结构和算法)
+
 <!-- TOC -->
 
 ## go
@@ -106,9 +108,9 @@ Channel是异步进行的, channel存在3种状态：
 ### make和new区别
 
 || 支持类型 | 返回             | 内存空间             |
-|------|----------------|------------------|------|
-| make | slice、map、chan | 类型本身 （引用）        |初始化|
-| new  | 任意类型           | 类型内存地址的指针（*Type） |清零|
+|------|----------------|------------------|-----|
+| make | slice、map、chan | 类型本身 （引用）        |  初始化 |
+| new  | 任意类型           | 类型内存地址的指针（*Type） | 清零  |
 
 ### 时间函数增加一天
 
@@ -480,17 +482,85 @@ HTTP 或 HTTPS 协议：浏览器接收到响应后，会解析响应内容并�
 
 ## mysql
 
-### 数据库索引
+### 索引
 
-数据库索引类型有普通索引、组合索引、唯一索引、全文索引、主键索引
+MySQL支持不同类型的索引，包括：
 
-* 普通索引，基本的索引，没有任何限制，用于加速查询，数据可以重复
-* 组合索引，指多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个字段，索引才会被使用
-* 全文索引，用来查找文本中的关键字
-* 唯一索引，索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。
-* 主键索引，特殊的唯一索引，一个表只能有一个主键，不允许有空值。一般是在建表的时候同时创建主键索引。也就是在唯一索引的基础上相应的列必须为主键
+* 主键索引（Primary Key Index）：用于唯一标识表中每一行数据的索引。
+* 唯一索引（Unique Index）：保证索引列中的值是唯一的，但允许有空值。
+* 普通索引（Index）：最基本的索引类型，用于快速定位表中某一列的值。
+* 全文索引（Full-text Index）：用于全文搜索，支持全文模糊匹配查询。
+* 组合索引（Composite Index）：将多列组合成一个索引，可以提高查询效率。
+* 空间索引（Spatial Index）：用于存储空间数据，例如地理位置信息。
+* 哈希索引（Hash Index）：使用哈希算法计算索引值，可以提高精确匹配查询的效率。
 
-数据库索引的优点是可以提通过创建索引高查询的性能，减少查询索引的时间，但数据库中增加索引，需要占有一定的物理空间，增加索引或删除索引对数据库有一定影响。
+注意：不同类型的索引适用于不同的场景和数据类型，具体使用哪种索引需要根据实际情况进行分析和选择。
+
+### 主键索引调优
+
+* 选择最合适的数据类型：Primary Key Index的数据类型应该越小越好，因为较小的数据类型可以减少索引的存储空间，提高索引的效率。
+* 避免使用长字符串作为Primary Key Index：长字符串需要更多的存储空间，导致索引的存储空间较大，同时也会降低查询效率。
+* 选择适当的存储引擎：不同的存储引擎对Primary Key Index的支持有所不同，例如InnoDB存储引擎支持聚簇索引（Clustered
+  Index），可以提高查询效率。
+* 避免频繁更新Primary Key Index：频繁的更新Primary Key Index会导致索引的重建，降低性能。
+* 选择适当的索引长度：Primary Key Index的长度应该越短越好，但是也不能太短，否则可能会导致冲突。
+* 避免使用随机值作为Primary Key Index：使用随机值作为Primary Key Index会导致索引的分布不均匀，可能会导致性能瓶颈。
+* 合理使用自增长值作为Primary Key Index：使用自增长值作为Primary Key Index可以提高插入数据的效率，同时也可以避免使用随机值导致的性能瓶颈。
+
+### 唯一索引调优
+
+* 选择最合适的数据类型：Unique Index的数据类型应该越小越好，因为较小的数据类型可以减少索引的存储空间，提高索引的效率。
+* 避免使用长字符串作为Unique Index：长字符串需要更多的存储空间，导致索引的存储空间较大，同时也会降低查询效率。
+* 选择适当的存储引擎：不同的存储引擎对Unique Index的支持有所不同，例如InnoDB存储引擎支持聚簇索引（Clustered
+  Index），可以提高查询效率。
+* 避免频繁更新Unique Index：频繁的更新Unique Index会导致索引的重建，降低性能。
+* 合理使用联合索引：对于包含多个列的Unique Index，可以考虑使用联合索引，将多个列组合成一个索引，可以提高查询效率。
+* 避免使用随机值作为Unique Index：使用随机值作为Unique Index会导致索引的分布不均匀，可能会导致性能瓶颈。
+* 合理使用自增长值作为Unique Index：使用自增长值作为Unique Index可以提高插入数据的效率，同时也可以避免使用随机值导致的性能瓶颈。
+
+### 普通索引调优
+
+* 选择最合适的数据类型：普通索引的数据类型应该越小越好，因为较小的数据类型可以减少索引的存储空间，提高索引的效率。
+* 避免使用长字符串作为普通索引：长字符串需要更多的存储空间，导致索引的存储空间较大，同时也会降低查询效率。
+* 选择适当的存储引擎：不同的存储引擎对普通索引的支持有所不同，例如InnoDB存储引擎支持聚簇索引（Clustered Index），可以提高查询效率。
+* 合理使用联合索引：对于包含多个列的普通索引，可以考虑使用联合索引，将多个列组合成一个索引，可以提高查询效率。
+* 避免使用随机值作为普通索引：使用随机值作为普通索引会导致索引的分布不均匀，可能会导致性能瓶颈。
+* 合理使用索引覆盖（Covering Index）：索引覆盖是指查询结果可以从索引中获取，而不需要查询数据表，可以减少IO操作，提高查询效率。
+* 避免频繁更新普通索引：频繁的更新普通索引会导致索引的重建，降低性能。
+
+### 全文索引调优
+
+* 选择合适的全文索引算法：MySQL提供了两种全文索引算法，MyISAM和InnoDB存储引擎使用不同的全文索引算法，MyISAM使用Boolean全文搜索算法，InnoDB使用InnoDB全文搜索算法。根据实际需求选择合适的算法可以提高查询效率。
+* 使用合适的分词器：全文搜索需要将查询语句分词，使用合适的分词器可以提高查询准确性。MySQL提供了多种分词器，例如Standard分词器、CJK分词器、Whitespace分词器等。
+* 避免使用短词作为全文索引：短词可能会出现在大量文档中，导致全文索引的效率低下。可以通过调整最小词长参数来过滤短词。
+* 调整全文索引缓存大小：全文索引需要占用一定的内存空间，可以通过调整ft_min_word_len和ft_max_word_len参数来调整全文索引缓存大小。
+* 避免使用模糊查询：模糊查询会导致全文索引扫描大量文档，导致查询效率低下。可以通过调整查询语句或增加限制条件来避免模糊查询。
+* 合理使用排除词和同义词：排除词和同义词可以提高查询准确性，但需要根据实际情况选择合适的词汇。
+
+### 组合索引调优
+
+* 选择最优的列顺序：组合索引的列顺序非常重要，需要选择最优的列顺序，可以提高查询效率。通常可以将区分度高的列放在前面，可以减少索引扫描的范围。
+* 避免使用冗余列：组合索引中不应该包含冗余列，因为冗余列会增加索引的存储空间和维护成本，同时也会降低索引的效率。
+* 合理使用前缀索引：对于较长的列，可以使用前缀索引来减少索引的存储空间，提高索引的效率。但是需要注意，使用前缀索引可能会降低查询的准确性。
+* 避免过度优化：过度优化可能会导致索引过于复杂，难以维护。需要根据实际情况选择合适的索引策略，不应该过度优化。
+* 避免过度索引：过度索引会增加索引的存储空间和维护成本，同时也会降低查询效率。需要根据实际情况选择合适的索引数量。
+
+### 空间索引调优
+
+* 选择合适的空间索引类型：MySQL提供了多种空间索引类型，包括B-Tree索引、RTree索引、Quadtree索引等。不同的索引类型适用于不同的应用场景，需要根据实际情况进行选择。
+* 选择合适的空间数据类型：MySQL支持多种空间数据类型，包括点、线、面等。不同的数据类型需要选择合适的空间索引类型进行优化。
+* 使用合适的空间函数：MySQL提供了多种空间函数，包括ST_Contains、ST_Distance、ST_Intersects等。使用合适的空间函数可以提高查询效率。
+* 调整索引精度：空间索引需要根据实际情况进行调整，可以调整精度、分辨率等参数，以提高查询效率和准确性。
+* 避免过度索引：过度索引会增加索引的存储空间和维护成本，同时也会降低查询效率。需要根据实际情况选择合适的索引数量。
+* 避免跨越多个区域的查询：空间索引的效率受到查询范围的影响，如果查询跨越多个区域，可能会降低查询效率。可以通过调整查询条件或分区技术来优化查询效率。
+
+### 哈希索引调优
+
+* 选择合适的哈希函数：哈希函数的选择非常重要，需要根据实际情况选择合适的哈希函数，可以提高索引的效率和准确性。
+* 选择合适的哈希表大小：哈希表的大小直接影响哈希索引的效率，需要根据实际情况进行选择和调整。
+* 避免哈希冲突：哈希索引可能会出现哈希冲突的情况，需要采取合适的措施进行解决。可以使用开放地址法、链式法等方法解决哈希冲突。
+* 避免过度索引：过度索引会增加索引的存储空间和维护成本，同时也会降低查询效率。需要根据实际情况选择合适的索引数量。
+* 选择合适的数据类型：哈希索引只适用于等值查询，不适用于范围查询、排序等操作。需要根据实际情况选择合适的数据类型和查询方式。
 
 ## 数据结构和算法
 
