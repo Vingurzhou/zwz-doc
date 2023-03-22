@@ -34,7 +34,7 @@ func main() {
 
 ```
 
-这个 Go 程序使用函数创建了一个长度为 1、容量为 10 的整数切片make。然后它将值 1 和 2 附加到切片并将切片传递给函数TestSlice。
+这个 Go 程序使用make函数创建了一个长度为 1、容量为 10 的整数切片。然后它将值 1 和 2 附加到切片并将切片传递给函数TestSlice。
 
 在函数内部TestSlice，切片附加值 3 和 4。但是，由于切片在 Go 中是通过引用传递的，因此当切片传递给函数时不会创建新切片。相反，该函数对作为参数传递的原始切片进行操作。
 
@@ -263,5 +263,43 @@ func main() {
 ```
 ## channel
 ```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+func main() {
+	var ch1, ch2, ch3 = make(chan struct{}), make(chan struct{}), make(chan struct{})
+	var wg sync.WaitGroup
+	wg.Add(3)
+	go func(s string) {
+		defer wg.Done()
+		for i := 1; i <= 10; i++ {
+			<- ch1
+			fmt.Print(s)
+			ch2 <- struct{}{}
+		}
+		<- ch1
+	}("A")
+	go func(s string) {
+		defer wg.Done()
+		for i := 1; i <= 10; i++ {
+			<- ch2
+			fmt.Print(s)
+			ch3 <- struct{}{}
+		}
+	}("B")
+	go func(s string) {
+		defer wg.Done()
+		for i := 1; i <= 10; i++ {
+			<- ch3
+			fmt.Println(s)
+			ch1 <- struct{}{}
+		}
+	}("C")
+	ch1 <- struct{}{}
+	wg.Wait()
+}
 
 ```
