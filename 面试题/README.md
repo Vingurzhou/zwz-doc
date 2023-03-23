@@ -17,12 +17,14 @@
     * [map要注意什么](#map要注意什么)
     * [数组和切片区别](#数组和切片区别)
     * [golang中的对象池](#golang中的对象池)
-    * [golang是怎么控制抢占式调度的](#golang是怎么控制抢占式调度的)
     * [golang内存逃逸懂吗](#golang内存逃逸懂吗)
     * [往缓冲满了的channel发送数据会怎么样](#往缓冲满了的channel发送数据会怎么样)
     * [哪些引用类型哪些是值类型](#哪些引用类型哪些是值类型)
     * [如何解决跨域](#如何解决跨域)
     * [字符串转切片如何不拷贝内存](#字符串转切片如何不拷贝内存)
+    * [Goroutine和线程的区别？](#goroutine和线程的区别)
+    * [map底层](#map底层)
+    * [channel底层](#channel底层)
   * [redis](#redis)
     * [持久化](#持久化)
     * [集群](#集群)
@@ -33,18 +35,7 @@
     * [查看端口命令](#查看端口命令)
     * [查看日志最新内容](#查看日志最新内容)
     * [搜寻字符串](#搜寻字符串)
-  * [网络协议](#网络协议)
-    * [HTTP（Hypertext Transfer Protocol）](#httphypertext-transfer-protocol)
-    * [HTTPS（HTTP Secure）](#httpshttp-secure)
-    * [FTP（File Transfer Protocol）](#ftpfile-transfer-protocol)
-    * [SMTP（Simple Mail Transfer Protocol）](#smtpsimple-mail-transfer-protocol)
-    * [POP3（Post Office Protocol version 3）](#pop3post-office-protocol-version-3)
-    * [IMAP（Internet Message Access Protocol）](#imapinternet-message-access-protocol)
-    * [DNS（Domain Name System）](#dnsdomain-name-system)
-    * [TCP（Transmission Control Protocol）](#tcptransmission-control-protocol)
-    * [UDP（User Datagram Protocol）](#udpuser-datagram-protocol)
-    * [ICMP（Internet Control Message Protocol）](#icmpinternet-control-message-protocol)
-    * [IP（Internet Protocol）](#ipinternet-protocol)
+  * [tcp握手挥手](#tcp握手挥手)
   * [etcd](#etcd)
   * [mysql](#mysql)
     * [索引](#索引)
@@ -74,22 +65,17 @@ GOPATH 依赖管理方式是基于环境变量的，而 Go 语言在版本 1.11 
 
 ### gmp
 
-* G（Goroutine）：即Go协程，每个go关键字都会创建一个协程。
-* M（Machine）：工作线程，在Go中称为Machine，数量对应真实的CPU数（真正干活的对象）。
-* P（Processor）：处理器（Go中定义的一个摡念，非CPU），包含运行Go代码的必要资源，用来调度 G 和 M 之间的关联关系，其数量可通过
-  GOMAXPROCS() 来设置，默认为核心数。
-
-M必须拥有P才可以执行G中的代码，P含有一个包含多个G的队列，P可以调度G交由M执行。
+[链接](https://juejin.cn/post/6995091405563494431)
 
 ### channel状态
 
 Channel是异步进行的, channel存在3种状态：
 
-| 操作   | nil（未初始化的状态，只进行了声明，或者手动赋值为nil） | closed（千万不要误认为关闭channel后，channel的值是nil） | active（正常的channel，可读或者可写） |
-|------|--------------------------------|-----------------------------------------|---------------------------|
-| 关闭   | 产生恐慌                           | 产生恐慌                                    | 成功关闭                      |
-| 发送数据 | 永久阻塞                           | 产生恐慌                                    | 阻塞或者成功发送                  |
-| 接收数据 | 永久阻塞                           | 永不阻塞                                    | 阻塞或者成功接收                  |
+| 操作     | nil（未初始化的状态，只进行了声明，或者手动赋值为nil） | closed（千万不要误认为关闭channel后，channel的值是nil） | active（正常的channel，可读或者可写） |
+|--------|--------------------------------|-----------------------------------------|---------------------------|
+| 使其关闭   | 产生恐慌                           | 产生恐慌                                    | 成功关闭                      |
+| 向其发送数据 | 永久阻塞                           | 产生恐慌                                    | 阻塞或者成功发送                  |
+| 从中接收数据 | 永久阻塞                           | 永不阻塞                                    | 阻塞或者成功接收                  |
 
 ### 结构体比较
 
@@ -240,10 +226,13 @@ Goroutine 检测到 channel 被关闭，它将退出循环并结束运行。在�
 需要注意的是，尽管可以通过以上方法来解决map并发非安全的问题，但在实际应用中，需要根据具体情况选择最适合的方法。如果并发访问量比较小，可以使用sync.Mutex或sync.RWMutex来保护map。如果并发访问量比较大，可以考虑使用sync.Map或atomic.Value来代替普通map。
 
 ### 数组和切片区别
+
 * 数组类型的值（以下简称数组）的长度是固定的数组的长度在声明它的时候就必须给定，并且在之后不会再改变。可以说，数组的长度是其类型的一部分（数组的容量永远等于其长度，都是不可变的）
 * 切片类型的值是可变长的。而切片的类型字面量中只有其元素的类型，而没有其长度。切片的长度可以自动地随着其中元素数量的增长而增长，但不会随着元素数量的减少而减少。
-* 
+*
+
 在每一个切片的底层数据结构中，会包含一个数组，可以被叫做底层数据，而切片就是对底层数组的引用，故而切片类型属于引用类型
+
 ### golang中的对象池
 
 在 Go 中，对象池是一种常用的技术，用于重复使用已经分配的对象，从而避免频繁的内存分配和垃圾回收操作，从而提高程序性能和内存使用效率。
@@ -304,20 +293,6 @@ func main() {
 
 总之，对象池中的对象数组是一种优化技术，用于重复使用已经创建好的对象，以提高程序的性能和效率。与普通的对象数组相比，它们通常具有固定的大小、线程安全性和内存利用率等优点。
 
-### golang是怎么控制抢占式调度的
-
-在 Golang 中，抢占式调度是通过 Go 运行时系统实现的。Go 运行时系统是一个轻量级的并发系统，它有自己的调度器，可以管理和调度所有的
-Go 协程。
-
-Go 运行时系统中的调度器使用的是 M:N 线程模型，即把 M 个 Go 协程调度到 N 个操作系统线程上运行。Go 运行时系统会维护一个全局的运行队列（run
-queue），所有可运行的协程都会加入到这个运行队列中等待被调度。
-
-调度器会周期性地检查所有的操作系统线程和运行队列，如果发现某个协程需要运行，就会将它从运行队列中取出，分配到某个操作系统线程上运行。当协程被分配到线程上后，它会一直运行直到主动让出
-CPU 或者被其它协程抢占。
-
-在 Golang 中，协程可以通过调用 runtime.Gosched() 函数来显式地让出 CPU。调度器也会根据一些策略（如时间片轮转）来决定何时抢占某个协程，将
-CPU 分配给其它协程运行。因此，Golang 中的抢占式调度是由运行时系统中的调度器实现的。
-
 ### golang内存逃逸懂吗
 
 在 Golang 中，内存逃逸指的是变量或对象在函数返回后仍然存在于堆上，而不是在栈上分配内存。当变量或对象逃逸时，编译器必须在堆上为它们分配内存，这可能会导致性能下降。
@@ -368,33 +343,36 @@ func main() {
 ```go
 w.Header().Set("Access-Control-Allow-Origin", "*")
 ```
+
 ### 字符串转切片如何不拷贝内存
 
 ```go
 package main
 
 import (
-"fmt"
-"reflect"
-"unsafe"
+	"fmt"
+	"reflect"
+	"unsafe"
 )
 
 func main() {
-a :="aaa"
-ssh := *(*reflect.StringHeader)(unsafe.Pointer(&a))
-b := *(*[]byte)(unsafe.Pointer(&ssh))  
-fmt.Printf("%v",b)
+	a := "aaa"
+	ssh := *(*reflect.StringHeader)(unsafe.Pointer(&a))
+	b := *(*[]byte)(unsafe.Pointer(&ssh))
+	fmt.Printf("%v", b)
 }```
 
 解释
 `StringHeader` 是字符串在go的底层结构。
 ```go
 type StringHeader struct {
-Data uintptr
-Len  int
+	Data uintptr
+	Len  int
 }
 ```
+
 `SliceHeader` 是切片在go的底层结构。
+
 ```go
 type SliceHeader struct {
 Data uintptr
@@ -402,11 +380,24 @@ Len  int
 Cap  int
 }
 ```
+
 那么如果想要在底层转换二者，只需要把 StringHeader 的地址强转成 SliceHeader 就行。那么go有个很强的包叫 unsafe 。
+
 1. unsafe.Pointer(&a)方法可以得到变量a的地址。
 2. (*reflect.StringHeader)(unsafe.Pointer(&a)) 可以把字符串a转成底层结构的形式。
 3. (*[]byte)(unsafe.Pointer(&ssh)) 可以把ssh底层结构体转成byte的切片的指针。
 4. 再通过 *转为指针指向的实际内容。
+
+### Goroutine和线程的区别？
+
+* 一个线程可以有多个协程
+* 线程、进程都是同步机制，而协程是异步
+* 协程可以保留上一次调用时的状态，当过程重入时，相当于进入了上一次的调用状态
+* 协程是需要线程来承载运行的，所以协程并不能取代线程，「线程是被分割的CPU资源，协程是组织好的代码流程」
+
+### map底层
+
+### channel底层
 
 ## redis
 
@@ -486,69 +477,8 @@ Linux 发行版都配备了网络配置工具，提供了用于配置桥接器�
 
 `grep '搜寻字符串' 日志文件名`
 
-## 网络协议
+## tcp握手挥手
 
-### HTTP（Hypertext Transfer Protocol）
-
-用于在 Web 浏览器和 Web 服务器之间传输数据的协议，常用于访问网页和下载文件。
-
-### HTTPS（HTTP Secure）
-
-HTTP 的加密版本，通过 SSL 或 TLS 加密保护数据传输的安全性。
-
-### FTP（File Transfer Protocol）
-
-用于在网络上传输文件的协议，常用于上传和下载文件。
-
-### SMTP（Simple Mail Transfer Protocol）
-
-用于在邮件服务器之间传输电子邮件的协议，常用于发送和接收邮件。
-
-### POP3（Post Office Protocol version 3）
-
-用于从邮件服务器上下载电子邮件的协议。
-
-### IMAP（Internet Message Access Protocol）
-
-与 POP3 类似，也是用于接收邮件的协议，但它允许在服务器上保留邮件的副本，可以在多个设备上同步邮件。
-
-### DNS（Domain Name System）
-
-用于将域名转换为 IP 地址的协议，使得用户可以通过易于记忆的域名访问网站。
-
-### TCP（Transmission Control Protocol）
-
-一种可靠的传输协议，用于在网络上可靠地传输数据，确保数据包的传输顺序和完整性。
-
-### UDP（User Datagram Protocol）
-
-一种无连接的传输协议，用于在网络上快速传输数据，但不保证数据包的顺序和完整性。
-
-### ICMP（Internet Control Message Protocol）
-
-用于在网络上传输错误消息和状态信息的协议，常用于网络故障排除和诊断。
-
-### IP（Internet Protocol）
-
-它负责在网络上传输数据包并将其路由到目标设备，它为TCP、UDP等传输协议提供了数据传输的基础。IP协议通常被称为网络层协议，而TCP、UDP等协议则属于传输层协议。
-
-```
-当您输入一个网址并进入网页时，通常会经过以下协议：
-
-DNS（Domain Name System）协议：您输入的网址首先会被解析成对应的 IP 地址，这个过程需要使用 DNS 协议。
-
-HTTP 或 HTTPS 协议：一旦您的浏览器知道了目标服务器的 IP 地址，它将使用 HTTP 或 HTTPS 协议来建立与该服务器的连接。其中，HTTPS 协议还需要进行 SSL/TLS 握手，以建立加密通道。
-
-TCP（Transmission Control Protocol）协议：一旦建立了连接，浏览器和服务器之间将使用 TCP 协议来传输数据。TCP 协议保证了数据包的传输顺序和完整性，确保了数据传输的可靠性。
-
-HTTP 或 HTTPS 协议：浏览器向服务器发送 HTTP 或 HTTPS 请求，并等待服务器响应。HTTP 请求通常包括请求头、请求体等信息。
-
-服务器处理请求：服务器会根据请求的内容，处理相关逻辑并返回 HTTP 或 HTTPS 响应。HTTP 响应通常包括响应头、响应体等信息。
-
-TCP 协议：服务器向浏览器发送 HTTP 或 HTTPS 响应，也是通过 TCP 协议传输。TCP 协议确保了响应的完整性和顺序。
-
-HTTP 或 HTTPS 协议：浏览器接收到响应后，会解析响应内容并将其呈现在用户界面上。如果响应中包含了其他资源的链接，浏览器会再次发起 HTTP 或 HTTPS 请求来获取这些资源，重复上述过程。
-```
 
 ## etcd
 
@@ -615,7 +545,6 @@ MySQL支持不同类型的索引，包括：
 * 合理使用排除词和同义词：排除词和同义词可以提高查询准确性，但需要根据实际情况选择合适的词汇。
 
 ### 组合索引调优
-
 
 * 选择最优的列顺序：组合索引的列顺序非常重要，需要选择最优的列顺序，可以提高查询效率。通常可以将区分度高的列放在前面，可以减少索引扫描的范围。
 * 避免使用冗余列：组合索引中不应该包含冗余列，因为冗余列会增加索引的存储空间和维护成本，同时也会降低索引的效率。

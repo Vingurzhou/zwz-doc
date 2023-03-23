@@ -1,18 +1,26 @@
 # 笔试题
+
 <!-- TOC -->
+
 * [笔试题](#笔试题)
-  * [slice](#slice)
-  * [byte](#byte)
-  * [recover](#recover)
-  * [interface](#interface)
-  * [string](#string)
-    * [1](#1)
-    * [2](#2)
-  * [map](#map)
-  * [struct](#struct)
-  * [channel](#channel)
+    * [slice](#slice)
+        * [1](#1)
+        * [2](#2)
+    * [byte](#byte)
+    * [recover](#recover)
+    * [interface](#interface)
+    * [string](#string)
+        * [1](#1-1)
+        * [2](#2-1)
+    * [map](#map)
+    * [struct](#struct)
+    * [channel](#channel)
+
 <!-- TOC -->
+
 ## slice
+
+### 1
 
 ```go
 package main
@@ -43,6 +51,56 @@ func main() {
 
 因此，该程序的输出将是0,1,3.
 
+### 2
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	//1.定义测试数组
+	// var intArr = [...]int {10,5,11,9,0} //test01
+	var intArr = [...]int{1, 0, 2, 3} //test02
+
+	//2.输出排序前数组；
+	fmt.Println("排序前:", intArr)
+
+	/*整体思路：
+	3.从小到大排序
+	3.1有n个数需要被排序；假设先选取第0个位置的数字和让其和后一位的数进行比较；
+	3.2如果比较时发现当前数比后一个数大（即比较时，出现不符合我们规则的顺序），
+		交换两数；
+	3.3然后选第1个位置的数字，继续遍历，一轮后，即可找出一个最大数；(即最后一位已经到达其应在位置；)
+		最后一个数已经不需要参与后面的比较了；
+	3.4继续遍历，则每轮比较后，最后一个数就会到达其应到位置；
+	3.5每轮能找出一个最大的数，则最多仅需n-1轮即可全部排序完成；因为其余数排序好后，
+		最后一个数不用在找自己的位置了；（i表示外层for循环表示轮数）
+	3.6每轮选中的数下标为j,从0开始；
+		因为选中的数和后一个比较，最后一个不用选中，所以j的上限 -1；
+		又因为每过1轮，最后一个数就会被定下来，所以每轮j的上限 -i;
+	*/
+	for i := 0; i < len(intArr)-1; i++ {
+		for j := 0; j < len(intArr)-1-i; j++ {
+
+			if intArr[j+1] < intArr[j] {
+				temp := intArr[j+1]
+				intArr[j+1] = intArr[j]
+				intArr[j] = temp
+			}
+
+		}
+		fmt.Printf("第%v轮冒泡排序后：%v\n", i+1, intArr)
+
+	}
+
+}
+
+```
+
 ## byte
 
 ```go
@@ -61,11 +119,14 @@ func main() {
 }
 
 ```
-由于类型错误，您提供的代码将无法编译。这是因为v，它是一个类型的变量string，正在被赋值为item，这也是一个字符串。在 Go 中，字符串是不可变的，这意味着字符串一旦创建，其内容就无法更改。
+
+由于类型错误，您提供的代码将无法编译。这是因为v，它是一个类型的变量string，正在被赋值为item，这也是一个字符串。在 Go
+中，字符串是不可变的，这意味着字符串一旦创建，其内容就无法更改。
 
 因此，当代码尝试v通过将 的值赋给来修改第一个字符'a'时，将发生类型错误，因为无法以这种方式修改字符串。
 
 要修复此错误，可以使用字节切片而不是字符串，因为字节切片是可变的。
+
 ## recover
 
 ```go
@@ -154,7 +215,9 @@ func main() {
 此代码检查 的基础类型是否object为int，如果是，则执行内部 switch 语句以确定打印哪种情况。如果object不是int，它会向控制台打印一条消息，指示未知类型。
 
 ## string
+
 ### 1
+
 ```go
 
 package main
@@ -176,10 +239,14 @@ func main() {
 
 该程序运行时，会输出字符串“张三”的字节数。实际输出将取决于系统的编码及其表示汉字的方式，但它可能是 6 个或 9
 个字节，因为字符“张”和“三”在 UTF-8 编码中可以分别由三个字节表示。
+
 ### 2
+
 在 Go 中，字符串是不可变的，这意味着一旦创建了一个字符串，就不能直接修改它。因此，如果想要修改字符串，我们必须先将其转换为可变的类型，例如切片或字节数组，然后再修改它。
 
-使用字节数组比使用字符串切片更高效，因为字节数组可以直接修改，而不需要分配新的内存空间。以下是使用字节数组来将 "hello" 修改为 "h周llo" 的示例代码：
+使用字节数组比使用字符串切片更高效，因为字节数组可以直接修改，而不需要分配新的内存空间。以下是使用字节数组来将 "hello"
+修改为 "h周llo" 的示例代码：
+
 ```go
 package main
 
@@ -194,6 +261,7 @@ func main() {
 }
 
 ```
+
 ## map
 
 ```go
@@ -261,7 +329,9 @@ func main() {
 }
 
 ```
+
 ## channel
+
 ```go
 package main
 
@@ -269,6 +339,7 @@ import (
 	"fmt"
 	"sync"
 )
+
 func main() {
 	var ch1, ch2, ch3 = make(chan struct{}), make(chan struct{}), make(chan struct{})
 	var wg sync.WaitGroup
@@ -276,16 +347,16 @@ func main() {
 	go func(s string) {
 		defer wg.Done()
 		for i := 1; i <= 10; i++ {
-			<- ch1
+			<-ch1
 			fmt.Print(s)
 			ch2 <- struct{}{}
 		}
-		<- ch1
+		<-ch1
 	}("A")
 	go func(s string) {
 		defer wg.Done()
 		for i := 1; i <= 10; i++ {
-			<- ch2
+			<-ch2
 			fmt.Print(s)
 			ch3 <- struct{}{}
 		}
@@ -293,7 +364,7 @@ func main() {
 	go func(s string) {
 		defer wg.Done()
 		for i := 1; i <= 10; i++ {
-			<- ch3
+			<-ch3
 			fmt.Println(s)
 			ch1 <- struct{}{}
 		}
