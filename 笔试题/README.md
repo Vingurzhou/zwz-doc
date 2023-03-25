@@ -1,21 +1,19 @@
 # 笔试题
 
 <!-- TOC -->
-
 * [笔试题](#笔试题)
-    * [slice](#slice)
-        * [1](#1)
-        * [2](#2)
-    * [byte](#byte)
-    * [recover](#recover)
-    * [interface](#interface)
-    * [string](#string)
-        * [1](#1-1)
-        * [2](#2-1)
-    * [map](#map)
-    * [struct](#struct)
-    * [channel](#channel)
-
+  * [slice](#slice)
+    * [1](#1)
+    * [2](#2)
+  * [byte](#byte)
+  * [recover](#recover)
+  * [interface](#interface)
+  * [string](#string)
+    * [1](#1-1)
+    * [2](#2-1)
+  * [map](#map)
+  * [struct](#struct)
+  * [channel](#channel)
 <!-- TOC -->
 
 ## slice
