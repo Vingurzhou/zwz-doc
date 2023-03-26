@@ -1,10 +1,12 @@
 # nginx
 
 <!-- TOC -->
+
 * [nginx](#nginx)
-  * [反向代理](#反向代理)
-  * [域名](#域名)
-  * [日志](#日志)
+    * [反向代理](#反向代理)
+    * [域名](#域名)
+    * [日志](#日志)
+
 <!-- TOC -->
 
 ## 反向代理
@@ -25,6 +27,15 @@
 ```nginx configuration
     listen       80;
     server_name  api.zwobt.dev.com;
+
+```
+
+```shell
+vim /etc/hosts
+
+#127.0.0.1 bbs.local.zwo.com
+#127.0.0.1 api.zwobt.dev.com
+#127.0.0.1 zwobt.dev.com
 
 ```
 
