@@ -1,16 +1,18 @@
 # docker
 
 <!-- TOC -->
+
 * [docker](#docker)
-  * [重新构建](#重新构建)
-  * [禁用缓存机制](#禁用缓存机制)
+    * [重新构建](#重新构建)
+    * [禁用缓存机制](#禁用缓存机制)
+
 <!-- TOC -->
 
 ## 重新构建
 
 ```shell
 /usr/local/bin/docker-compose -f \
-/Users/zhouwenzhe/Documents/go-admin-ui-master/docker-compose.yml \
+/Users/zhouwenzhe/src/zwz-admin/docker-compose.yml \
 up --build
 ```
 
