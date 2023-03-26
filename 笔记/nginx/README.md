@@ -12,6 +12,7 @@
 ## 反向代理
 
 ```nginx configuration
+      # 这里的 ~* 指示 Nginx 使用正则表达式匹配路径。 ^/from/(you|me) 表示以 /from/ 开头，后面跟着 you 或 me。
       location ~* ^/from/(you|me) {
          proxy_set_header Host $http_host;
          proxy_set_header X-Real-IP $remote_addr;
