@@ -11,6 +11,8 @@
    - [goctl](./笔记/goctl/README.md)
    - [k8s](./笔记/k8s/README.md)
    - [kafka](./笔记/kafka/README.md)
+   - [linux](./笔记/linux/README.md)
    - [mysql](./笔记/mysql/README.md)
+   - [nginx](./笔记/nginx/README.md)
 - [笔试题](./笔试题/README.md)
 - [面试题](./面试题/README.md)
