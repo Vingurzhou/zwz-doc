@@ -31,5 +31,22 @@ scp -r laoxiao@192.168.1.156:/home/laoxiao/zwz .
 ## 上传
 
 ```shell
-scp -r ./zwz laoxiao@192.168.1.156:/home/laoxiao/zwz
+scp -r /Users/zhouwenzhe/src/youyaProject laoxiao@192.168.1.156:/home/laoxiao/zwz
+```
+
+## 连接
+```shell
+ssh laoxiao@192.168.1.156
+
+```
+
+## 生成SSH公钥和私钥
+```shell
+ssh-keygen -t rsa
+
+```
+
+## 将公钥复制到云服务器上
+```shell
+ssh-copy-id laoxiao@192.168.1.156
 ```
