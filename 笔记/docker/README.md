@@ -12,7 +12,7 @@
 
 ```shell
 /usr/local/bin/docker-compose -f \
-/Users/zhouwenzhe/src/zwz-admin/docker-compose.yml \
+/Users/zhouwenzhe/src/zwz-micro/vue-admin-template/docker-compose.yml \
 up --build
 ```
 
@@ -20,6 +20,6 @@ up --build
 
 ```shell
 /usr/local/bin/docker-compose -f \
-/Users/zhouwenzhe/Documents/go-admin-ui-master/docker-compose.yml \
+/Users/zhouwenzhe/src/zwz-admin/docker-compose.yml \
 build --no-cache
 ```

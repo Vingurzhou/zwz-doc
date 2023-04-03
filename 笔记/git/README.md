@@ -1,14 +1,12 @@
 # git
 
 <!-- TOC -->
-
 * [git](#git)
-    * [.gitattributes](#gitattributes)
-    * [commit message](#commit-message)
-        * [type(必须)](#type--必须-)
-        * [scope(可选)](#scope--可选-)
-        * [subject(必须)](#subject--必须-)
-
+  * [.gitattributes](#gitattributes)
+  * [commit message](#commit-message)
+    * [type(必须)](#type--必须-)
+    * [scope(可选)](#scope--可选-)
+    * [subject(必须)](#subject--必须-)
 <!-- TOC -->
 
 ## .gitattributes
