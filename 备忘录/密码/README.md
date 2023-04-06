@@ -9,6 +9,8 @@
   * [ui.appen.com.cn](#uiappencomcn)
   * [zwo test mysql](#zwo-test-mysql)
   * [92资源站](#92资源站)
+  * [黑色玫瑰 边雨诚](#黑色玫瑰-边雨诚)
+  * [cdlb服务器](#cdlb服务器)
 <!-- TOC -->
 
 ## jetbrain
@@ -38,9 +40,28 @@ https://beta.openai.com/overview OpenAI主页面
 `chinaPE2022`
 
 ## zwo test mysql
+
 `jdbc:mysql://39.100.143.110:3306`
 `Zwo2020-`
 
 ## [92资源站](https://www.92ydl.com/)
+
 `chuanpu`
 `Chuanpu111`
+
+## 黑色玫瑰 边雨诚
+
+`1374958489`
+`Caonimade321`
+
+## cd服务器
+
+ip:`103.68.181.219`
+
+os:`Windows Server 2019`
+
+port:`3389`
+
+user:`Administrator`
+
+pass:`idc/@0329`
