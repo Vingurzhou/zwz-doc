@@ -11,6 +11,9 @@
   * [将公钥复制到云服务器上](#将公钥复制到云服务器上)
   * [复制文件夹](#复制文件夹)
   * [查找关键字](#查找关键字)
+  * [查看端口占用](#查看端口占用)
+  * [关闭进程](#关闭进程)
+  * [根据端口删除](#根据端口删除)
 <!-- TOC -->
 
 ## 删除文件夹
@@ -69,4 +72,22 @@ cp -r /home/laoxiao/tntchain /home/laoxiao/zwz/youyaProject/tntchain
 
 ```shell
 grep -r keyword .
+```
+
+## 查看端口占用
+
+```shell
+lsof -i:1001
+```
+
+## 关闭进程
+
+```shell
+kill 97433
+```
+
+## 根据端口删除
+
+```shell
+kill $(lsof -t -i:1001)
 ```
