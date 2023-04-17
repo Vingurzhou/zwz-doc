@@ -77,13 +77,13 @@ grep -r keyword .
 ## 查看端口占用
 
 ```shell
-lsof -i:1001
+lsof -i:1317
 ```
 
 ## 关闭进程
 
 ```shell
-kill 97433
+kill 86341
 ```
 
 ## 根据端口删除

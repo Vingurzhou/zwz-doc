@@ -65,3 +65,9 @@ port:`3389`
 user:`Administrator`
 
 pass:`idc/@0329`
+
+## adspower
+
+`assassinzkk@outlook.com
+`
+`test123..`
