@@ -1,16 +1,18 @@
 # 目录
 
 <!-- TOC -->
+
 * [目录](#目录)
-  * [jetbrain](#jetbrain)
-  * [openai](#openai)
-  * [astrill](#astrill)
-  * [smartproxy](#smartproxy)
-  * [ui.appen.com.cn](#uiappencomcn)
-  * [zwo test mysql](#zwo-test-mysql)
-  * [92资源站](#92资源站)
-  * [黑色玫瑰 边雨诚](#黑色玫瑰-边雨诚)
-  * [cdlb服务器](#cdlb服务器)
+    * [jetbrain](#jetbrain)
+    * [openai](#openai)
+    * [astrill](#astrill)
+    * [smartproxy](#smartproxy)
+    * [ui.appen.com.cn](#uiappencomcn)
+    * [zwo test mysql](#zwo-test-mysql)
+    * [92资源站](#92资源站)
+    * [黑色玫瑰 边雨诚](#黑色玫瑰-边雨诚)
+    * [cdlb服务器](#cdlb服务器)
+
 <!-- TOC -->
 
 ## jetbrain
@@ -49,8 +51,8 @@ https://beta.openai.com/overview OpenAI主页面
 `chuanpu`
 `Chuanpu111`
 
-## 黑色玫瑰 边雨诚
-
+## 边雨诚
+`黑色玫瑰`
 `1374958489`
 `Caonimade321`
 
@@ -71,3 +73,15 @@ pass:`idc/@0329`
 `assassinzkk@outlook.com
 `
 `test123..`
+
+##  有涯内网服务器
+`192.168.1.85`
+`22`
+`root`
+`123456`
+
+##  laoxiao服务器
+`192.168.1.156`
+`22`
+`laoxiao`
+`123456`

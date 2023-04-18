@@ -14,6 +14,9 @@
   * [查看端口占用](#查看端口占用)
   * [关闭进程](#关闭进程)
   * [根据端口删除](#根据端口删除)
+  * [查看shell](#查看shell)
+  * [查看bash shell 可执行文件](#查看bash-shell-可执行文件)
+  * [查看文件最新输出](#查看文件最新输出)
 <!-- TOC -->
 
 ## 删除文件夹
@@ -90,4 +93,20 @@ kill 86341
 
 ```shell
 kill $(lsof -t -i:1001)
+```
+
+## 查看shell
+
+```shell
+echo $SHELL
+```
+
+## 查看bash shell 可执行文件
+```shell
+compgen -c
+
+```
+##  查看文件最新输出
+```shell
+tail -f /opt/go/gopath/bin/tnt.log
 ```

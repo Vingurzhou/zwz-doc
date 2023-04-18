@@ -30,7 +30,7 @@ tntchaind query bank balances cosmos1q9rdruxzn4nlcxgfnrzywyqxf6yrvz4jhc9fzy
 
 ##  转账
 ```shell
-tntchaind tx bank send cosmos1zasd5z03g2yvnpvvnlxu3wk2zqzrzcy4e7cpjc  cosmos1gh823r9a2gwt5mwmt27e0l6xj7q5tp8vnxsyfm 100000stake -y 
+tntchaind tx bank send cosmos1764ze7vxmjftlp8lxx9wvr5faj20j65a6sjskf  cosmos1q9rdruxzn4nlcxgfnrzywyqxf6yrvz4jhc9fzy 100000stake -y  
 ```
 
 ##  查询交易
@@ -41,4 +41,8 @@ tntchaind  query txs --events transfer.sender=cosmos1zasd5z03g2yvnpvvnlxu3wk2zqz
 ##  添加账户
 ```shell
 tntchaind keys add  zwz
+```
+## 查看用户私钥
+```shell
+tntchaind     keys      export     bob   --unarmored-hex   --unsafe 
 ```
