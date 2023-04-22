@@ -8,6 +8,7 @@
   * [转账](#转账)
   * [查询交易](#查询交易)
   * [添加账户](#添加账户)
+  * [查看用户私钥](#查看用户私钥)
 <!-- TOC -->
 
 ##  启动项目
@@ -25,12 +26,12 @@ tntchaind keys list
 ```
 ##  查询余额
 ```shell
-tntchaind query bank balances cosmos1q9rdruxzn4nlcxgfnrzywyqxf6yrvz4jhc9fzy
+tntchaind query bank balances cosmos12ljuv8t4w20cc784wajp98cexwwstjntkyc4a4
 ```
 
 ##  转账
 ```shell
-tntchaind tx bank send cosmos1764ze7vxmjftlp8lxx9wvr5faj20j65a6sjskf  cosmos1q9rdruxzn4nlcxgfnrzywyqxf6yrvz4jhc9fzy 100000stake -y  
+tntchaind tx bank send cosmos12ljuv8t4w20cc784wajp98cexwwstjntkyc4a4  cosmos1wk8e33pncg76jm5484hrm8vacf6xt8xjr98k66 1000TNT   
 ```
 
 ##  查询交易
@@ -44,5 +45,5 @@ tntchaind keys add  zwz
 ```
 ## 查看用户私钥
 ```shell
-tntchaind     keys      export     bob   --unarmored-hex   --unsafe 
+tntchaind     keys      export     zhangsan   --unarmored-hex   --unsafe 
 ```
