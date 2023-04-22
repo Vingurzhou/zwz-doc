@@ -10,6 +10,8 @@
    - [docker](./笔记/docker/README.md)
    - [git](./笔记/git/README.md)
    - [goctl](./笔记/goctl/README.md)
+   - [golang](./笔记/golang/README.md)
+   - [grpc](./笔记/grpc/README.md)
    - [k8s](./笔记/k8s/README.md)
    - [kafka](./笔记/kafka/README.md)
    - [linux](./笔记/linux/README.md)
