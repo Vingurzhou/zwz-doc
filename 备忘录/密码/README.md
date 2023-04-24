@@ -57,7 +57,7 @@ https://beta.openai.com/overview OpenAI主页面
 `1374958489`
 `Caonimade321`
 
-## windows 103.68.181.219
+## windows2019
 
 ip:`103.68.181.219`
 
@@ -75,7 +75,7 @@ pass:`idc/@0329`
 `
 `test123..`
 
-##  centos 192.168.1.85
+##  centos7
 `192.168.1.85`
 `22`
 `root`

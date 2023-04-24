@@ -9,6 +9,7 @@
   * [查询交易](#查询交易)
   * [添加账户](#添加账户)
   * [查看用户私钥](#查看用户私钥)
+  * [初始化区块链](#初始化区块链)
 <!-- TOC -->
 
 ##  启动项目
@@ -46,4 +47,14 @@ tntchaind keys add  zwz
 ## 查看用户私钥
 ```shell
 tntchaind     keys      export     alice   --unarmored-hex   --unsafe 
+```
+
+## 初始化区块链
+```shell
+tntchaind init tntchain
+tntchaind keys add zwz
+tntchaind add-genesis-account zwz 100000000stake --keyring-backend os
+tntchaind gentx zwz 70000000stake --chain-id tntchain
+tntchaind start
+
 ```
