@@ -31,7 +31,7 @@ tntchaind query bank balances cosmos12ljuv8t4w20cc784wajp98cexwwstjntkyc4a4
 
 ##  转账
 ```shell
-tntchaind tx bank send cosmos12ljuv8t4w20cc784wajp98cexwwstjntkyc4a4  cosmos1wk8e33pncg76jm5484hrm8vacf6xt8xjr98k66 1000TNT   
+tntchaind tx bank send cosmos12ljuv8t4w20cc784wajp98cexwwstjntkyc4a4  cosmos14v9estvzfxjw8y38sd559dnxh2a33ww9hdaduz 1000000TNT   
 ```
 
 ##  查询交易
@@ -45,5 +45,5 @@ tntchaind keys add  zwz
 ```
 ## 查看用户私钥
 ```shell
-tntchaind     keys      export     zhangsan   --unarmored-hex   --unsafe 
+tntchaind     keys      export     alice   --unarmored-hex   --unsafe 
 ```

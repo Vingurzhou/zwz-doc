@@ -17,6 +17,7 @@
   * [查看shell](#查看shell)
   * [查看bash shell 可执行文件](#查看bash-shell-可执行文件)
   * [查看文件最新输出](#查看文件最新输出)
+  * [查看系统版本信息](#查看系统版本信息)
 <!-- TOC -->
 
 ## 删除文件夹
@@ -109,4 +110,14 @@ compgen -c
 ##  查看文件最新输出
 ```shell
 tail -f /opt/go/gopath/bin/tnt.log
+```
+
+##  查看系统版本信息
+linux
+```shell
+cat /etc/os-release
+```
+mac
+```shell  
+sw_vers
 ```

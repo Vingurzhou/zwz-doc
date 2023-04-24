@@ -1,18 +1,19 @@
 # 目录
 
 <!-- TOC -->
-
 * [目录](#目录)
-    * [jetbrain](#jetbrain)
-    * [openai](#openai)
-    * [astrill](#astrill)
-    * [smartproxy](#smartproxy)
-    * [ui.appen.com.cn](#uiappencomcn)
-    * [zwo test mysql](#zwo-test-mysql)
-    * [92资源站](#92资源站)
-    * [黑色玫瑰 边雨诚](#黑色玫瑰-边雨诚)
-    * [cdlb服务器](#cdlb服务器)
-
+  * [jetbrain](#jetbrain)
+  * [openai](#openai)
+  * [astrill](#astrill)
+  * [smartproxy](#smartproxy)
+  * [ui.appen.com.cn](#uiappencomcn)
+  * [zwo test mysql](#zwo-test-mysql)
+  * [92资源站](#92资源站)
+  * [lol](#lol)
+  * [windows 103.68.181.219](#windows-10368181219)
+  * [adspower](#adspower)
+  * [centos 192.168.1.85](#centos-192168185)
+  * [ubuntu 192.168.1.156](#ubuntu-1921681156)
 <!-- TOC -->
 
 ## jetbrain
@@ -51,12 +52,12 @@ https://beta.openai.com/overview OpenAI主页面
 `chuanpu`
 `Chuanpu111`
 
-## 边雨诚
+## lol
 `黑色玫瑰`
 `1374958489`
 `Caonimade321`
 
-## cd服务器
+## windows 103.68.181.219
 
 ip:`103.68.181.219`
 
@@ -74,14 +75,19 @@ pass:`idc/@0329`
 `
 `test123..`
 
-##  root@192.168.1.85
+##  centos 192.168.1.85
 `192.168.1.85`
 `22`
 `root`
 `123456`
-
-##  laoxiao@192.168.1.156
+```shell
+ssh root@192.168.1.85
+```
+##  ubuntu 192.168.1.156
 `192.168.1.156`
 `22`
 `laoxiao`
 `123456`
+```shell
+ssh laoxiao@192.168.1.156
+```
