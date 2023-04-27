@@ -27,12 +27,12 @@ tntchaind keys list
 ```
 ##  查询余额
 ```shell
-tntchaind query bank balances cosmos12ljuv8t4w20cc784wajp98cexwwstjntkyc4a4
+tntchaind query bank balances cosmos1j43332jly9vkk86ne6umsdqkrtphmcx0tpyd03
 ```
 
 ##  转账
 ```shell
-tntchaind tx bank send cosmos12ljuv8t4w20cc784wajp98cexwwstjntkyc4a4  cosmos14v9estvzfxjw8y38sd559dnxh2a33ww9hdaduz 1000000TNT   
+tntchaind tx bank send cosmos1834vgx58uzl4dqa97ht78ulrnrgwkhx4zfwcmm  cosmos1j43332jly9vkk86ne6umsdqkrtphmcx0tpyd03 1000TNT   
 ```
 
 ##  查询交易
@@ -51,10 +51,13 @@ tntchaind     keys      export     alice   --unarmored-hex   --unsafe
 
 ## 初始化区块链
 ```shell
-tntchaind init tntchain
-tntchaind keys add zwz
-tntchaind add-genesis-account zwz 100000000stake --keyring-backend os
-tntchaind gentx zwz 70000000stake --chain-id tntchain
+rm -rf ~/.tntchain/
+tntchaind init tntchain  --staking-bond-denom TNT
+tntchaind keys add zwz --keyring-backend os
+tntchaind add-genesis-account zwz 100000000TNT --keyring-backend os
+tntchaind gentx zwz 70000000TNT --keyring-backend os
+tntchaind collect-gentxs
+vim ~/.tntchain/config/app.toml
 tntchaind start
 
 ```
