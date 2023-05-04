@@ -40,7 +40,7 @@ rm -rf
 ## 查找文件
 
 ```shell
-find /Users/zhouwenzhe/go -name buf.yaml
+find /Users/zhouwenzhe/go -name descriptor.proto
 
 ```
 

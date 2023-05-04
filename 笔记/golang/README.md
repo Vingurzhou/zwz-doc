@@ -17,10 +17,12 @@ stdout, err := cmd.CombinedOutput()
 ```
 ##  重定向标准输入流
 我在这段函数前执行哪些golang代码，才能运行下面这个代码时得到false
-
-`func inputIsTty() bool {
+```golang
+func inputIsTty() bool {
 return isatty.IsTerminal(os.Stdin.Fd()) || isatty.IsCygwinTerminal(os.Stdin.Fd())
-}`
+}
+
+```
 ```golang
 package main
 

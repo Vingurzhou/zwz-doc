@@ -10,9 +10,9 @@
   * [zwo test mysql](#zwo-test-mysql)
   * [92资源站](#92资源站)
   * [lol](#lol)
-  * [windows 103.68.181.219](#windows-10368181219)
+  * [windows2019](#windows2019)
   * [adspower](#adspower)
-  * [centos 192.168.1.85](#centos-192168185)
+  * [centos7](#centos7)
   * [ubuntu 192.168.1.156](#ubuntu-1921681156)
 <!-- TOC -->
 
@@ -31,6 +31,11 @@ https://beta.openai.com/overview OpenAI主页面
 ## astrill
 
 `dev@zwoptical.com`
+`czv*pzf.rvh@qbp6KAN`
+
+`ji@zwoptical.com`
+`lziji1314-`
+
 
 ## smartproxy
 
