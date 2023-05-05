@@ -6,6 +6,7 @@
    - [文件](./备忘录/文件/README.md)
    - [计划](./备忘录/计划/README.md)
 - [笔记](./笔记/README.md)
+   - [c++](./笔记/c++/README.md)
    - [cosmos](./笔记/cosmos/README.md)
    - [docker](./笔记/docker/README.md)
    - [git](./笔记/git/README.md)
