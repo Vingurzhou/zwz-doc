@@ -40,14 +40,14 @@ rm -rf
 ## 查找文件
 
 ```shell
-find /Users/zhouwenzhe/go -name descriptor.proto
+find /Users/zhouwenzhe/go -name secp256k1
 
 ```
 
 ## 下载文件夹
 
 ```shell
-scp -r laoxiao@192.168.1.156:/home/laoxiao/zwz/youyaProject /Users/zhouwenzhe/src
+scp -r laoxiao@192.168.1.156:/home/laoxiao/evmos /Users/zhouwenzhe/src/youyaProject
 ```
 
 ## 上传文件夹
@@ -91,13 +91,13 @@ grep -r keyword .
 ## 查看端口占用
 
 ```shell
-lsof -i:1317
+lsof -i:26656
 ```
 
 ## 关闭进程
 
 ```shell
-kill 86341
+kill 42365
 ```
 
 ## 根据端口删除
