@@ -2,7 +2,7 @@
 
 ## 术语
 
-| 缩写            | 全称                              | 意义      |
+| 缩写            | 全称                              | 含义      |
 |---------------|---------------------------------|---------|
 | std           | standard library                | 标准库     |
 | cout          | character output                | 字符输出    |
@@ -14,3 +14,6 @@
 | const         | constant                        | 常量      |
 | cin           | console input                   | 控制台输入   |
 | explicit      | explicit specifier              | 显式的、明确的 |
+| dummy         | dummy node                      | 虚拟、哑节点  |
+| dummy         | dummy node                      | 虚拟、哑节点  |
+| dummy         | dummy node                      | 虚拟、哑节点  |
