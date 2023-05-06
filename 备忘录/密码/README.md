@@ -86,13 +86,13 @@ pass:`idc/@0329`
 `root`
 `123456`
 ```shell
-ssh root@192.168.1.85
+ssh root@192.168.1.85 -p 22
 ```
-##  ubuntu 192.168.1.156
+##  ubuntu 
 `192.168.1.156`
 `22`
 `laoxiao`
 `123456`
 ```shell
-ssh laoxiao@192.168.1.156
+ssh laoxiao@192.168.1.156 -p 22
 ```
