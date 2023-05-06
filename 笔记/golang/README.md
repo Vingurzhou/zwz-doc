@@ -6,6 +6,7 @@
   * [重定向标准输入流](#重定向标准输入流)
   * [go环境配置](#go环境配置)
     * [CGO_ENABLED](#cgoenabled)
+  * [goland](#goland)
 <!-- TOC -->
 
 ## 代码执行命令
@@ -59,3 +60,5 @@ C 代码进行交互。当 CGO_ENABLED 设置为 1 时，Go 编译器将使用 C
 CGO 可能会导致一些问题。在这种情况下，可以将 CGO_ENABLED 设置为 0，以便完全禁用 CGO。
 
 在上下文中，设置 `CGO_ENABLED=0` 可能是为了避免在编译时链接 C 代码或库，这对于跨平台编译或编译不需要 C 代码的纯 Go 代码特别有用。
+
+##  goland

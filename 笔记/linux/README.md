@@ -97,7 +97,7 @@ grep -r keyword .
 ## 查看占用端口进程
 
 ```shell
-lsof -i:26656
+lsof -i:26657
 ```
 
 ## 查看进程占用端口
@@ -109,7 +109,7 @@ lsof -p 1252447 -i -P -n | grep LISTEN
 ## 查看进程启动命令
 
 ```shell
-ps -p 1252447 -f
+ps -p 93433 -f
 ```
 
 ```shell
@@ -119,7 +119,7 @@ ps -p 1252447 -f
 ## 关闭进程
 
 ```shell
-kill 42365
+kill 73309
 ```
 
 ## 根据端口删除
