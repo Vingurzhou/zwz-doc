@@ -109,7 +109,7 @@ lsof -p 1252447 -i -P -n | grep LISTEN
 ## 查看进程启动命令
 
 ```shell
-ps -p 93433 -f
+ps -p 7675 -f
 ```
 
 ```shell
