@@ -79,7 +79,7 @@ ssh-keygen -t rsa
 ## 将公钥复制到云服务器上
 
 ```shell
-ssh-copy-id laoxiao@192.168.1.156
+ssh-copy-id root@47.96.90.79
 ```
 
 ## 复制文件夹

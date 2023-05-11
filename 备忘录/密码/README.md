@@ -86,6 +86,14 @@ pass:`idc/@0329`
 `root`
 `123456`
 ```shell
+#NAME="CentOS Linux"
+#VERSION="7 (Core)"
+#ID="centos"
+#ID_LIKE="rhel fedora"
+#VERSION_ID="7"
+#PRETTY_NAME="CentOS Linux 7 (Core)"
+#ANSI_COLOR="0;31"
+#CPE_NAME="cpe:/o:centos:centos:7"
 ssh root@192.168.1.85 -p 22
 ```
 ##  ubuntu 
@@ -94,5 +102,26 @@ ssh root@192.168.1.85 -p 22
 `laoxiao`
 `123456`
 ```shell
+#NAME="Ubuntu"
+#VERSION="20.04.6 LTS (Focal Fossa)"
+#ID=ubuntu
+#ID_LIKE=debian
+#PRETTY_NAME="Ubuntu 20.04.6 LTS"
+#VERSION_ID="20.04"
 ssh laoxiao@192.168.1.156 -p 22
+```
+## ubuntu
+`22`
+`root`
+`47.96.90.79`
+`17LIhao*`
+```shell
+#PRETTY_NAME="Ubuntu 22.04.1 LTS"
+#NAME="Ubuntu"
+#VERSION_ID="22.04"
+#VERSION="22.04.1 LTS (Jammy Jellyfish)"
+#VERSION_CODENAME=jammy
+#ID=ubuntu
+#ID_LIKE=debian
+ssh root@47.96.90.79 -p 22
 ```
