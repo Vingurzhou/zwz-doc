@@ -5,6 +5,7 @@
   * [生成依赖](#生成依赖)
   * [安装依赖](#安装依赖)
   * [找不到库](#找不到库)
+  * [urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with LibreSSL 2.8.3.](#urllib3-v20-only-supports-openssl-111-currently-the--ssl-module-is-compiled-with-libressl-283)
 <!-- TOC -->
 
 ## 生成依赖

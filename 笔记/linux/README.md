@@ -46,17 +46,17 @@ rm -rf
 ## 查找文件
 
 ```shell
-find /Users/zhouwenzhe/go -name secp256k1
-
+#find /Users/zhouwenzhe/go -name *.c
+sudo find /Users/zhouwenzhe -regex "*.c"
 ```
 
-## 下载文件夹
+## 下载远程文件夹
 
 ```shell
 scp -r laoxiao@192.168.1.156:/home/laoxiao/evmos /Users/zhouwenzhe/src/youyaProject
 ```
 
-## 上传文件夹
+## 上传本地文件夹
 
 ```shell
 scp -r /Users/zhouwenzhe/src/youyaProject laoxiao@192.168.1.156:/home/laoxiao/zwz
@@ -203,3 +203,8 @@ sed -i 's/stake/TNT/g' file.txt
 3. 按下 Enter 键，执行替换操作。
    注意，在执行替换操作之前，建议先备份原始文件，以避免误操作导致数据丢失。如果需要确认每个替换操作，可以将命令中的 g 参数去掉，这样
    Vim 会在每个匹配处停下来等待确认。
+
+##  打印环境变量
+```shell
+printenv
+```
