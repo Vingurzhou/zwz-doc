@@ -4,15 +4,11 @@
   * [设置远程权限](#设置远程权限)
 <!-- TOC -->
 ##  设置远程权限
-```shell
-$ docker exec -it zwoastro-mysql mysql -uroot -p
-#输入密码：PXDN93VRKUm8TeE7
-use mysql;
-update user set host='%' where user='root';
-FLUSH PRIVILEGES;
-
-ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Z00a0319';
-FLUSH PRIVILEGES;
-
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';
-```
+1. 进入mysql库
+2. 进入user表
+3. 将root用户的host由localhost改成%
+4. 刷新数据库缓存
+5. 打开服务商安全组端口
+6. 打开系统防火墙端口
+7. 修改mysql.cnf的bind-adress为0.0.0.0
+8. 重启mysql

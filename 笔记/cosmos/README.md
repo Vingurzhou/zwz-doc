@@ -16,7 +16,6 @@
   * [获取地址公钥](#获取地址公钥)
   * [查询账户信息](#查询账户信息)
   * [恢复公钥](#恢复公钥)
-  * [](#)
 <!-- TOC -->
 
 ## 术语
@@ -44,7 +43,7 @@
 | Protobuf   | Protocol Buffers               | 协议缓冲区，语言无关、平台无关、可扩展的序列化数据结构和协议的方法，用于数据交换、存储和通信         |
 | RLP        | Recursive Length Prefix        | 递归长度前缀，RLP是一种用于编码任意复杂度的数据结构的序列化方法，旨在提供高效、紧凑和可扩展的数据表示方式 |
 | Mnemonic   | Mnemonic                       | 助记词                                                    |
-|            |                                |                                                        |
+| denom      | denomination                   | 即代币或数字资产的单位或面值                                         |
 |            |                                |                                                        |
 
 ## 创建单个验证器节点
@@ -53,7 +52,7 @@
 rm -rf ~/.tntchain/
 tntchaind init tntchain  --staking-bond-denom TNT
 tntchaind keys add zwz --keyring-backend os
-tntchaind add-genesis-account zwz 100000000TNT --keyring-backend os
+tntchaind add-genesis-account zwz 10000000000000000000000000000000TNT --keyring-backend os
 tntchaind gentx zwz 70000000TNT --keyring-backend os
 tntchaind collect-gentxs
 vim ~/.tntchain/config/app.toml
@@ -97,7 +96,7 @@ evmosd config \
 --home ~/.tmp-evmosd
 ```
 
-## 查看帐户余额
+## 查看账户余额
 
 ```shell
 evmosd q bank balances \
@@ -141,13 +140,14 @@ evmosd keys show dev0 --bech val  --home ~/.tmp-evmosd --keyring-backend test
 evmosd keys show dev0 --bech cons --home ~/.tmp-evmosd --keyring-backend test
 ```
 
-##  查询账户信息
+## 查询账户信息
 
 ```shell
 evmosd q auth account $(evmosd keys show dev0 -a  --home ~/.tmp-evmosd --keyring-backend test) -o text  --home ~/.tmp-evmosd --keyring-backend test
 ```
 
-##  恢复公钥
+## 恢复公钥
+
 ```shell
 evmosd keys add zwz-restored --recover --home ~/.tmp-evmosd --keyring-backend test
 ```

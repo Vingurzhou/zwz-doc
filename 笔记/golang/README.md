@@ -63,7 +63,7 @@ CGO 可能会导致一些问题。在这种情况下，可以将 CGO_ENABLED 设
 
 在上下文中，设置 `CGO_ENABLED=0` 可能是为了避免在编译时链接 C 代码或库，这对于跨平台编译或编译不需要 C 代码的纯 Go 代码特别有用。
 
-## 比较
+##  比较
 
 uint8和int32不是不能比较嘛，为啥在golang中``'f'``和``"f"[0]``相等
 
@@ -76,9 +76,76 @@ uint8和int32不是不能比较嘛，为啥在golang中``'f'``和``"f"[0]``相�
 
 需要注意的是，虽然rune类型和int32类型在Go语言中可以相互转换，但是在实际使用中，它们并不完全相同。rune类型通常用于表示Unicode字符，而int32类型则用于表示整数值。因此，在比较不同类型的值时，需要仔细考虑它们的含义和数据类型。
 
-## 数值转换
+##  数值转换
 
 对于非常大的数值，浮点数表示法可能会引起精度丢失问题。为了避免这个问题，可以使用Go语言中的`math/big`包来处理大整数。
 
 对于更大的数值，如果直接使用 float64 或 big.Float 进行转换和计算，可能会导致精度问题。在这种情况下，可以使用 Go 语言中的第三方库`github.com/shopspring/decimal` 来处理高精度的十进制数值。
 
+##  捕获错误
+```go
+func run() string {
+	var answer string
+	func() {
+		defer func() {
+			err := recover()
+			fmt.Println(err)
+		}()
+
+		for i := 0; i < 4; i++ {
+			answer += "dafdsafkldkj"
+			if i == 3 {
+				panic("error occur")
+			}
+		}
+	}()
+
+	return answer
+}
+```
+```go
+func run() (answer string) {
+defer func() {
+err := recover()
+fmt.Println(err)
+}()
+
+for i := 0; i < 4; i++ {
+answer += "dafdsafkldkj"
+if i == 3 {
+panic("error occur")
+}
+}
+
+return answer
+}
+
+```
+##  多维数组简写
+```go
+var a [][]int
+a:=[][]int{{-1, -1, 2}, {-1, 0, 1}}
+```
+##  数组、切片互转
+slice：make分配底层数组，var不分配为nil（map同理）
+hashtable的key可以是数组，不可以是切片
+
+```go
+slice := []int{1, 2, 3, 4, 5} // 切片
+
+	// 将切片转换为数组
+	array := make([]int, len(slice))
+	copy(array, slice)
+
+```
+```go
+array := [5]int{1, 2, 3, 4, 5} // 数组
+
+	// 将数组转换为切片
+	slice := array[:]
+
+```
+
+##  信号和通道
+信号（属于锁）是condition
+通道是channel
