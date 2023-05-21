@@ -146,6 +146,11 @@ array := [5]int{1, 2, 3, 4, 5} // 数组
 
 ```
 
-##  信号和通道
-信号（属于锁）是condition
-通道是channel
+##  并发
+### 锁
+* 信号（属于锁）是condition
+### 通道
+### 无缓冲通道
+* <-channel会阻塞当前协程直到channel<-struct{}{}
+* channel<-struct{}{}会阻塞当前协程直到<-channel
+* 阻塞main协程会报错
