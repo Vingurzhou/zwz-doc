@@ -13,7 +13,8 @@
   * [windows2019](#windows2019)
   * [adspower](#adspower)
   * [centos7](#centos7)
-  * [ubuntu 192.168.1.156](#ubuntu-1921681156)
+  * [ubuntu](#ubuntu)
+  * [ubuntu](#ubuntu-1)
 <!-- TOC -->
 
 ## jetbrain

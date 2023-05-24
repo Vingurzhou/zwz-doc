@@ -1,9 +1,23 @@
 # mysql
+
 <!-- TOC -->
+
 * [mysql](#mysql)
-  * [设置远程权限](#设置远程权限)
+    * [设置远程权限](#设置远程权限)
+
 <!-- TOC -->
-##  设置远程权限
+
+## 术语
+
+| 缩写           | 全称            | 含义  |
+|--------------|---------------|-----|
+| derived      | Derived Table | 派生表 |
+| alias        | AS            | 别名  |
+| incompatible | incompatible  | 不相容 |
+|              |               |     |
+
+## 设置远程权限
+
 1. 进入mysql库
 2. 进入user表
 3. 将root用户的host由localhost改成%

@@ -28,6 +28,7 @@
     * [查找](#查找)
     * [批量替换](#批量替换)
   * [打印环境变量](#打印环境变量)
+  * [查看防火墙状态](#查看防火墙状态)
 <!-- TOC -->
 
 ## 重启
@@ -66,7 +67,7 @@ scp -r /Users/zhouwenzhe/src/youyaProject laoxiao@192.168.1.156:/home/laoxiao/zw
 ## 连接
 
 ```shell
-ssh laoxiao@192.168.1.156
+ssh laoxiao@192.168.1.156 -p 22
 
 ```
 
@@ -208,4 +209,11 @@ sed -i 's/stake/TNT/g' file.txt
 ##  打印环境变量
 ```shell
 printenv
+```
+
+##  查看防火墙状态
+```shell
+systemctl status firewalld
+#systemctl start firewalld
+#systemctl stop firewalld
 ```

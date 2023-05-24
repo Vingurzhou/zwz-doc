@@ -147,10 +147,12 @@ array := [5]int{1, 2, 3, 4, 5} // 数组
 ```
 
 ##  并发
-### 锁
-* 信号（属于锁）是condition
-### 通道
-### 无缓冲通道
-* <-channel会阻塞当前协程直到channel<-struct{}{}
-* channel<-struct{}{}会阻塞当前协程直到<-channel
+### 锁(Mutex、RWMutex、WaitGroup)
+* 信号（sync.Cond）是condition
+* 互斥锁可以替代读写锁，但是读写锁性能好
+### 通道(chan)
 * 阻塞main协程会报错
+### 无缓冲通道(make(chan int))
+* <-channel会阻塞当前协程直到其他协程channel<-struct{}{}
+* channel<-struct{}{}会阻塞当前协程直到其他协程<-channel
+### 
