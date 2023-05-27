@@ -28,7 +28,7 @@
     * [查找](#查找)
     * [批量替换](#批量替换)
   * [打印环境变量](#打印环境变量)
-  * [查看防火墙状态](#查看防火墙状态)
+  * [查看防火墙状态,允许防火墙端口](#查看防火墙状态允许防火墙端口)
 <!-- TOC -->
 
 ## 重启
@@ -61,7 +61,7 @@ scp -r laoxiao@192.168.1.156:/home/laoxiao/evmos /Users/zhouwenzhe/src/youyaProj
 ## 上传本地文件夹
 
 ```shell
-scp -r /Users/zhouwenzhe/src/youyaProject laoxiao@192.168.1.156:/home/laoxiao/zwz
+scp -r /Users/zhouwenzhe/Downloads/socks5proxy-master root@108.160.138.133:/root/zwz/socks5proxy-master
 ```
 
 ## 连接
@@ -81,7 +81,7 @@ ssh-keygen -t rsa
 ## 将公钥复制到云服务器上
 
 ```shell
-ssh-copy-id root@47.96.90.79
+ssh-copy-id root@108.160.138.133
 ```
 
 ## 复制文件夹
@@ -206,14 +206,21 @@ sed -i 's/stake/TNT/g' file.txt
    注意，在执行替换操作之前，建议先备份原始文件，以避免误操作导致数据丢失。如果需要确认每个替换操作，可以将命令中的 g 参数去掉，这样
    Vim 会在每个匹配处停下来等待确认。
 
-##  打印环境变量
+## 打印环境变量
+
 ```shell
 printenv
 ```
 
-##  查看防火墙状态
+## 查看防火墙状态,允许防火墙端口
+
 ```shell
-systemctl status firewalld
+#mac
+#systemctl status firewalld
 #systemctl start firewalld
 #systemctl stop firewalld
+
+#linux
+ufw status
+ufw allow 8081
 ```

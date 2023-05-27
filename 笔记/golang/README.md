@@ -156,3 +156,21 @@ array := [5]int{1, 2, 3, 4, 5} // 数组
 * <-channel会阻塞当前协程直到其他协程channel<-struct{}{}
 * channel<-struct{}{}会阻塞当前协程直到其他协程<-channel
 ### 
+
+##  为什么request.URL.Scheme取不到值
+```go
+switch {
+	case r.TLS == nil:
+		r.URL.Scheme = "https"
+	case r.Header.Get("X-Forwarded-Proto") != "":
+		r.URL.Scheme = r.Header.Get("X-Forwarded-Proto")
+	case r.Header.Get("X-Forwarded-Protocol") != "":
+		r.URL.Scheme = r.Header.Get("X-Forwarded-Protocol")
+	case r.Header.Get("X-Forwarded-Ssl") != "":
+		r.URL.Scheme = r.Header.Get("X-Forwarded-Ssl")
+	case r.Header.Get("X-Url-Scheme") != "":
+		r.URL.Scheme = r.Header.Get("X-Url-Scheme")
+	default:
+		r.URL.Scheme = "http"
+	}
+```
