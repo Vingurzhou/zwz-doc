@@ -49,7 +49,8 @@ rm -rf
 
 ```shell
 #find /Users/zhouwenzhe/go -name *.c
-find /Users/zhouwenzhe -regex "*.c"
+#find /Users/zhouwenzhe -regex "*.c"
+find /Users/zhouwenzhe/go -path '*/google/api/annotations.proto' -type f
 ```
 
 ## 下载远程文件夹
@@ -206,9 +207,11 @@ sed -i 's/stake/TNT/g' file.txt
    注意，在执行替换操作之前，建议先备份原始文件，以避免误操作导致数据丢失。如果需要确认每个替换操作，可以将命令中的 g 参数去掉，这样
    Vim 会在每个匹配处停下来等待确认。
 
-## 打印环境变量
+## 环境变量
 
 ```shell
+echo 'export PATH="/opt/homebrew/opt/node@16/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 printenv
 ```
 
@@ -223,4 +226,8 @@ printenv
 #linux
 ufw status
 ufw allow 8081
+```
+##  解析json
+```shell
+echo '{"name": "John", "age": 30}' | jq '.'
 ```

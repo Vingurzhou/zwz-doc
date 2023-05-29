@@ -43,7 +43,7 @@ service Greeter {
   }
 }
 message HelloRequest {
-  string name = 1;
+  string name = 1 [(gogoproto . nullable) = false];
 }
 message HelloReply {
   string message = 1;
