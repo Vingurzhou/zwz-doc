@@ -7,6 +7,15 @@
     * [type(必须)](#type--必须-)
     * [scope(可选)](#scope--可选-)
     * [subject(必须)](#subject--必须-)
+  * [创建远程仓库](#创建远程仓库)
+  * [添加远程分支](#添加远程分支)
+  * [查看本地和远程分支](#查看本地和远程分支)
+  * [切换分支](#切换分支)
+  * [创建本地和远程分支](#创建本地和远程分支)
+  * [删除本地和远程分支](#删除本地和远程分支)
+  * [下载远程](#下载远程)
+  * [被其他分支合并](#被其他分支合并)
+  * [取消远程仓库](#取消远程仓库)
 <!-- TOC -->
 
 ## .gitattributes
@@ -84,23 +93,46 @@ fix(DAO):用户查询缺少username属性
 feat(Controller):用户查询接口开发
 ```
 
-### 查看本地和远程分支
+## 创建远程仓库
 ```shell
+git init 
+```
+## 添加远程分支
+```shell
+git remote add origin git@github.com:Vingurzhou/1.git
+```
+## 查看本地和远程分支
+```shell
+git remote prune origin
 git remote -v
 git branch -a
 ```
-### 切换分支
+## 切换分支
 ```shell
 git checkout main
 ```
-### 创建本地和远程分支
+## 创建本地和远程分支
 ```shell
 git branch test
 git push -u origin test
 ```
 
-### 删除本地和远程分支
+## 删除本地和远程分支
 ```shell
-git branch -d private
-git push origin --delete private
+git branch -d test2
+git push origin --delete test2
+```
+
+## 下载远程
+```shell
+git pull
+```
+## 被其他分支合并
+```shell
+git merge 
+```
+
+## 取消远程仓库
+```shell
+rm -rf .git
 ```
