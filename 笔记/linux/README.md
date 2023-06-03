@@ -27,8 +27,9 @@
   * [vim](#vim)
     * [查找](#查找)
     * [批量替换](#批量替换)
-  * [打印环境变量](#打印环境变量)
+  * [环境变量](#环境变量)
   * [查看防火墙状态,允许防火墙端口](#查看防火墙状态允许防火墙端口)
+  * [解析json](#解析json)
 <!-- TOC -->
 
 ## 重启
@@ -48,9 +49,8 @@ rm -rf
 ## 查找文件
 
 ```shell
-#find /Users/zhouwenzhe/go -name *.c
 #find /Users/zhouwenzhe -regex "*.c"
-find /Users/zhouwenzhe/go -path '*/google/api/annotations.proto' -type f
+find /Users/zhouwenzhe/go -path '*/gogoproto/gogo.proto' -type f
 ```
 
 ## 下载远程文件夹
@@ -211,6 +211,7 @@ sed -i 's/stake/TNT/g' file.txt
 
 ```shell
 echo 'export PATH="/opt/homebrew/opt/node@16/bin:$PATH"' >> ~/.zshrc
+#echo 'export PATH=/your/directory/path:$PATH' >> ~/.zshrc
 source ~/.zshrc
 printenv
 ```

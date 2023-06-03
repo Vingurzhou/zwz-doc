@@ -152,6 +152,7 @@ evmosd keys show dev0 --bech cons --home ~/.tmp-evmosd --keyring-backend test
 
 ```shell
 evmosd q auth account $(evmosd keys show dev0 -a  --home ~/.tmp-evmosd --keyring-backend test) -o text  --home ~/.tmp-evmosd --keyring-backend test
+#evmosd query account
 ```
 
 ## 恢复公钥

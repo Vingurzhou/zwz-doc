@@ -174,3 +174,8 @@ switch {
 		r.URL.Scheme = "http"
 	}
 ```
+##  查看支持哪些平台
+```shell
+#go tool dist list
+go tool dist list -json | jq -r '.[] | select(.FirstClass) | [.GOOS , .GOARCH] | join("/")'
+```
