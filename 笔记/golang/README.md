@@ -1,14 +1,23 @@
 # golang
 
 <!-- TOC -->
-
 * [golang](#golang)
-    * [代码执行命令](#代码执行命令)
-    * [重定向标准输入流](#重定向标准输入流)
-    * [go环境配置](#go环境配置)
-        * [CGO_ENABLED](#cgoenabled)
-    * [goland](#goland)
-
+  * [代码执行命令](#代码执行命令)
+  * [重定向标准输入流](#重定向标准输入流)
+  * [go环境配置](#go环境配置)
+    * [CGO_ENABLED](#cgoenabled)
+  * [比较](#比较)
+  * [数值转换](#数值转换)
+  * [捕获错误](#捕获错误)
+  * [多维数组简写](#多维数组简写)
+  * [数组、切片互转](#数组切片互转)
+  * [并发](#并发)
+    * [锁(Mutex、RWMutex、WaitGroup)](#锁--mutexrwmutexwaitgroup-)
+    * [通道(chan)](#通道--chan-)
+    * [无缓冲通道(make(chan int))](#无缓冲通道--make--chan-int--)
+    * [](#)
+  * [为什么request.URL.Scheme取不到值](#为什么requesturlscheme取不到值)
+  * [查看支持哪些平台](#查看支持哪些平台)
 <!-- TOC -->
 
 ## 代码执行命令

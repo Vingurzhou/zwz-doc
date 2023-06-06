@@ -15,6 +15,7 @@
   * [centos7](#centos7)
   * [ubuntu](#ubuntu)
   * [ubuntu](#ubuntu-1)
+  * [Linux](#linux)
 <!-- TOC -->
 
 ## jetbrain
