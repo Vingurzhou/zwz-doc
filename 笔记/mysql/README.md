@@ -1,10 +1,12 @@
 # mysql
 
 <!-- TOC -->
+
 * [mysql](#mysql)
-  * [术语](#术语)
-  * [安装](#安装)
-  * [远程权限](#远程权限)
+    * [术语](#术语)
+    * [安装](#安装)
+    * [远程权限](#远程权限)
+
 <!-- TOC -->
 
 ## 术语
@@ -14,10 +16,12 @@
 | derived      | Derived Table | 派生表 |
 | alias        | AS            | 别名  |
 | incompatible | incompatible  | 不相容 |
-|              |               |     |
-##  安装
+
+## 安装
+
 ```shell
 ```
+
 ## 远程权限
 
 1. 进入mysql库
