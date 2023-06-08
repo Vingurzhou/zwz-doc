@@ -21,5 +21,6 @@
    - [npm](./笔记/npm/README.md)
    - [python](./笔记/python/README.md)
    - [re](./笔记/re/README.md)
+   - [redis](./笔记/redis/README.md)
 - [笔试题](./笔试题/README.md)
 - [面试题](./面试题/README.md)
