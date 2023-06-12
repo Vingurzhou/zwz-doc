@@ -5,16 +5,7 @@
   * [重启](#重启)
   * [远程权限](#远程权限)
 <!-- TOC -->
-## 安装
 
-```shell
-curl -OJL https://github.com/redis/redis/archive/7.0.11.tar.gz
-tar -zxvf redis-7.0.11.tar.gz
-cd redis-7.0.11
-make
-make install
-redis-server
-```
 
 ## 重启
 

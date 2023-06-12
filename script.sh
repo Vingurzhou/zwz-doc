@@ -26,7 +26,7 @@ tree() {
 > ./README.md
 
 # Define the initial content
-lst=('# zwz-doc' '个人文档' '## 目录')
+lst=('# zwz-doc' '基于GitHub Flavored Markdown的个人文档' '## 目录')
 
 # Call the tree function starting from the current directory
 tree .

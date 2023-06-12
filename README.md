@@ -1,5 +1,5 @@
 # zwz-doc
-个人文档
+基于GitHub Flavored Markdown的个人文档
 ## 目录
 - [备忘录](./备忘录/README.md)
    - [密码](./备忘录/密码/README.md)

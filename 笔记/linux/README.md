@@ -30,6 +30,8 @@
   * [环境变量](#环境变量)
   * [查看防火墙状态,允许防火墙端口](#查看防火墙状态允许防火墙端口)
   * [解析json](#解析json)
+  * [添加权限](#添加权限)
+  * [清除 DNS 缓存](#清除-dns-缓存)
 <!-- TOC -->
 
 ## 重启
@@ -231,4 +233,14 @@ ufw allow 8081
 ##  解析json
 ```shell
 echo '{"name": "John", "age": 30}' | jq '.'
+```
+##  添加权限
+```shell
+chmod +x kubeadm kubelet kubectl
+
+```
+
+##  清除 DNS 缓存
+```shell
+dscacheutil -flushcache
 ```

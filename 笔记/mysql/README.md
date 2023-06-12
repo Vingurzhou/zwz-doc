@@ -17,7 +17,7 @@
 | alias        | AS            | 别名  |
 | incompatible | incompatible  | 不相容 |
 
-## 安装
+## 无包管理器安装
 
 ```shell
 ```
