@@ -10,12 +10,13 @@
   * [zwo test mysql](#zwo-test-mysql)
   * [92资源站](#92资源站)
   * [lol](#lol)
-  * [windows2019](#windows2019)
   * [adspower](#adspower)
-  * [centos7](#centos7)
-  * [ubuntu](#ubuntu)
-  * [ubuntu](#ubuntu-1)
-  * [Linux](#linux)
+  * [服务器](#服务器)
+    * [centos](#centos)
+    * [ubuntu](#ubuntu)
+    * [Linux](#linux)
+    * [windows](#windows)
+    * [mac](#mac)
 <!-- TOC -->
 
 ## jetbrain
@@ -38,7 +39,6 @@ https://beta.openai.com/overview OpenAI主页面
 `ji@zwoptical.com`
 `lziji1314-`
 
-
 ## smartproxy
 
 `assassinzkk@outlook.com`
@@ -60,87 +60,65 @@ https://beta.openai.com/overview OpenAI主页面
 `Chuanpu111`
 
 ## lol
+
 `黑色玫瑰`
 `1374958489`
 `Caonimade321`
 
-## windows2019
-
-ip:`103.68.181.219`
-
-os:`Windows Server 2019`
-
-port:`3389`
-
-user:`Administrator`
-
-pass:`idc/@0329`
-
 ## adspower
 
-`assassinzkk@outlook.com
-`
+`assassinzkk@outlook.com`
 `test123..`
 
-##  centos7
-`192.168.1.85`
-`22`
-`root`
+## 服务器
+
+### centos
+
 `123456`
+
 ```shell
-#NAME="CentOS Linux"
-#VERSION="7 (Core)"
-#ID="centos"
-#ID_LIKE="rhel fedora"
-#VERSION_ID="7"
-#PRETTY_NAME="CentOS Linux 7 (Core)"
-#ANSI_COLOR="0;31"
-#CPE_NAME="cpe:/o:centos:centos:7"
 ssh root@192.168.1.85 -p 22
 ```
-##  ubuntu 
-`192.168.1.156`
-`22`
-`laoxiao`
+
 `123456`
+
 ```shell
-#NAME="Ubuntu"
-#VERSION="20.04.6 LTS (Focal Fossa)"
-#ID=ubuntu
-#ID_LIKE=debian
-#PRETTY_NAME="Ubuntu 20.04.6 LTS"
-#VERSION_ID="20.04"
+ssh root@192.168.1.171 -p 22
+
+```
+
+### ubuntu
+
+`123456`
+
+```shell
 ssh laoxiao@192.168.1.156 -p 22
 ```
-## ubuntu
-`22`
-`root`
-`47.96.90.79`
+
 `17LIhao*`
+
 ```shell
-#PRETTY_NAME="Ubuntu 22.04.1 LTS"
-#NAME="Ubuntu"
-#VERSION_ID="22.04"
-#VERSION="22.04.1 LTS (Jammy Jellyfish)"
-#VERSION_CODENAME=jammy
-#ID=ubuntu
-#ID_LIKE=debian
 ssh root@47.96.90.79 -p 22
 ```
-## Linux
-`108.160.138.133`
-`root`
-`Zt4{MppDNS!bYP]R`
-`22`
+
+### Linux
+
+`o7C=(.T@gH*fSMw$`
+
 ```shell
-#PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
-#NAME="Debian GNU/Linux"
-#VERSION_ID="11"
-#VERSION="11 (bullseye)"
-#VERSION_CODENAME=bullseye
-#ID=debian
-#HOME_URL="https://www.debian.org/"
-#SUPPORT_URL="https://www.debian.org/support"
-#BUG_REPORT_URL="https://bugs.debian.org/"
-ssh 'root@108.160.138.133'
+ssh 'root@108.160.138.133' -p 22
+```
+
+### windows
+
+ip:`103.68.181.219`
+os:`Windows Server 2019`
+port:`3389`
+user:`Administrator`
+pass:`idc/@0329`
+
+### mac
+
+```shell
+ssh 'root@127.0.0.1' -p 22
 ```

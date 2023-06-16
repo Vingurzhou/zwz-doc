@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: zwz-admin
+spec:
+  completions: 5
+  template:
+    spec:
+      containers:
+        - name: zwz-admin
+          image: vingurzhou/zwz-admin
+          command: [ 'sh','-c','echo "zwz-admin"&&sleep2' ]
+      restartPolicy: OnFailure
