@@ -1,124 +1,196 @@
 # linux
 
 <!-- TOC -->
+
 * [linux](#linux)
-  * [重启](#重启)
-  * [删除文件夹](#删除文件夹)
-  * [查找文件](#查找文件)
-  * [下载远程文件夹](#下载远程文件夹)
-  * [上传本地文件夹](#上传本地文件夹)
-  * [连接](#连接)
-  * [生成SSH公钥和私钥](#生成ssh公钥和私钥)
-  * [将公钥复制到云服务器上](#将公钥复制到云服务器上)
-  * [复制文件夹](#复制文件夹)
-  * [查找关键字](#查找关键字)
-  * [查看占用端口进程](#查看占用端口进程)
-  * [查看进程占用端口](#查看进程占用端口)
-  * [查看进程启动命令](#查看进程启动命令)
-  * [关闭进程](#关闭进程)
-  * [根据端口删除](#根据端口删除)
-  * [查看shell](#查看shell)
-  * [查看bash shell 可执行文件](#查看bash-shell-可执行文件)
-  * [查看文件最新输出](#查看文件最新输出)
-  * [查看系统版本](#查看系统版本)
-    * [linux](#linux-1)
-    * [mac](#mac)
-  * [查看系统cpu核数](#查看系统cpu核数)
-    * [linux](#linux-2)
-    * [mac](#mac-1)
-  * [查看系统架构](#查看系统架构)
-  * [显示隐藏文件](#显示隐藏文件)
-  * [批量替换字符](#批量替换字符)
-  * [vim](#vim)
-    * [查找](#查找)
-    * [批量替换](#批量替换)
-    * [清空](#清空)
-  * [环境变量](#环境变量)
-  * [查看防火墙状态,允许防火墙端口](#查看防火墙状态允许防火墙端口)
-  * [解析json](#解析json)
-  * [添加权限](#添加权限)
-  * [清除 DNS 缓存](#清除-dns-缓存)
-  * [设置主机名](#设置主机名)
+    * [系统管理](#系统管理)
+        * [设置主机名](#设置主机名)
+        * [重启](#重启)
+        * [查看版本](#查看版本)
+        * [查看cpu核数](#查看cpu核数)
+        * [查看架构](#查看架构)
+    * [连接管理](#连接管理)
+        * [生成SSH公钥和私钥](#生成ssh公钥和私钥)
+        * [将公钥复制到云服务器上](#将公钥复制到云服务器上)
+        * [连接](#连接)
+    * [文件管理](#文件管理)
+        * [删除文件](#删除文件)
+        * [查找文件](#查找文件)
+        * [下载远程文件](#下载远程文件)
+        * [上传本地文件](#上传本地文件)
+        * [复制文件夹](#复制文件夹)
+        * [按关键字查找](#按关键字查找)
+        * [查看文件最新输出](#查看文件最新输出)
+        * [显示隐藏文件](#显示隐藏文件)
+        * [批量替换字符](#批量替换字符)
+        * [添加权限](#添加权限)
+    * [进程管理](#进程管理)
+        * [查看占用端口进程](#查看占用端口进程)
+        * [查看进程占用端口](#查看进程占用端口)
+        * [查看进程启动命令](#查看进程启动命令)
+        * [关闭进程](#关闭进程)
+        * [根据端口删除](#根据端口删除)
+    * [shell 管理](#shell-管理)
+        * [查看shell](#查看shell)
+        * [查看bash shell 可执行文件](#查看bash-shell-可执行文件)
+        * [环境变量](#环境变量)
+    * [vim](#vim)
+        * [查找](#查找)
+        * [批量替换](#批量替换)
+        * [清空](#清空)
+    * [防火墙管理](#防火墙管理)
+        * [查看防火墙状态](#查看防火墙状态)
+        * [允许防火墙端口](#允许防火墙端口)
+    * [其他](#其他)
+        * [解析json](#解析json)
+        * [清除 DNS 缓存](#清除-dns-缓存)
+
 <!-- TOC -->
 
-## 重启
+## 系统管理
+
+### 设置主机名
+
+```shell
+hostnamectl set-hostname master
+```
+
+### 重启
 
 ```shell
 sudo reboot
 
 ```
 
-## 删除文件夹
+### 查看版本
 
 ```shell
-rm -rf
+# mac
+#sw_vers
+
+cat /etc/os-release
+cat /etc/redhat-release
+```
+
+### 查看cpu核数
+
+```shell
+# mac
+#sysctl -n machdep.cpu.core_count
+
+lscpu
+#cat /proc/cpuinfo | grep "core id" | sort | uniq | wc -l
+```
+
+### 查看架构
+
+```shell
+uname -m
 
 ```
 
-## 查找文件
+## 连接管理
 
-```shell
-#find /Users/zhouwenzhe -regex "*.c"
-sudo find /usr -path '*/python3' -type f 
-```
-
-## 下载远程文件夹
-
-```shell
-scp -r laoxiao@192.168.1.156:/home/laoxiao/evmos /Users/zhouwenzhe/src/youyaProject
-```
-
-## 上传本地文件夹
-
-```shell
-scp -r /Users/zhouwenzhe/Downloads/socks5proxy-master root@108.160.138.133:/root/zwz/socks5proxy-master
-```
-
-## 连接
-
-```shell
-ssh laoxiao@192.168.1.156 -p 22
-
-```
-
-## 生成SSH公钥和私钥
+### 生成SSH公钥和私钥
 
 ```shell
 ssh-keygen -t rsa
 
 ```
 
-## 将公钥复制到云服务器上
+### 将公钥复制到云服务器上
 
 ```shell
 ssh-copy-id root@108.160.138.133
 ```
 
-## 复制文件夹
+### 连接
+
+```shell
+ssh laoxiao@192.168.1.156 -p 22
+
+```
+
+## 文件管理
+
+### 删除文件
+
+```shell
+rm -rf 
+
+```
+
+### 查找文件
+
+```shell
+#find /Users/zhouwenzhe -regex "*.c"
+sudo find /usr -path '*/python3' -type f 
+```
+
+### 下载远程文件
+
+```shell
+scp -r laoxiao@192.168.1.156:/home/laoxiao/evmos /Users/zhouwenzhe/src/youyaProject
+```
+
+### 上传本地文件
+
+```shell
+scp -r /Users/zhouwenzhe/Downloads/socks5proxy-master root@108.160.138.133:/root/zwz/socks5proxy-master
+```
+
+### 复制文件夹
 
 ```shell
 cp -r /home/laoxiao/tntchain /home/laoxiao/zwz/youyaProject/tntchain
 ```
 
-## 查找关键字
+### 按关键字查找
 
 ```shell
-grep -r keyword .
+grep -r 1 .
 ```
 
-## 查看占用端口进程
+### 查看文件最新输出
+
+```shell
+tail -f /opt/go/gopath/bin/tnt.log
+```
+
+### 显示隐藏文件
+
+```shell
+ls -a
+```
+
+### 批量替换字符
+
+```shell
+sed -i 's/stake/TNT/g' file.txt
+```
+
+### 添加权限
+
+```shell
+chmod +x kubeadm kubelet kubectl
+
+```
+
+## 进程管理
+
+### 查看占用端口进程
 
 ```shell
 lsof -i:26657
 ```
 
-## 查看进程占用端口
+### 查看进程占用端口
 
 ```shell
 lsof -p 1252447 -i -P -n | grep LISTEN
 ```
 
-## 查看进程启动命令
+### 查看进程启动命令
 
 ```shell
 ps -p 7675 -f
@@ -128,84 +200,40 @@ ps -p 7675 -f
 
 ```
 
-## 关闭进程
+### 关闭进程
 
 ```shell
 kill 73309
 ```
 
-## 根据端口删除
+### 根据端口删除
 
 ```shell
 kill $(lsof -t -i:1001)
 ```
 
-## 查看shell
+## shell 管理
+
+### 查看shell
 
 ```shell
 echo $SHELL
 ```
 
-## 查看bash shell 可执行文件
+### 查看bash shell 可执行文件
 
 ```shell
 compgen -c
 
 ```
 
-## 查看文件最新输出
+### 环境变量
 
 ```shell
-tail -f /opt/go/gopath/bin/tnt.log
-```
-
-## 查看系统版本
-
-### linux
-
-```shell
-cat /etc/os-release
-cat /etc/redhat-release
-```
-
-### mac
-
-```shell  
-sw_vers
-```
-
-## 查看系统cpu核数
-
-### linux
-
-```shell
-lscpu
-#cat /proc/cpuinfo | grep "core id" | sort | uniq | wc -l
-```
-
-### mac
-
-```shell
-sysctl -n machdep.cpu.core_count
-```
-
-## 查看系统架构
-
-```shell
-uname -m
-
-```
-
-## 显示隐藏文件
-
-```shell
-ls -a
-```
-
-## 批量替换字符
-
-```shell
-sed -i 's/stake/TNT/g' file.txt
+echo 'export PATH="/opt/homebrew/opt/node@16/bin:$PATH"' >> ~/.zshrc
+#echo 'export PATH=/your/directory/path:$PATH' >> ~/.zshrc
+source ~/.zshrc
+printenv
 ```
 
 ## vim
@@ -236,16 +264,16 @@ sed -i 's/stake/TNT/g' file.txt
 
 `:%d`
 
-## 环境变量
+## 防火墙管理
+
+### 查看防火墙状态
 
 ```shell
-echo 'export PATH="/opt/homebrew/opt/node@16/bin:$PATH"' >> ~/.zshrc
-#echo 'export PATH=/your/directory/path:$PATH' >> ~/.zshrc
-source ~/.zshrc
-printenv
+ufw status
+
 ```
 
-## 查看防火墙状态,允许防火墙端口
+### 允许防火墙端口
 
 ```shell
 #mac
@@ -254,24 +282,18 @@ printenv
 #systemctl stop firewalld
 
 #linux
-ufw status
 ufw allow 8081
 ```
 
-## 解析json
+## 其他
+
+### 解析json
 
 ```shell
 echo '{"name": "John", "age": 30}' | jq '.'
 ```
 
-## 添加权限
-
-```shell
-chmod +x kubeadm kubelet kubectl
-
-```
-
-## 清除 DNS 缓存
+### 清除 DNS 缓存
 
 ```shell
 dscacheutil -flushcache
@@ -279,8 +301,3 @@ killall -HUP mDNSResponder
 
 ```
 
-## 设置主机名
-
-```shell
-hostnamectl set-hostname master
-```
