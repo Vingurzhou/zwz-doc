@@ -166,3 +166,24 @@ git merge
 ```shell
 rm -rf .git
 ```
+##  重置
+```shell
+git config --global --edit
+```
+## 查看配置
+```shell
+git config --global --list
+```
+## 修改通信协议
+```shell
+git config --global http.version HTTP/1.1
+```
+##  代理
+```shell
+git config --global https.proxy 'socks5://127.0.0.1:3213'
+```
+##  设置postbuffer
+```shell
+git config --global http.postBuffer 524288000
+
+```
