@@ -18,7 +18,3 @@
 | extern        | external linkage specifier                         | 外部链接修饰符    |
 | atoi          | ASCII to Integer                                   | 字符串转换成整数类型 |
 | ASCII         | American Standard Code for Information Interchange | 美国信息交换标准代码 |
-|               |                                                    |            |
-|               |                                                    |            |
-|               |                                                    |            |
-|               |                                                    |            |
