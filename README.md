@@ -1,10 +1,6 @@
 # zwz-doc
-基于GitHub Flavored Markdown的个人文档
+基于GitHub Flavored Markdown的在线文档
 ## 目录
-- [备忘录](./备忘录/README.md)
-   - [密码](./备忘录/密码/README.md)
-   - [文件](./备忘录/文件/README.md)
-   - [计划](./备忘录/计划/README.md)
 - [笔记](./笔记/README.md)
    - [c](./笔记/c/README.md)
    - [cosmos](./笔记/cosmos/README.md)
