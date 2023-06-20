@@ -97,7 +97,9 @@ docker network inspect vue_default
 
 ```
 ## 运行容器
-
+```shell
+docker run -p 80:80 -d $(docker build -q .)
+```
 ```shell
 docker run -d \
 --name zwz-admin-api \
