@@ -11,7 +11,6 @@
       - [re](./笔记/其他/re/README.md)
    - [容器技术](./笔记/容器技术/README.md)
       - [docker](./笔记/容器技术/docker/README.md)
-         - [php7.4-fpm-nginx](./笔记/容器技术/docker/php7.4-fpm-nginx/README.md)
       - [k8s](./笔记/容器技术/k8s/README.md)
    - [操作系统](./笔记/操作系统/README.md)
       - [linux](./笔记/操作系统/linux/README.md)
