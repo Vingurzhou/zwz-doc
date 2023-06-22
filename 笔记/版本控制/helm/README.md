@@ -56,7 +56,16 @@ helm ls
 ### 创建
 
 ```shell  
+helm create zwz-env
+cd zwz-env
+helm create python38
+helm create node14
+helm create golang120
+helm create phpfpm74
 helm create nginx
+helm create mysql
+helm create redis
+
 ```
 
 ### 打包
@@ -68,7 +77,7 @@ helm package nginx
 ### 安装
 
 ```shell
-helm install devlake devlake/devlake --version=0.17.0-beta11
+helm install devlake devlake/devlake --version=0.17.0-beta11 --set service.uiPort=30000
 
 ```
 

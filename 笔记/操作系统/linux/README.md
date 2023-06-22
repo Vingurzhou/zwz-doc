@@ -13,6 +13,8 @@
     * [生成SSH公钥和私钥](#生成ssh公钥和私钥)
     * [将公钥复制到云服务器上](#将公钥复制到云服务器上)
     * [连接](#连接)
+      * [Kali Linux 6.1.0](#kali-linux-610)
+      * [Ubuntu 22.04.2](#ubuntu-22042)
   * [文件管理](#文件管理)
     * [查看目录](#查看目录)
     * [删除文件](#删除文件)
@@ -59,7 +61,6 @@ hostnamectl set-hostname master
 
 ```shell
 sudo reboot
-
 ```
 
 ### 查看内网ip
@@ -71,11 +72,10 @@ ifconfig
 ### 查看版本
 
 ```shell
-# mac
-#sw_vers
-
 cat /etc/os-release
 cat /etc/redhat-release
+cat /etc/release
+cat /etc/version
 ```
 
 ### 查看cpu核数
@@ -92,7 +92,6 @@ lscpu
 
 ```shell
 uname -m
-
 ```
 
 ## 连接管理
@@ -101,7 +100,6 @@ uname -m
 
 ```shell
 ssh-keygen -t rsa
-
 ```
 
 ### 将公钥复制到云服务器上
@@ -111,24 +109,51 @@ ssh-copy-id -p 33789 root@3.85.110.97
 ```
 
 ### 连接
-####  linux
-#####  3.85.110.97
+
+#### Kali Linux 6.1.0
+
 ```shell
 ssh root@3.85.110.97 -p 33789
-test123..
+```
+
+#### Ubuntu 22.04.2
+
+```shell
+ssh root@47.96.90.79 -p 22
+```
+
+```shell
+ssh root@47.96.90.79 -p 22
+```
+
+```shell
+ssh laoxiao@192.168.1.156 -p 22
+```
+
+```shell
+ssh root@108.160.138.133 -p 22
+```
+
+```shell
+ssh root@192.168.1.85 -p 22
+```
+
+```shell
+ssh root@192.168.1.171 -p 22
 ```
 
 ## 文件管理
+
 ### 查看目录
+
 ```shell
 tree -L 2 /Users/zhouwenzhe/src/practiceProject/Untitled/EyouCMS-V1.5.1-UTF8-SP3
-
 ```
+
 ### 删除文件
 
 ```shell
 rm -rf 
-
 ```
 
 ### 查找文件
@@ -184,7 +209,6 @@ sed -i 's/stake/TNT/g' file.txt
 
 ```shell
 chmod +x kubeadm kubelet kubectl
-
 ```
 
 ## 进程管理
@@ -277,18 +301,11 @@ printenv
 
 ```shell
 ufw status
-
 ```
 
 ### 允许防火墙端口
 
 ```shell
-#mac
-#systemctl status firewalld
-#systemctl start firewalld
-#systemctl stop firewalld
-
-#linux
 ufw allow 8081
 ```
 
@@ -305,6 +322,5 @@ echo '{"name": "John", "age": 30}' | jq '.'
 ```shell
 dscacheutil -flushcache
 killall -HUP mDNSResponder
-
 ```
 
