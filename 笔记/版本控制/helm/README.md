@@ -1,18 +1,20 @@
 # helm
 
 <!-- TOC -->
+
 * [helm](#helm)
-  * [仓库](#仓库)
-    * [查看](#查看)
-    * [添加](#添加)
-    * [更新](#更新)
-    * [删除](#删除)
-  * [包](#包)
-    * [查看](#查看-1)
-    * [创建](#创建)
-    * [打包](#打包)
-    * [安装](#安装)
-    * [卸载](#卸载)
+    * [仓库](#仓库)
+        * [查看](#查看)
+        * [添加](#添加)
+        * [更新](#更新)
+        * [删除](#删除)
+    * [包](#包)
+        * [查看](#查看-1)
+        * [创建](#创建)
+        * [打包](#打包)
+        * [安装](#安装)
+        * [卸载](#卸载)
+
 <!-- TOC -->
 
 ## 仓库
@@ -21,13 +23,20 @@
 
 ```shell
 helm repo list
+```
 
+```shell
+helm search hub redis
+```
+
+```shell
+helm search repo bitnami
 ```
 
 ### 添加
 
 ```shell
-helm repo add devlake https://apache.github.io/incubator-devlake-helm-chart
+helm repo add bitnami https://charts.bitnami.com/bitnami
 
 ```
 
@@ -46,7 +55,10 @@ helm repo remove bitnami
 ```
 
 ## 包
-
+###  拉取
+```shell
+helm pull bitnami/mysql --version 4.5.2
+```
 ### 查看
 
 ```shell
@@ -56,15 +68,7 @@ helm ls
 ### 创建
 
 ```shell  
-helm create zwz-env
-cd zwz-env
-helm create python38
-helm create node14
-helm create golang120
-helm create phpfpm74
-helm create nginx
-helm create mysql
-helm create redis
+helm create zwz-cluster-chart
 
 ```
 
@@ -80,7 +84,9 @@ helm package nginx
 helm install devlake devlake/devlake --version=0.17.0-beta11 --set service.uiPort=30000
 
 ```
-
+```shell
+helm install full-coral ./mychart
+```
 ### 卸载
 
 ```shell
@@ -89,3 +95,10 @@ helm uninstall devlake
 
 ```
 
+## 查看实际加载的模板
+```shell
+helm get manifest full-coral
+```
+```shell
+helm install --debug --dry-run goodly-guppy ./mychart
+```

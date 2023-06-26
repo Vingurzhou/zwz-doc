@@ -1,35 +1,37 @@
 # k8s
 
 <!-- TOC -->
+
 * [k8s](#k8s)
-  * [术语](#术语)
-  * [kubeadm](#kubeadm)
-    * [初始化集群](#初始化集群)
-    * [生成新token](#生成新token)
-    * [加入集群](#加入集群)
-  * [kubectl](#kubectl)
-    * [应用资源](#应用资源)
-    * [删除资源](#删除资源)
-    * [查看资源](#查看资源)
-    * [查看日志](#查看日志)
-    * [node](#node)
-      * [查看](#查看)
-      * [加标签](#加标签)
-    * [namespaces](#namespaces)
-      * [查看](#查看-1)
-    * [configmap](#configmap)
-      * [查看](#查看-2)
-      * [描述](#描述)
-    * [pod](#pod)
-      * [查看](#查看-3)
-      * [描述](#描述-1)
-      * [进入](#进入)
-    * [job](#job)
-      * [查看](#查看-4)
-    * [service](#service)
-      * [查看](#查看-5)
-    * [deployment](#deployment)
-      * [查看](#查看-6)
+    * [术语](#术语)
+    * [kubeadm](#kubeadm)
+        * [初始化集群](#初始化集群)
+        * [生成新token](#生成新token)
+        * [加入集群](#加入集群)
+    * [kubectl](#kubectl)
+        * [应用资源](#应用资源)
+        * [删除资源](#删除资源)
+        * [查看资源](#查看资源)
+        * [查看日志](#查看日志)
+        * [node](#node)
+            * [查看](#查看)
+            * [加标签](#加标签)
+        * [namespaces](#namespaces)
+            * [查看](#查看-1)
+        * [configmap](#configmap)
+            * [查看](#查看-2)
+            * [描述](#描述)
+        * [pod](#pod)
+            * [查看](#查看-3)
+            * [描述](#描述-1)
+            * [进入](#进入)
+        * [job](#job)
+            * [查看](#查看-4)
+        * [service](#service)
+            * [查看](#查看-5)
+        * [deployment](#deployment)
+            * [查看](#查看-6)
+
 <!-- TOC -->
 
 ## 术语
@@ -60,7 +62,7 @@
 | privileged  | privileged                            | 特权                                                                   |
 | escalation  | escalation                            | 升级                                                                   |
 | Ingress     | Ingress                               | 入口                                                                   |
-| rs          | replicates                            | 副本集                                                                  |
+| replicas    | replicas                              | 副本集                                                                  |
 | ep          | endpoints                             | 端点                                                                   |
 
 ## kubeadm

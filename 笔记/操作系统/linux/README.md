@@ -143,7 +143,10 @@ ssh root@192.168.1.171 -p 22
 ```
 
 ## 文件管理
-
+### 查看文件占用率
+```shell
+df -h
+```
 ### 查看目录
 
 ```shell
@@ -210,7 +213,9 @@ sed -i 's/stake/TNT/g' file.txt
 ```shell
 chmod +x kubeadm kubelet kubectl
 ```
-
+```shell
+chmod zwz 401 /home
+```
 ## 进程管理
 
 ### 查看占用端口进程
