@@ -275,7 +275,8 @@ Goroutine 检测到 channel 被关闭，它将退出循环并结束运行。在�
 1. 通过使用sync.Mutex或sync.RWMutex来保护map:
 
    sync.Mutex和sync.RWMutex都是Go语言中提供的同步原语，可以用于保护共享数据。在使用map时，可以使用sync.Mutex或sync.RWMutex来保护它。使用sync.Mutex时，可以在读写map之前先获取锁，然后在读写完成后释放锁。使用sync.RWMutex时，可以使用RLock方法进行读操作，使用Lock方法进行写操作，以此来实现读写锁的功能。
-
+  
+  读写锁，读操作的时候不能进行写操作，bi
 2. 使用sync.Map代替普通map:
 
    sync.Map是Go语言提供的并发安全的map类型。使用sync.Map时，不需要显式地使用锁来保护map，因为sync.Map内部已经实现了并发安全。
@@ -457,9 +458,22 @@ Cap  int
 * 协程是需要线程来承载运行的，所以协程并不能取代线程，「线程是被分割的CPU资源，协程是组织好的代码流程」
 
 ### map底层
-
+散列表
 ### channel底层
+type hchan struct {
+qcount   uint  // 队列中的总元素个数
+dataqsiz uint  // 环形队列大小，即可存放元素的个数
+buf      unsafe.Pointer // 环形队列指针
+elemsize uint16  //每个元素的大小
+closed   uint32  //标识关闭状态
+elemtype *_type // 元素类型
+sendx    uint   // 发送索引，元素写入时存放到队列中的位置
 
+recvx    uint   // 接收索引，元素从队列的该位置读出
+recvq    waitq  // 等待读消息的goroutine队列
+sendq    waitq  // 等待写消息的goroutine队列
+lock mutex  //互斥锁，chan不允许并发读写
+}
 ## redis
 
 ### 常用类型
