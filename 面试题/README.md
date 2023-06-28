@@ -466,8 +466,19 @@ Cap  int
 * 协程是需要线程来承载运行的，所以协程并不能取代线程，「线程是被分割的CPU资源，协程是组织好的代码流程」
 
 ### map底层
-散列表
+```go
+type hmap struct {
+count     int    // 元素的个数
+B         uint8  // buckets 数组的长度就是 2^B 个
+overflow uint16 // 溢出桶的数量
+buckets    unsafe.Pointer // 2^B个桶对应的数组指针
+oldbuckets unsafe.Pointer  // 发生扩容时，记录扩容前的buckets数组指针
+extra *mapextra //用于保存溢出桶的地址
+}
+```
+
 ### channel底层
+```go
 type hchan struct {
 qcount   uint  // 队列中的总元素个数
 dataqsiz uint  // 环形队列大小，即可存放元素的个数
@@ -482,6 +493,8 @@ recvq    waitq  // 等待读消息的goroutine队列
 sendq    waitq  // 等待写消息的goroutine队列
 lock mutex  //互斥锁，chan不允许并发读写
 }
+```
+
 ## redis
 
 ### 常用类型
