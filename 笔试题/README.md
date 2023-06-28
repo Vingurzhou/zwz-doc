@@ -15,7 +15,13 @@
   * [struct](#struct)
   * [channel](#channel)
 <!-- TOC -->
-
+##  int
+```shell
+	var a uint = 1
+	var b uint = 2
+	fmt.Println(a - b)
+	2**64-1
+```
 ## slice
 
 ### 1
