@@ -99,6 +99,29 @@ subject是commit目的的简短描述，不超过50个字符。
 fix(DAO):用户查询缺少username属性
 feat(Controller):用户查询接口开发
 ```
+##  创建ssh密钥
+```shell
+ssh-keygen -t ed25519 -C "zwz0123460218@icloud.com"
+
+```
+##  配置 SSH 代理
+```shell
+vim ~/.ssh/config
+```
+```shell
+# 第一个 GitHub 账号
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+
+# 第二个 GitHub 账号
+Host github-second
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_second
+
+```
 ##  克隆某个分支或某个tag
 ```shell
 #git clone --single-branch <仓库URL> -b <分支名>
@@ -191,4 +214,10 @@ git config --global https.proxy 'socks5://127.0.0.1:3213'
 ```shell
 git config --global http.postBuffer 524288000
 
+```
+
+##
+```shell
+git config --global --unset user.name
+git config --global --unset user.email
 ```

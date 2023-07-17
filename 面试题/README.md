@@ -1,73 +1,75 @@
 # 面试题
 
 <!-- TOC -->
+
 * [面试题](#面试题)
-  * [go](#go)
-    * [协程内存](#协程内存)
-    * [为什么叫GO111MODULE](#为什么叫go111module)
-    * [gmp](#gmp)
-      * [单进程（没调度器）](#单进程没调度器)
-      * [多进程并发](#多进程并发)
-      * [多线程并发](#多线程并发)
-      * [协程并发](#协程并发)
-        * [N:1](#n--1)
-        * [1:1](#1--1)
-        * [M:N](#m--n)
-    * [channel状态](#channel状态)
-    * [结构体比较](#结构体比较)
-    * [make和new区别](#make和new区别)
-    * [时间函数增加一天](#时间函数增加一天)
-    * [goroutine内跑goroutine](#goroutine内跑goroutine)
-    * [判断错误类型](#判断错误类型)
-    * [recover](#recover)
-    * [控制goroutine关闭](#控制goroutine关闭)
-    * [map要注意什么](#map要注意什么)
-    * [数组和切片区别](#数组和切片区别)
-    * [golang中的对象池](#golang中的对象池)
-    * [golang内存逃逸懂吗](#golang内存逃逸懂吗)
-    * [往缓冲满了的channel发送数据会怎么样](#往缓冲满了的channel发送数据会怎么样)
-    * [哪些引用类型哪些是值类型](#哪些引用类型哪些是值类型)
-    * [如何解决跨域](#如何解决跨域)
-    * [字符串转切片如何不拷贝内存](#字符串转切片如何不拷贝内存)
-    * [Goroutine和线程的区别？](#goroutine和线程的区别)
-    * [map底层](#map底层)
-    * [channel底层](#channel底层)
-  * [redis](#redis)
-    * [常用类型](#常用类型)
-    * [持久化](#持久化)
-    * [集群](#集群)
-    * [哨兵](#哨兵)
-  * [linux](#linux)
-    * [442是什么](#442是什么)
-    * [linux bridge](#linux-bridge)
-    * [proc目录内是什么](#proc目录内是什么)
-    * [查看端口命令](#查看端口命令)
-    * [查看日志最新内容](#查看日志最新内容)
-    * [搜寻字符串](#搜寻字符串)
-  * [tcp握手挥手](#tcp握手挥手)
-    * [三次握手](#三次握手)
-    * [四次挥手](#四次挥手)
-  * [etcd](#etcd)
-  * [mysql](#mysql)
-    * [索引](#索引)
-    * [主键索引调优](#主键索引调优)
-    * [唯一索引调优](#唯一索引调优)
-    * [普通索引调优](#普通索引调优)
-    * [全文索引调优](#全文索引调优)
-    * [组合索引调优](#组合索引调优)
-    * [空间索引调优](#空间索引调优)
-    * [哈希索引调优](#哈希索引调优)
-  * [数据结构和算法](#数据结构和算法)
-  * [其他](#其他)
-    * [在浏览器中输入www.baidu.com后执行的全部过程？](#在浏览器中输入wwwbaiducom后执行的全部过程)
-    * [乐观锁、互斥锁、读写锁、分布式锁](#乐观锁互斥锁读写锁分布式锁)
-      * [乐观锁（Optimistic Locking）：](#乐观锁optimistic-locking)
-      * [互斥锁（Mutex Lock）：](#互斥锁mutex-lock)
-      * [读写锁（Read-Write Lock）：](#读写锁read-write-lock)
-      * [分布式锁：](#分布式锁)
-      * [悲观锁（Pessimistic Locking）：](#悲观锁pessimistic-locking)
-    * [Elasticsearch用于什么](#elasticsearch用于什么)
-    * [Golang解决TCP粘包拆包问题](#golang解决tcp粘包拆包问题)
+    * [go](#go)
+        * [协程内存](#协程内存)
+        * [为什么叫GO111MODULE](#为什么叫go111module)
+        * [gmp](#gmp)
+            * [单进程（没调度器）](#单进程没调度器)
+            * [多进程并发](#多进程并发)
+            * [多线程并发](#多线程并发)
+            * [协程并发](#协程并发)
+                * [N:1](#n--1)
+                * [1:1](#1--1)
+                * [M:N](#m--n)
+        * [channel状态](#channel状态)
+        * [结构体比较](#结构体比较)
+        * [make和new区别](#make和new区别)
+        * [时间函数增加一天](#时间函数增加一天)
+        * [goroutine内跑goroutine](#goroutine内跑goroutine)
+        * [判断错误类型](#判断错误类型)
+        * [recover](#recover)
+        * [控制goroutine关闭](#控制goroutine关闭)
+        * [map要注意什么](#map要注意什么)
+        * [数组和切片区别](#数组和切片区别)
+        * [golang中的对象池](#golang中的对象池)
+        * [golang内存逃逸懂吗](#golang内存逃逸懂吗)
+        * [往缓冲满了的channel发送数据会怎么样](#往缓冲满了的channel发送数据会怎么样)
+        * [哪些引用类型哪些是值类型](#哪些引用类型哪些是值类型)
+        * [如何解决跨域](#如何解决跨域)
+        * [字符串转切片如何不拷贝内存](#字符串转切片如何不拷贝内存)
+        * [Goroutine和线程的区别？](#goroutine和线程的区别)
+        * [map底层](#map底层)
+        * [channel底层](#channel底层)
+    * [redis](#redis)
+        * [常用类型](#常用类型)
+        * [持久化](#持久化)
+        * [集群](#集群)
+        * [哨兵](#哨兵)
+    * [linux](#linux)
+        * [442是什么](#442是什么)
+        * [linux bridge](#linux-bridge)
+        * [proc目录内是什么](#proc目录内是什么)
+        * [查看端口命令](#查看端口命令)
+        * [查看日志最新内容](#查看日志最新内容)
+        * [搜寻字符串](#搜寻字符串)
+    * [tcp握手挥手](#tcp握手挥手)
+        * [三次握手](#三次握手)
+        * [四次挥手](#四次挥手)
+    * [etcd](#etcd)
+    * [mysql](#mysql)
+        * [索引](#索引)
+        * [主键索引调优](#主键索引调优)
+        * [唯一索引调优](#唯一索引调优)
+        * [普通索引调优](#普通索引调优)
+        * [全文索引调优](#全文索引调优)
+        * [组合索引调优](#组合索引调优)
+        * [空间索引调优](#空间索引调优)
+        * [哈希索引调优](#哈希索引调优)
+    * [数据结构和算法](#数据结构和算法)
+    * [其他](#其他)
+        * [在浏览器中输入www.baidu.com后执行的全部过程？](#在浏览器中输入wwwbaiducom后执行的全部过程)
+        * [乐观锁、互斥锁、读写锁、分布式锁](#乐观锁互斥锁读写锁分布式锁)
+            * [乐观锁（Optimistic Locking）：](#乐观锁optimistic-locking)
+            * [互斥锁（Mutex Lock）：](#互斥锁mutex-lock)
+            * [读写锁（Read-Write Lock）：](#读写锁read-write-lock)
+            * [分布式锁：](#分布式锁)
+            * [悲观锁（Pessimistic Locking）：](#悲观锁pessimistic-locking)
+        * [Elasticsearch用于什么](#elasticsearch用于什么)
+        * [Golang解决TCP粘包拆包问题](#golang解决tcp粘包拆包问题)
+
 <!-- TOC -->
 
 ## go
@@ -283,8 +285,9 @@ Goroutine 检测到 channel 被关闭，它将退出循环并结束运行。在�
 1. 通过使用sync.Mutex或sync.RWMutex来保护map:
 
    sync.Mutex和sync.RWMutex都是Go语言中提供的同步原语，可以用于保护共享数据。在使用map时，可以使用sync.Mutex或sync.RWMutex来保护它。使用sync.Mutex时，可以在读写map之前先获取锁，然后在读写完成后释放锁。使用sync.RWMutex时，可以使用RLock方法进行读操作，使用Lock方法进行写操作，以此来实现读写锁的功能。
-  
-  读写锁，读操作的时候不能进行写操作，bi
+
+读写锁，读操作的时候不能进行写操作，bi
+
 2. 使用sync.Map代替普通map:
 
    sync.Map是Go语言提供的并发安全的map类型。使用sync.Map时，不需要显式地使用锁来保护map，因为sync.Map内部已经实现了并发安全。
@@ -466,32 +469,34 @@ Cap  int
 * 协程是需要线程来承载运行的，所以协程并不能取代线程，「线程是被分割的CPU资源，协程是组织好的代码流程」
 
 ### map底层
+
 ```go
 type hmap struct {
-count     int    // 元素的个数
-B         uint8  // buckets 数组的长度就是 2^B 个
+count     int   // 元素的个数
+B         uint8 // buckets 数组的长度就是 2^B 个
 overflow uint16 // 溢出桶的数量
 buckets    unsafe.Pointer // 2^B个桶对应的数组指针
-oldbuckets unsafe.Pointer  // 发生扩容时，记录扩容前的buckets数组指针
+oldbuckets unsafe.Pointer // 发生扩容时，记录扩容前的buckets数组指针
 extra *mapextra //用于保存溢出桶的地址
 }
 ```
 
 ### channel底层
+
 ```go
 type hchan struct {
-qcount   uint  // 队列中的总元素个数
-dataqsiz uint  // 环形队列大小，即可存放元素的个数
+qcount   uint // 队列中的总元素个数
+dataqsiz uint // 环形队列大小，即可存放元素的个数
 buf      unsafe.Pointer // 环形队列指针
-elemsize uint16  //每个元素的大小
-closed   uint32  //标识关闭状态
+elemsize uint16         //每个元素的大小
+closed   uint32         //标识关闭状态
 elemtype *_type // 元素类型
 sendx    uint   // 发送索引，元素写入时存放到队列中的位置
 
-recvx    uint   // 接收索引，元素从队列的该位置读出
-recvq    waitq  // 等待读消息的goroutine队列
-sendq    waitq  // 等待写消息的goroutine队列
-lock mutex  //互斥锁，chan不允许并发读写
+recvx    uint  // 接收索引，元素从队列的该位置读出
+recvq    waitq // 等待读消息的goroutine队列
+sendq    waitq // 等待写消息的goroutine队列
+lock mutex     //互斥锁，chan不允许并发读写
 }
 ```
 
@@ -534,6 +539,7 @@ Redis Sentinel 的主要功能包括：
 通过使用 Redis Sentinel，用户可以实现 Redis 集群的高可用性和容错性，提高系统的可靠性和可用性。
 
 ## linux
+
 ### 442是什么
 
 ### linux bridge
@@ -589,9 +595,11 @@ Linux 发行版都配备了网络配置工具，提供了用于配置桥接器�
 | established | ESTABLISHED             | 连接状态  |
 
 ### 三次握手
+
 ![img.png](img.png)
 
 ### 四次挥手
+
 ![img_1.png](img_1.png)
 
 ## etcd
@@ -698,41 +706,63 @@ MySQL支持不同类型的索引，包括：
 | 计数排序 | $O(n+k)$     | $O(n+k)$     | $O(n+k)$     | $O(k)$      | 排序   |
 | 桶排序  | $O(n+k)$     | $O(n+k)$     | $O(n+k)$     | $O(n+k)$    | 排序   |
 | 基数排序 | $O(d(n+k))$  | $O(d(n+k))$  | $O(d(n+k))$  | $O(n+k)$    | 排序   |
-##  其他
+
+## 其他
+
 ### 在浏览器中输入www.baidu.com后执行的全部过程？
-1. 域名解析 
+
+1. 域名解析
 2. 建立TCP连接（三次握手）
 3. 发起http请求
-4. 服务器响应http请求，浏览器得到html代码 
+4. 服务器响应http请求，浏览器得到html代码
 5. 浏览器解析html代码，并请求html代码中的资源（如 js、css、图片等）
 6. 浏览器对页面进行渲染呈现给用户。
 
 ### 乐观锁、互斥锁、读写锁、分布式锁
+
 乐观锁、互斥锁、读写锁、分布式锁和悲观锁是在并发编程中常用的锁机制，它们各自有不同的应用场景和性能特点。
 
 性能好坏不能简单地一概而论，因为锁的性能取决于具体的使用场景、并发程度和系统配置等因素。下面是对每种锁机制的简要介绍和性能特点的概述：
 
-####  乐观锁（Optimistic Locking）：
+#### 乐观锁（Optimistic Locking）：
 
 乐观锁假设并发冲突不常发生，不使用显式的锁，而是通过版本号或时间戳等机制来检测冲突。
 乐观锁的性能通常较好，适用于读多写少的场景，减少了锁竞争和线程阻塞的开销。
-####  互斥锁（Mutex Lock）：
+
+#### 互斥锁（Mutex Lock）：
 
 互斥锁是一种常见的锁机制，用于保护临界区，同一时间只允许一个线程进入临界区。
 互斥锁的性能较好，但在高并发的情况下，频繁的锁竞争可能导致线程阻塞和上下文切换的开销。
-####  读写锁（Read-Write Lock）：
+
+#### 读写锁（Read-Write Lock）：
 
 读写锁允许多个线程同时读取共享资源，但在写操作时会阻塞其他的读和写操作。
 读写锁适用于读多写少的场景，能够提高读操作的并发性能，但写操作仍然可能引起较大的开销。
 分布式锁（Distributed Lock）：
-####  分布式锁：
+
+#### 分布式锁：
+
 分布式锁用于在分布式系统中实现资源的互斥访问，保证在不同节点上的并发操作的一致性。
 分布式锁的性能通常较差，因为需要通过网络通信和协调来实现分布式一致性，可能会引入较大的延迟和开销。
-####  悲观锁（Pessimistic Locking）：
+
+#### 悲观锁（Pessimistic Locking）：
 
 悲观锁假设并发冲突经常发生，采用加锁机制来确保资源的独占访问。
 悲观锁的性能较差，因为它频繁地阻塞其他线程的访问，增加了锁竞争和线程切换的开销。
+
 ### Elasticsearch用于什么
-ES 应用场景 主要应用场景分两大类： 搜索类(带上聚合)，与现有数据库进行同步，通过ES进行查询聚合 日志类，包括日志收集，指标性收集，通过beats 等工具收集到kafka 中，通过logstash 进行转换，输送到ES 中，然后通过Kibana 进行展示。
+
+ES 应用场景 主要应用场景分两大类： 搜索类(带上聚合)，与现有数据库进行同步，通过ES进行查询聚合 日志类，包括日志收集，指标性收集，通过beats
+等工具收集到kafka 中，通过logstash 进行转换，输送到ES 中，然后通过Kibana 进行展示。
+
 ### Golang解决TCP粘包拆包问题
+
 https://juejin.cn/post/6844903882108174343
+
+### Python-select详解（select、epoll）
+
+https://www.cnblogs.com/JohnABC/p/6076006.html
+
+### 慢查询
+
+### grpc启动流程
