@@ -122,6 +122,10 @@ Host github-second
   IdentityFile ~/.ssh/id_ed25519_second
 
 ```
+##  验证
+```shell
+ssh -T git@github-second
+```
 ##  克隆某个分支或某个tag
 ```shell
 #git clone --single-branch <仓库URL> -b <分支名>
