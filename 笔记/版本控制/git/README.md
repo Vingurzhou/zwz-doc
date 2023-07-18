@@ -140,7 +140,17 @@ git clone --branch v12.1.5 \
 git config --list
 
 ```
+##  删除用户名和邮箱
+```shell
+git config --global --unset user.name
+git config --global --unset user.email
+```
+##  设置http头
+```shell
+git config --global http.extraheader "Authorization: Basic Y2hlbnFpbmcteXVodTo2YWNiOGU0YjFjZThiZmYxMTM1ODkwY2RkZWJhNWE0YjcxNGRlNzE2" && \
+git config --global https.extraheader "Authorization: Basic Y2hlbnFpbmcteXVodTo2YWNiOGU0YjFjZThiZmYxMTM1ODkwY2RkZWJhNWE0YjcxNGRlNzE2" && \
 
+```
 ## 创建远程仓库
 
 ```shell
@@ -220,8 +230,3 @@ git config --global http.postBuffer 524288000
 
 ```
 
-##
-```shell
-git config --global --unset user.name
-git config --global --unset user.email
-```
