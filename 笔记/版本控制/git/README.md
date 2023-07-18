@@ -106,7 +106,7 @@ ssh-keygen -t ed25519 -C "zwz0123460218@icloud.com"
 ```
 ##  配置 SSH 代理
 ```shell
-vim ~/.ssh/config
+cat ~/.ssh/config
 ```
 ```shell
 # 第一个 GitHub 账号
