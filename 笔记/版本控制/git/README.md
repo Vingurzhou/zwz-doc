@@ -160,7 +160,7 @@ git init
 ## 添加远程分支
 
 ```shell
-git remote add origin git@github.com:Vingurzhou/1.git
+git remote add origin https://github.com/Vingurzhou/zwz-doc.git
 ```
 
 ## 查看本地和远程分支
