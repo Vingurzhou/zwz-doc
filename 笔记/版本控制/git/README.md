@@ -106,7 +106,7 @@ ssh-keygen -t ed25519 -C "zwz0123460218@icloud.com"
 ```
 ##  配置 SSH 代理
 ```shell
-cat ~/.ssh/config
+open ~/.ssh/config
 ```
 ```shell
 # 第一个 GitHub 账号
@@ -229,4 +229,10 @@ git config --global https.proxy 'socks5://127.0.0.1:3213'
 git config --global http.postBuffer 524288000
 
 ```
-
+##  创建分支，线上pr
+```shell
+git pull
+git push origin devel-v10.4.0:zwz_2023_0719_feat_assets_service```
+```shell
+rebase git push a:b
+```

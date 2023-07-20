@@ -225,3 +225,5 @@ return answer
 ```shell
 export GOPRIVATE=github.com/astra-x/*,github.com/yuhu-tech/*,github.com/go-redis/*,go.etcd.io/* && \
 ```
+### optionalAssets := make([]*pb.Material, 0, len(result.SynthOrder.OptionalAssets))
+只要元素数量保持低于最初指定的容量，您就可以在代码中高效地将元素附加到切片，而无需重新分配内存。

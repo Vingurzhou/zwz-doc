@@ -267,7 +267,7 @@ compgen -c
 ### 环境变量
 
 ```shell
-echo 'export PATH="/opt/homebrew/opt/node@16/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/opt/homebrew/Cellar/protobuf@3.6/3.6.1.3_4/bin:$PATH"' >> ~/.zshrc
 #echo 'export PATH=/your/directory/path:$PATH' >> ~/.zshrc
 source ~/.zshrc
 printenv
