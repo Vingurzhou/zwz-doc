@@ -29,6 +29,8 @@
   * [代理](#代理)
   * [设置postbuffer](#设置postbuffer)
   * [创建分支，线上pr](#创建分支线上pr)
+  * [回滚到上一个commit](#回滚到上一个commit)
+  * [延用上一个commit](#延用上一个commit)
 <!-- TOC -->
 
 ## .gitattributes
@@ -237,8 +239,14 @@ git config --global http.postBuffer 524288000
 ```
 ##  创建分支，线上pr
 ```shell
-git pull
-git push origin devel-v10.4.0:zwz_2023_0719_feat_assets_service```
+git push origin devel-v10.4.0:zwz_2023_0719_feat_assets_service
+```
+
+##  回滚到上一个commit
 ```shell
-rebase git push a:b
+git reset --soft head^1
+```
+##  延用上一个commit
+```shell
+ git commit --amend  
 ```
