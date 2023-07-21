@@ -48,6 +48,7 @@
   * [其他](#其他)
     * [解析json](#解析json)
     * [清除 DNS 缓存](#清除-dns-缓存)
+    * [拷贝Bearer token到剪贴板](#拷贝bearer-token到剪贴板)
 <!-- TOC -->
 
 ## 系统管理
@@ -210,9 +211,11 @@ sed -i 's/stake/TNT/g' file.txt
 ```
 
 ### 添加权限
+命令“chmod o+w filename”用于更改类 Unix 操作系统中文件的权限，向“其他”(o) 用户授予写 (w) 权限。换句话说，它允许不是文件所有者或非文件关联组成员的用户写入该文件。
 
+类 Unix 系统中的每个文件都具有三种类型的权限：读 (r)、写 (w) 和执行 (x)。这些权限被分配给三类用户：文件的所有者 (u)、与文件关联的组 (g) 和其他人 (o)。
 ```shell
-chmod +x kubeadm kubelet kubectl
+chmod o+x kubeadm kubelet kubectl
 ```
 ```shell
 chmod zwz 401 /home
@@ -329,4 +332,7 @@ echo '{"name": "John", "age": 30}' | jq '.'
 dscacheutil -flushcache
 killall -HUP mDNSResponder
 ```
-
+### 拷贝Bearer token到剪贴板
+```shell
+username=chenqing; pwd=admin123; echo 'Bearer' `curl -X POST "http://119.3.106.151:10200/v1/oauth2/token" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"grant_type\": \"password\", \"client_id\": \"PC\", \"client_secret\": \"\", \"scope\": \"\", \"username\": \"${username}\", \"password\": \"${pwd}\", \"refresh_token\": \"\", \"code\": \"\", \"reg_id\": \"\", \"platform_type\": 0}"|jq -r '.access_token'` | pbcopy
+```
