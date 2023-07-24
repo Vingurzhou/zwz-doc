@@ -200,11 +200,18 @@ git push origin --delete test2
 ```
 
 ## 下载远程
+```shell
+git fetch
 
+```
 ```shell
 git pull
 ```
+##  用远程分支强制覆盖当前分支
+```shell
+git reset --hard origin/zwz_2023_0724_feat_assets_cron
 
+```
 ## 被其他分支合并
 
 ```shell
