@@ -209,7 +209,7 @@ git pull
 ```
 ##  用远程分支强制覆盖当前分支
 ```shell
-git reset --hard origin/zwz_2023_0724_feat_assets_cron
+git reset --hard origin/zwz_2023_0719_feat_assets_service
 
 ```
 ## 被其他分支合并
@@ -246,7 +246,7 @@ git config --global http.postBuffer 524288000
 ```
 ##  创建分支，线上pr
 ```shell
-git push origin devel-v10.4.0:zwz_2023_0719_feat_assets_service
+git push origin devel-v10.4.0:zwz_feat -f
 ```
 
 ##  回滚到上一个commit

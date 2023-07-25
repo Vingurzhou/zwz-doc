@@ -249,7 +249,7 @@ kill 73309
 ### 根据端口删除
 
 ```shell
-kill $(lsof -t -i:1001)
+kill $(lsof -t -i:6062)
 ```
 
 ## shell 管理
