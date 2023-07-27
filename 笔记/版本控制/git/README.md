@@ -21,6 +21,7 @@
   * [创建本地和远程分支](#创建本地和远程分支)
   * [删除本地和远程分支](#删除本地和远程分支)
   * [下载远程](#下载远程)
+  * [用远程分支强制覆盖当前分支](#用远程分支强制覆盖当前分支)
   * [被其他分支合并](#被其他分支合并)
   * [取消远程仓库](#取消远程仓库)
   * [重置](#重置)
@@ -31,6 +32,9 @@
   * [创建分支，线上pr](#创建分支线上pr)
   * [回滚到上一个commit](#回滚到上一个commit)
   * [延用上一个commit](#延用上一个commit)
+  * [基于某个commit](#基于某个commit)
+  * [合并commit](#合并commit)
+  * [撤销rebase](#撤销rebase)
 <!-- TOC -->
 
 ## .gitattributes
@@ -246,7 +250,7 @@ git config --global http.postBuffer 524288000
 ```
 ##  创建分支，线上pr
 ```shell
-git push origin devel-v10.4.0:zwz-branch -f
+git push origin main:dev -f
 ```
 
 ##  回滚到上一个commit
