@@ -246,7 +246,7 @@ git config --global http.postBuffer 524288000
 ```
 ##  创建分支，线上pr
 ```shell
-git push origin devel-v10.4.0:zwz_feat -f
+git push origin devel-v10.4.0:zwz-branch -f
 ```
 
 ##  回滚到上一个commit
@@ -257,9 +257,14 @@ git reset --soft head^1
 ```shell
  git commit --amend  
 ```
-##  合并两个commit
+##  基于某个commit
 ```shell
- git rebase -i 6043b09f8173d51dbb0bdbea0c897d99e0810094
+git fetch
+git rebase 6043b09f8173d51dbb0bdbea0c897d99e0810094
+```
+##  合并commit
+```shell
+git rebase -i 6043b09f8173d51dbb0bdbea0c897d99e0810094
 ```
 ##  撤销rebase
 ````shell
