@@ -111,15 +111,20 @@ subject是commit目的的简短描述，不超过50个字符。
 fix(DAO):用户查询缺少username属性
 feat(Controller):用户查询接口开发
 ```
-##  创建ssh密钥
+
+## 创建ssh密钥
+
 ```shell
 ssh-keygen -t ed25519 -C "zwz0123460218@icloud.com"
 
 ```
-##  配置 SSH 代理
+
+## 配置 SSH 代理
+
 ```shell
 open ~/.ssh/config
 ```
+
 ```shell
 # 第一个 GitHub 账号
 Host github.com
@@ -134,11 +139,15 @@ Host github-second
   IdentityFile ~/.ssh/id_ed25519_second
 
 ```
-##  验证
+
+## 验证
+
 ```shell
 ssh -T git@github-second
 ```
-##  克隆某个分支或某个tag
+
+## 克隆某个分支或某个tag
+
 ```shell
 #git clone --single-branch <仓库URL> -b <分支名>
 git clone --branch v12.1.5 \
@@ -146,23 +155,29 @@ git clone --branch v12.1.5 \
 /Users/zhouwenzhe/src/youyaProject/evmos
 
 ```
+
 ## 查看配置
 
 ```shell
 git config --list
 
 ```
-##  删除用户名和邮箱
+
+## 删除用户名和邮箱
+
 ```shell
 git config --global --unset user.name
 git config --global --unset user.email
 ```
-##  设置http头
+
+## 设置http头
+
 ```shell
 git config --global http.extraheader "Authorization: Basic Y2hlbnFpbmcteXVodTo2YWNiOGU0YjFjZThiZmYxMTM1ODkwY2RkZWJhNWE0YjcxNGRlNzE2" && \
 git config --global https.extraheader "Authorization: Basic Y2hlbnFpbmcteXVodTo2YWNiOGU0YjFjZThiZmYxMTM1ODkwY2RkZWJhNWE0YjcxNGRlNzE2" && \
 
 ```
+
 ## 创建远程仓库
 
 ```shell
@@ -204,18 +219,23 @@ git push origin --delete test2
 ```
 
 ## 下载远程
+
 ```shell
 git fetch
 
 ```
+
 ```shell
 git pull
 ```
-##  用远程分支强制覆盖当前分支
+
+## 用远程分支强制覆盖当前分支
+
 ```shell
 git reset --hard origin/zwz_2023_0719_feat_assets_service
 
 ```
+
 ## 被其他分支合并
 
 ```shell
@@ -227,50 +247,71 @@ git merge
 ```shell
 rm -rf .git
 ```
-##  重置
+
+## 重置
+
 ```shell
 git config --global --edit
 ```
+
 ## 查看配置
+
 ```shell
 git config --global --list
 ```
+
 ## 修改通信协议
+
 ```shell
 git config --global http.version HTTP/1.1
 ```
-##  代理
+
+## 代理
+
 ```shell
 git config --global https.proxy 'socks5://127.0.0.1:3213'
 ```
-##  设置postbuffer
+
+## 设置postbuffer
+
 ```shell
 git config --global http.postBuffer 524288000
 
 ```
-##  创建分支，线上pr
+
+## 创建分支，线上pr
+
 ```shell
-git push origin main:dev -f
+git push origin devel-v10.4.0:zwz-branch -f
 ```
 
-##  回滚到上一个commit
+## 回滚到上一个commit
+
 ```shell
 git reset --soft head^1
 ```
-##  延用上一个commit
+
+## 延用上一个commit
+
 ```shell
  git commit --amend  
 ```
-##  基于某个commit
+
+## 基于某个commit
+
 ```shell
 git fetch
 git rebase 6043b09f8173d51dbb0bdbea0c897d99e0810094
 ```
-##  合并commit
+
+## 合并commit
+
 ```shell
 git rebase -i 6043b09f8173d51dbb0bdbea0c897d99e0810094
 ```
-##  撤销rebase
+
+## 撤销rebase
+
 ````shell
 git rebase --abort
 ````

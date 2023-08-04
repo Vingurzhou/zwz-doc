@@ -175,7 +175,7 @@ rm -rf
 ### 查找文件
 
 ```shell
-find / -name npm
+find  / -name mysqldump
 ```
 
 ```shell
@@ -296,7 +296,9 @@ echo 'export PATH="/opt/homebrew/Cellar/protobuf@3.6/3.6.1.3_4/bin:$PATH"' >> ~/
 source ~/.zshrc
 printenv
 ```
-
+```shell
+echo 'export PATH="/opt/homebrew/Cellar/protobuf@3.6/3.6.1.3_4/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+```
 ## vim
 
 ### 查找
@@ -355,7 +357,6 @@ killall -HUP mDNSResponder
 ```
 
 ### 拷贝Bearer token到剪贴板
-
 ```shell
 username=chenqing; pwd=admin123; echo 'Bearer' `curl -X POST "http://119.3.106.151:10200/v1/oauth2/token" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"grant_type\": \"password\", \"client_id\": \"PC\", \"client_secret\": \"\", \"scope\": \"\", \"username\": \"${username}\", \"password\": \"${pwd}\", \"refresh_token\": \"\", \"code\": \"\", \"reg_id\": \"\", \"platform_type\": 0}"|jq -r '.access_token'` | pbcopy
 ```
