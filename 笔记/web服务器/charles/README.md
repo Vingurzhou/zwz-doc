@@ -1,5 +1,8 @@
-#   charles
-##
-```shell
-cat ./global_config.yaml | docker-compose exec -T enjoyfood-backend-etcd sh -c "export ETCDCTL_API=3 && etcdctl put /enjoyfood-backend/global_config" && \
-```
+# charles
+
+## 配置环境
+
+1. 设置手机证书
+2. 设置电脑证书
+3. 设置charles ssl proxying setting ` *：443`
+4. 设置mobile 代理 `local ip address : port `

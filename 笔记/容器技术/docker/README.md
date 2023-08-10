@@ -174,3 +174,10 @@ docker exec -it zwz-env-golang13-1 sh -c "cd /Users/zhouwenzhe/src/yuhuProject/v
 ```
 tail -f /dev/null
 ```
+
+##  根据tar构建镜像
+```shell
+docker load -i centos.tar
+docker commit -a "易波涵" -m "gcc-arm" 容器id armgcc:1.0
+docker save -o gcc-arm.tar 镜像id
+```
