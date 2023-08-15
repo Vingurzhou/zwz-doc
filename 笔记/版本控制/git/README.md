@@ -33,8 +33,9 @@
   * [回滚到上一个commit](#回滚到上一个commit)
   * [延用上一个commit](#延用上一个commit)
   * [基于某个commit](#基于某个commit)
-  * [合并commit](#合并commit)
+  * [从哪个commit开始进行 rebase 操作](#从哪个commit开始进行-rebase-操作)
   * [撤销rebase](#撤销rebase)
+  * [选择并应用单个提交（commit）到当前分支](#选择并应用单个提交commit到当前分支)
 <!-- TOC -->
 
 ## .gitattributes
@@ -122,7 +123,7 @@ ssh-keygen -t ed25519 -C "zwz0123460218@icloud.com"
 ## 配置 SSH 代理
 
 ```shell
-open ~/.ssh/config
+open -a GoLand ~/.ssh/config
 ```
 
 ```shell
@@ -156,7 +157,7 @@ git clone --branch v12.1.5 \
 
 ```
 
-## 查看配置
+## 查看当前配置
 
 ```shell
 git config --list
@@ -189,7 +190,10 @@ git init
 ```shell
 git remote add origin https://github.com/Vingurzhou/zwz-doc.git
 ```
-
+##  修改远程分支
+```shell
+git remote set-url origin https://github.com/yuhu-tech/v2.enjoyfood-backend.git
+```
 ## 查看本地和远程分支
 
 ```shell
@@ -232,7 +236,7 @@ git pull
 ## 用远程分支强制覆盖当前分支
 
 ```shell
-git reset --hard origin/zwz_2023_0719_feat_assets_service
+git reset --hard origin/zwz_230811_feat_market
 
 ```
 
@@ -254,7 +258,7 @@ rm -rf .git
 git config --global --edit
 ```
 
-## 查看配置
+## 查看全局配置
 
 ```shell
 git config --global --list
@@ -282,7 +286,7 @@ git config --global http.postBuffer 524288000
 ## 创建分支，线上pr
 
 ```shell
-git push origin devel-v10.4.0:zwz-branch -f
+git push origin devel-v10.4.2:zwz-devel-v10.4.2 
 ```
 
 ## 回滚到上一个commit
@@ -304,7 +308,7 @@ git fetch
 git rebase 6043b09f8173d51dbb0bdbea0c897d99e0810094
 ```
 
-## 合并commit
+## 从哪个commit开始进行 rebase 操作
 
 ```shell
 git rebase -i 6043b09f8173d51dbb0bdbea0c897d99e0810094
@@ -315,3 +319,8 @@ git rebase -i 6043b09f8173d51dbb0bdbea0c897d99e0810094
 ````shell
 git rebase --abort
 ````
+
+## 选择并应用单个提交（commit）到当前分支
+```shell
+git cherry-pick 3f7e2833
+```
