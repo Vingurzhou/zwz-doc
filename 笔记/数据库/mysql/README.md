@@ -43,3 +43,16 @@
 ```shell
 多表连查
 ```
+
+##  查看正在执行语句
+```sql
+select * from information_schema.PROCESSLIST where info is not null
+```
+```sql
+-- 1、设置
+SET GLOBAL log_output = 'TABLE';  SET GLOBAL general_log = 'ON';
+SET GLOBAL log_output = 'TABLE';  SET GLOBAL general_log = 'OFF';
+
+-- 2、查询
+SELECT * from mysql.general_log ORDER BY    event_time DESC
+```
