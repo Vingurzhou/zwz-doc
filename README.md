@@ -3,6 +3,7 @@
 ## 目录
 - [笔记](./笔记/README.md)
    - [web服务器](./笔记/web服务器/README.md)
+      - [charles](./笔记/web服务器/charles/README.md)
       - [goctl](./笔记/web服务器/goctl/README.md)
       - [grpc](./笔记/web服务器/grpc/README.md)
       - [nginx](./笔记/web服务器/nginx/README.md)
@@ -18,6 +19,7 @@
    - [操作系统](./笔记/操作系统/README.md)
       - [linux](./笔记/操作系统/linux/README.md)
    - [数据库](./笔记/数据库/README.md)
+      - [etcd](./笔记/数据库/etcd/README.md)
       - [mysql](./笔记/数据库/mysql/README.md)
       - [redis](./笔记/数据库/redis/README.md)
    - [消息队列](./笔记/消息队列/README.md)

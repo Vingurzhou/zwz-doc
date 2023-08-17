@@ -55,4 +55,7 @@ SET GLOBAL log_output = 'TABLE';  SET GLOBAL general_log = 'OFF';
 
 -- 2、查询
 SELECT * from mysql.general_log ORDER BY    event_time DESC
+-- 3、清空日志记录
+    truncate table mysql.general_log;
+
 ```

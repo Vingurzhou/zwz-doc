@@ -324,3 +324,8 @@ git rebase --abort
 ```shell
 git cherry-pick 3f7e2833
 ```
+
+## 搜索以.graphql作为文件后缀的文件的更改记录
+```shell
+git log -n 5 --name-only --pretty=format: --diff-filter=AMR | grep '\.graphql$'
+```
