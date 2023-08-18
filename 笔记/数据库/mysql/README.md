@@ -1,21 +1,27 @@
 # mysql
 
 <!-- TOC -->
+
 * [mysql](#mysql)
-  * [术语](#术语)
-  * [远程权限](#远程权限)
-  * [水平切分](#水平切分)
-  * [读写分离](#读写分离)
-  * [垂直切分](#垂直切分)
+    * [术语](#术语)
+    * [远程权限](#远程权限)
+    * [水平切分](#水平切分)
+    * [读写分离](#读写分离)
+    * [垂直切分](#垂直切分)
+    * [查看正在执行语句](#查看正在执行语句)
+    * [查看ddl](#查看ddl)
+
 <!-- TOC -->
 
 ## 术语
 
-| 缩写           | 全称            | 含义  |
-|--------------|---------------|-----|
-| derived      | Derived Table | 派生表 |
-| alias        | AS            | 别名  |
-| incompatible | incompatible  | 不相容 |
+| 缩写           | 全称                                      | 含义             |
+|--------------|-----------------------------------------|----------------|
+| derived      | Derived Table                           | 派生表            |
+| alias        | AS                                      | 别名             |
+| incompatible | incompatible                            | 不相容            |
+| cast         | Convert a value to a specified datatype | 将一个值转换为指定的数据类型 |
+| ddl          | Data Definition Language                | 数据定义           |
 
 ## 远程权限
 
@@ -42,4 +48,37 @@
 
 ```shell
 多表连查
+```
+
+## 查看正在执行语句
+
+```sql
+select *
+from information_schema.PROCESSLIST
+where info is not null
+```
+
+```sql
+-- 1、设置
+SET
+GLOBAL log_output = 'TABLE';  SET
+GLOBAL general_log = 'ON';
+SET
+GLOBAL log_output = 'TABLE';  SET
+GLOBAL general_log = 'OFF';
+
+-- 2、查询
+SELECT *
+from mysql.general_log
+ORDER BY event_time DESC
+-- 3、清空日志记录
+    truncate table mysql.general_log;
+
+```
+
+## 查看ddl
+
+```shell
+SHOW CREATE TABLE TradeMarketStatistic;
+
 ```
