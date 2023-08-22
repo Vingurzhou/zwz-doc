@@ -22,6 +22,8 @@
 | incompatible | incompatible                            | 不相容            |
 | cast         | Convert a value to a specified datatype | 将一个值转换为指定的数据类型 |
 | ddl          | Data Definition Language                | 数据定义           |
+| b tree       | balance tree                            | 平衡树            |
+| constraint   | constraint                              | 约束             |
 
 ## 远程权限
 

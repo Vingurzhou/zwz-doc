@@ -180,13 +180,13 @@ find  / -name mysqldump
 
 ```shell
 #find /Users/zhouwenzhe -regex "*.c"
-sudo find /usr -path '*/python3' -type f 
+find / -path "*/file/system/*" -type f
 ```
 
 ### 下载远程文件
 
 ```shell
-scp -r laoxiao@192.168.1.156:/home/laoxiao/evmos /Users/zhouwenzhe/src/youyaProject
+scp -P 22 -r root@119.3.106.151:/root/v2.enjoyfood-backend/deploy/enjoyfood-backend-v10.4.2-docker-compose-test/global_config.yaml /Users/zhouwenzhe/Downloads/global_config.yaml
 ```
 
 ### 上传本地文件
