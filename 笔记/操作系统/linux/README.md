@@ -175,7 +175,7 @@ mkdir -p ~/.enjoyfood-data/data/file/system/10/13/9 && touch ~/.enjoyfood-data/d
 ```
 ### 移动文件
 ```shell
-mv /Users/zhouwenzhe/Downloads/YK测试-03.glb /Users/zhouwenzhe/.enjoyfood-data/data/file/system/10/13/9/9Wj7XDmrjByx.glb
+mv /Users/zhouwenzhe/Downloads/WX20230817-134339@2x.png ～/.enjoyfood-data/data/file/system/9/15/5/GDoZROMovroq.png
 
 ```
 ### 删除文件
@@ -217,6 +217,7 @@ cp -r /home/laoxiao/tntchain /home/laoxiao/zwz/youyaProject/tntchain
 
 ```shell
 grep -r 1 .
+docker ps | grep assets
 ```
 
 ### 查看文件最新输出
@@ -282,7 +283,7 @@ kill 73309
 ### 根据端口删除
 
 ```shell
-kill $(lsof -t -i:6062)
+kill $(lsof -t -i:10000)
 ```
 
 ## shell 管理
