@@ -19,6 +19,7 @@
   * [文件管理](#文件管理)
     * [查看文件占用率](#查看文件占用率)
     * [查看目录](#查看目录)
+    * [创建文件](#创建文件)
     * [删除文件](#删除文件)
     * [查找文件](#查找文件)
     * [下载远程文件](#下载远程文件)
@@ -165,7 +166,17 @@ df -h
 ```shell
 tree -L 2 /Users/zhouwenzhe/src/practiceProject/Untitled/EyouCMS-V1.5.1-UTF8-SP3
 ```
+### 创建文件
+```shell
+mkdir -p ~/.enjoyfood-data/data/file/system/10/13/9 && touch ~/.enjoyfood-data/data/file/system/10/13/9/9Wj7XDmrjByx.glb
 
+
+```
+### 移动文件
+```shell
+mv /Users/zhouwenzhe/Downloads/YK测试-03.glb /Users/zhouwenzhe/.enjoyfood-data/data/file/system/10/13/9/9Wj7XDmrjByx.glb
+
+```
 ### 删除文件
 
 ```shell
