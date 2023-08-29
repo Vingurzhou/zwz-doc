@@ -90,22 +90,34 @@ slice := array[:]
 
 ## 编译
 
-### CGO_ENABLED
-
-`CGO_ENABLED=0` 是一个环境变量，用于在编译 Go 代码时控制 CGO 编译器的开关。CGO（C Go）是 Go 语言的一个功能，它允许 Go 代码与
-C 代码进行交互。当 CGO_ENABLED 设置为 1 时，Go 编译器将使用 CGO 编译器来编译 C 代码并将其链接到 Go 代码中。而当 CGO_ENABLED
-设置为 0 时，Go 编译器将忽略所有的 C 代码，并仅编译 Go 代码。
-
-在很多情况下，CGO 是 Go 语言的一个重要特性，它可以让 Go 代码与底层的 C 代码进行交互，从而获得更高的性能和更多的功能。但是在某些情况下，比如在某些平台或环境下，使用
-CGO 可能会导致一些问题。在这种情况下，可以将 CGO_ENABLED 设置为 0，以便完全禁用 CGO。
-
-在上下文中，设置 `CGO_ENABLED=0` 可能是为了避免在编译时链接 C 代码或库，这对于跨平台编译或编译不需要 C 代码的纯 Go 代码特别有用。
-
 ### 查看支持哪些平台
 
 ```shell
 #go tool dist list
 go tool dist list -json | jq -r '.[] | select(.FirstClass) | [.GOOS , .GOARCH] | join("/")'
+```
+
+### cgo交叉编译
+* GOARCH, 目标平台的 CPU 架构. 常用的值amd64, arm64,i386,armhf
+* GOOS, 目标平台, 常用的值 linux, windows, drawin (macOS)
+* GOARM, 只有 GOARCH 是 arm64 才有效, 表示 arm 的版本, 只能是 5, 6, 7 其中之一
+* CGO_ENABLED, 是否支持 CGO 交叉汇编, 值只能是 0, 1, 默认情况下是 0, 启用交叉汇编比较麻烦
+* CC, 当支持交叉汇编时(即 CGO_ENABLED=1), 编译目标文件使用的c 编译器.
+* CXX, 当支持交叉汇编时(即 CGO_ENABLED=1), 编译目标文件使用的 c++ 编译器.
+* AR, 当支持交叉汇编时(即 CGO_ENABLED=1), 编译目标文件使用的创建库文件命令.
+
+arm 交叉汇编下载地址:
+http://releases.linaro.org/components/toolchain/binaries, 选择
+目录下的文件作为交叉编译工具.
+
+| tool | armhf		                  | arm64                  | eabi                  |
+|------|--------------------------|------------------------|-----------------------|
+| gcc  | gcc-arm-linux-gnueabihf	 | gcc-aarch64-linux-gnu	 | gcc-arm-linux-gnueabi |
+| g++	 | g++-arm-linux-gnueabihf	 | g++-aarch64-linux-gnu	 | g++-arm-linux-gnueabi |
+
+```shell
+GOOS=linux GOARCH=arm64 GOARM=7 CGO_ENABLED=1 CC=aarch64-linux-gnu-gcc AR=aarch64-linux-gnu-ar go build -o ./build/ ./cmd/...
+GOOS=linux GOARCH=arm CGO_ENABLED=1 CC=arm-linux-gnueabihf-gcc AR=arm-linux-gnueabihf-ar go build
 ```
 
 ## 并发

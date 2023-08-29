@@ -199,6 +199,7 @@ find / -path "*/file/system/*" -type f
 
 ```shell
 scp -P 22 -r root@119.3.106.151:/root/v2.enjoyfood-backend/deploy/enjoyfood-backend-v10.4.2-docker-compose-test/global_config.yaml /Users/zhouwenzhe/Downloads/global_config.yaml
+open -a GoLand /Users/zhouwenzhe/Downloads/global_config.yaml
 ```
 
 ### 上传本地文件
