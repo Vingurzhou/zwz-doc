@@ -65,11 +65,11 @@ v := v
 res = append(res, &v)
 }
 ```
+
+```
 for k := range arr {
 res = append(res, &arr[k])
 }
-```go
-
 ```
 ### 多维数组简写
 
