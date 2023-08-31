@@ -80,7 +80,11 @@ ORDER BY event_time DESC
 
 ## 查看ddl
 
-```shell
+```sql
 SHOW CREATE TABLE TradeMarketStatistic;
 
+```
+## 分类
+```sql
+select contractAddress,count(contractAddress) from Grc721AssetsData group by contractAddress
 ```

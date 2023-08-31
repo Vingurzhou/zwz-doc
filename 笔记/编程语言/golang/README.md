@@ -58,7 +58,19 @@ uint8和int32不是不能比较嘛，为啥在golang中``'f'``和``"f"[0]``相�
 语言中的第三方库`github.com/shopspring/decimal` 来处理高精度的十进制数值。
 
 ## 数组
+### for r
+```
+for _, v := range arr {
+v := v
+res = append(res, &v)
+}
+```
+for k := range arr {
+res = append(res, &arr[k])
+}
+```go
 
+```
 ### 多维数组简写
 
 ```go
