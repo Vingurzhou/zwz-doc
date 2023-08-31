@@ -19,6 +19,8 @@
   * [文件管理](#文件管理)
     * [查看文件占用率](#查看文件占用率)
     * [查看目录](#查看目录)
+    * [创建文件](#创建文件)
+    * [移动文件](#移动文件)
     * [删除文件](#删除文件)
     * [查找文件](#查找文件)
     * [下载远程文件](#下载远程文件)
@@ -165,7 +167,17 @@ df -h
 ```shell
 tree -L 2 /Users/zhouwenzhe/src/practiceProject/Untitled/EyouCMS-V1.5.1-UTF8-SP3
 ```
+### 创建文件
+```shell
+mkdir -p ~/.enjoyfood-data/data/file/system/10/13/9 && touch ~/.enjoyfood-data/data/file/system/10/13/9/9Wj7XDmrjByx.glb
 
+
+```
+### 移动文件
+```shell
+mv /Users/zhouwenzhe/Downloads/WX20230817-134339@2x.png ～/.enjoyfood-data/data/file/system/9/15/5/GDoZROMovroq.png
+
+```
 ### 删除文件
 
 ```shell
@@ -180,13 +192,14 @@ find  / -name mysqldump
 
 ```shell
 #find /Users/zhouwenzhe -regex "*.c"
-sudo find /usr -path '*/python3' -type f 
+find / -path "*/file/system/*" -type f
 ```
 
 ### 下载远程文件
 
 ```shell
-scp -r laoxiao@192.168.1.156:/home/laoxiao/evmos /Users/zhouwenzhe/src/youyaProject
+scp -P 22 -r root@119.3.106.151:/root/v2.enjoyfood-backend/deploy/enjoyfood-backend-v10.4.2-docker-compose-test/global_config.yaml /Users/zhouwenzhe/Downloads/global_config.yaml
+open -a GoLand /Users/zhouwenzhe/Downloads/global_config.yaml
 ```
 
 ### 上传本地文件
@@ -205,6 +218,7 @@ cp -r /home/laoxiao/tntchain /home/laoxiao/zwz/youyaProject/tntchain
 
 ```shell
 grep -r 1 .
+docker ps | grep assets
 ```
 
 ### 查看文件最新输出
@@ -270,7 +284,7 @@ kill 73309
 ### 根据端口删除
 
 ```shell
-kill $(lsof -t -i:6062)
+kill $(lsof -t -i:10000)
 ```
 
 ## shell 管理

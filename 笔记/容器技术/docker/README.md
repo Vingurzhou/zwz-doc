@@ -1,28 +1,29 @@
 # docker
 
 <!-- TOC -->
-
 * [docker](#docker)
-    * [找错](#找错)
-    * [登陆](#登陆)
-    * [查看镜像](#查看镜像)
-    * [构建镜像](#构建镜像)
-    * [打包镜像](#打包镜像)
-    * [推送镜像](#推送镜像)
-    * [拉取镜像](#拉取镜像)
-    * [删除镜像](#删除镜像)
-    * [查看容器](#查看容器)
-    * [创建网络](#创建网络)
-    * [查看网络](#查看网络)
-    * [运行容器](#运行容器)
-    * [启动容器](#启动容器)
-    * [进入容器bash](#进入容器bash)
-    * [停止容器](#停止容器)
-    * [删除容器](#删除容器)
-    * [查看日志](#查看日志)
-    * [dockerfile](#dockerfile)
-        * [保持运行不退出](#保持运行不退出)
-
+  * [找错](#找错)
+  * [登陆](#登陆)
+  * [查看镜像](#查看镜像)
+  * [构建镜像](#构建镜像)
+  * [打包镜像](#打包镜像)
+  * [推送镜像](#推送镜像)
+  * [拉取镜像](#拉取镜像)
+  * [删除镜像](#删除镜像)
+  * [查看容器](#查看容器)
+  * [创建网络](#创建网络)
+  * [查看网络](#查看网络)
+  * [运行容器](#运行容器)
+  * [启动容器](#启动容器)
+  * [进入容器bash](#进入容器bash)
+  * [停止容器](#停止容器)
+  * [删除容器](#删除容器)
+  * [查看日志](#查看日志)
+  * [拷贝文件](#拷贝文件)
+  * [执行命令](#执行命令)
+  * [dockerfile](#dockerfile)
+    * [保持运行不退出](#保持运行不退出)
+  * [根据tar构建镜像](#根据tar构建镜像)
 <!-- TOC -->
 
 ## 找错
@@ -119,6 +120,7 @@ docker run -d \
 -v ./config/:/go-admin-api/config/ \
 -v ./static/:/go-admin-api/static/ \
 -v ./temp/:/go-admin-api/temp/ \
+-e TZ=Asia/Shanghai \
 --network backend \
 vingurzhou/zwz-admin:latest
 
@@ -157,10 +159,12 @@ docker logs zwz-admin
 ## 拷贝文件
 
 ```shell
-docker cp /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/build/iam-manager enjoyfood-backend-iam-manager:/usr/local/bin/
+docker cp /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/build/across-cron zwz-env-ubuntu-1:/usr/local/bin
 ```
 
 ## 执行命令
+ls
+
 
 ```shell
 docker exec -it zwz-env-golang13-1 sh -c "cd /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend && go build -o ./build ./cmd/..."
@@ -180,4 +184,9 @@ tail -f /dev/null
 docker load -i centos.tar
 docker commit -a "易波涵" -m "gcc-arm" 容器id armgcc:1.0
 docker save -o gcc-arm.tar 镜像id
+```
+
+## 释放网络
+```shell
+docker network disconnect -f enjoyfood-backend-v1042-docker-compose-test_default enjoyfood-backend-iam-cron
 ```

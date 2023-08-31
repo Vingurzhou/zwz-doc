@@ -22,6 +22,8 @@
 | incompatible | incompatible                            | 不相容            |
 | cast         | Convert a value to a specified datatype | 将一个值转换为指定的数据类型 |
 | ddl          | Data Definition Language                | 数据定义           |
+| b tree       | balance tree                            | 平衡树            |
+| constraint   | constraint                              | 约束             |
 
 ## 远程权限
 
@@ -78,7 +80,11 @@ ORDER BY event_time DESC
 
 ## 查看ddl
 
-```shell
+```sql
 SHOW CREATE TABLE TradeMarketStatistic;
 
+```
+## 分类
+```sql
+select contractAddress,count(contractAddress) from Grc721AssetsData group by contractAddress
 ```
