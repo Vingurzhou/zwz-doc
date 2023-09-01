@@ -1,31 +1,30 @@
 # golang
 
 <!-- TOC -->
-
 * [golang](#golang)
-    * [字符](#字符)
-        * [比较](#比较)
-    * [数值](#数值)
-        * [数值转换](#数值转换)
-    * [数组](#数组)
-        * [多维数组简写](#多维数组简写)
-        * [数组、切片互转](#数组切片互转)
-    * [编译](#编译)
-        * [CGO_ENABLED](#cgoenabled)
-        * [查看支持哪些平台](#查看支持哪些平台)
-    * [并发](#并发)
-        * [锁(Mutex、RWMutex、WaitGroup)](#锁--mutexrwmutexwaitgroup-)
-        * [通道(chan)](#通道--chan-)
-        * [无缓冲通道(make(chan int))](#无缓冲通道--make--chan-int--)
-    * [其他](#其他)
-        * [代码执行命令](#代码执行命令)
-        * [重定向标准输入流](#重定向标准输入流)
-        * [为什么request.URL.Scheme取不到值](#为什么requesturlscheme取不到值)
-        * [捕获错误](#捕获错误)
-        * [golang的goprivate参数是做什么的](#golang的goprivate参数是做什么的)
-        * [optionalAssets := make([]*pb.Material, 0, len(result.SynthOrder.OptionalAssets))](#optionalassets---make-----pbmaterial-0-len--resultsynthorderoptionalassets--)
-        * [cgo交叉编译](#cgo交叉编译)
-
+  * [字符](#字符)
+    * [比较](#比较)
+  * [数值](#数值)
+    * [数值转换](#数值转换)
+  * [数组](#数组)
+    * [for r](#for-r)
+    * [多维数组简写](#多维数组简写)
+    * [数组、切片互转](#数组切片互转)
+  * [编译](#编译)
+    * [查看支持哪些平台](#查看支持哪些平台)
+    * [cgo交叉编译](#cgo交叉编译)
+  * [并发](#并发)
+    * [锁(Mutex、RWMutex、WaitGroup)](#锁--mutexrwmutexwaitgroup-)
+    * [通道(chan)](#通道--chan-)
+    * [无缓冲通道(make(chan int))](#无缓冲通道--make--chan-int--)
+  * [其他](#其他)
+    * [代码执行命令](#代码执行命令)
+    * [重定向标准输入流](#重定向标准输入流)
+    * [为什么request.URL.Scheme取不到值](#为什么requesturlscheme取不到值)
+    * [捕获错误](#捕获错误)
+    * [golang的goprivate参数是做什么的](#golang的goprivate参数是做什么的)
+    * [optionalAssets := make([]*pb.Material, 0, len(result.SynthOrder.OptionalAssets))](#optionalassets---make-----pbmaterial-0-len--resultsynthorderoptionalassets--)
+    * [cgo交叉编译](#cgo交叉编译-1)
 <!-- TOC -->
 ##术语
 
@@ -65,11 +64,11 @@ v := v
 res = append(res, &v)
 }
 ```
+
+```
 for k := range arr {
 res = append(res, &arr[k])
 }
-```go
-
 ```
 ### 多维数组简写
 
