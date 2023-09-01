@@ -315,6 +315,9 @@ git rebase 6043b09f8173d51dbb0bdbea0c897d99e0810094
 
 ```shell
 git rebase -i 6043b09f8173d51dbb0bdbea0c897d99e0810094
+#可能会遇到冲突 
+#手动修改
+#解决完点击continue
 ```
 
 ## 撤销rebase
@@ -344,4 +347,3 @@ git stash pop
 git stash apply 
 git stash drop
 ```
-## 解决rebase冲突
