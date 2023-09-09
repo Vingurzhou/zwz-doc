@@ -58,6 +58,12 @@ docker build --no-cache -t zwz-admin:latest --platform linux/amd64  /Users/zhouw
 ```shell
 docker tag zwz-admin:latest vingurzhou/zwzadmin:latest
 ```
+```shell
+docker buildx create --name mybuilder
+docker buildx use mybuilder
+docker buildx build --platform linux/amd64 -t chaoyue/kubecit-service --push .
+
+```
 
 ## 推送镜像
 
@@ -189,4 +195,10 @@ docker save -o gcc-arm.tar 镜像id
 ## 释放网络
 ```shell
 docker network disconnect -f enjoyfood-backend-v1042-docker-compose-test_default enjoyfood-backend-iam-cron
+```
+## 显示映像中的漏洞
+它显示映像中的漏洞以及基础映像中的漏洞的摘要。如果可用，它还会显示基础映像刷新和更新建议。
+
+```shell
+docker scout quickview dnorange/prisma-cli:1.34.7 
 ```
