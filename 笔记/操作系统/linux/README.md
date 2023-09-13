@@ -1,57 +1,59 @@
 # linux
 
 <!-- TOC -->
+
 * [linux](#linux)
-  * [连接管理](#连接管理)
-    * [连接](#连接)
-      * [Kali Linux 6.1.0](#kali-linux-610)
-      * [Ubuntu 22.04.2](#ubuntu-22042)
-      * [Ubuntu 16.04.5 LTS](#ubuntu-16045-lts)
-    * [生成SSH公钥和私钥](#生成ssh公钥和私钥)
-    * [将公钥复制到云服务器上](#将公钥复制到云服务器上)
-  * [系统管理](#系统管理)
-    * [设置主机名](#设置主机名)
-    * [重启](#重启)
-    * [查看内网ip](#查看内网ip)
-    * [查看版本](#查看版本)
-    * [查看cpu核数](#查看cpu核数)
-    * [查看架构](#查看架构)
-  * [文件管理](#文件管理)
-    * [查看文件占用率](#查看文件占用率)
-    * [查看目录](#查看目录)
-    * [创建文件](#创建文件)
-    * [移动文件](#移动文件)
-    * [删除文件](#删除文件)
-    * [查找文件](#查找文件)
-    * [下载远程文件](#下载远程文件)
-    * [上传本地文件](#上传本地文件)
-    * [复制文件夹](#复制文件夹)
-    * [按关键字查找](#按关键字查找)
-    * [查看文件最新输出](#查看文件最新输出)
-    * [显示隐藏文件](#显示隐藏文件)
-    * [批量替换字符](#批量替换字符)
-    * [添加权限](#添加权限)
-  * [进程管理](#进程管理)
-    * [查看占用端口进程](#查看占用端口进程)
-    * [查看进程占用端口](#查看进程占用端口)
-    * [查看进程启动命令](#查看进程启动命令)
-    * [关闭进程](#关闭进程)
-    * [根据端口删除](#根据端口删除)
-  * [shell 管理](#shell-管理)
-    * [查看shell](#查看shell)
-    * [查看bash shell 可执行文件](#查看bash-shell-可执行文件)
-    * [环境变量](#环境变量)
-  * [vim](#vim)
-    * [查找](#查找)
-    * [批量替换](#批量替换)
-    * [清空](#清空)
-  * [防火墙管理](#防火墙管理)
-    * [查看防火墙状态](#查看防火墙状态)
-    * [允许防火墙端口](#允许防火墙端口)
-  * [其他](#其他)
-    * [解析json](#解析json)
-    * [清除 DNS 缓存](#清除-dns-缓存)
-    * [拷贝Bearer token到剪贴板](#拷贝bearer-token到剪贴板)
+    * [连接管理](#连接管理)
+        * [连接](#连接)
+            * [Kali Linux 6.1.0](#kali-linux-610)
+            * [Ubuntu 22.04.2](#ubuntu-22042)
+            * [Ubuntu 16.04.5 LTS](#ubuntu-16045-lts)
+        * [生成SSH公钥和私钥](#生成ssh公钥和私钥)
+        * [将公钥复制到云服务器上](#将公钥复制到云服务器上)
+    * [系统管理](#系统管理)
+        * [设置主机名](#设置主机名)
+        * [重启](#重启)
+        * [查看内网ip](#查看内网ip)
+        * [查看版本](#查看版本)
+        * [查看cpu核数](#查看cpu核数)
+        * [查看架构](#查看架构)
+    * [文件管理](#文件管理)
+        * [查看文件占用率](#查看文件占用率)
+        * [查看目录](#查看目录)
+        * [创建文件](#创建文件)
+        * [移动文件](#移动文件)
+        * [删除文件](#删除文件)
+        * [查找文件](#查找文件)
+        * [下载远程文件](#下载远程文件)
+        * [上传本地文件](#上传本地文件)
+        * [复制文件夹](#复制文件夹)
+        * [按关键字查找](#按关键字查找)
+        * [查看文件最新输出](#查看文件最新输出)
+        * [显示隐藏文件](#显示隐藏文件)
+        * [批量替换字符](#批量替换字符)
+        * [添加权限](#添加权限)
+    * [进程管理](#进程管理)
+        * [查看占用端口进程](#查看占用端口进程)
+        * [查看进程占用端口](#查看进程占用端口)
+        * [查看进程启动命令](#查看进程启动命令)
+        * [关闭进程](#关闭进程)
+        * [根据端口删除](#根据端口删除)
+    * [shell 管理](#shell-管理)
+        * [查看shell](#查看shell)
+        * [查看bash shell 可执行文件](#查看bash-shell-可执行文件)
+        * [环境变量](#环境变量)
+    * [vim](#vim)
+        * [查找](#查找)
+        * [批量替换](#批量替换)
+        * [清空](#清空)
+    * [防火墙管理](#防火墙管理)
+        * [查看防火墙状态](#查看防火墙状态)
+        * [允许防火墙端口](#允许防火墙端口)
+    * [其他](#其他)
+        * [解析json](#解析json)
+        * [清除 DNS 缓存](#清除-dns-缓存)
+        * [拷贝Bearer token到剪贴板](#拷贝bearer-token到剪贴板)
+
 <!-- TOC -->
 
 ## 连接管理
@@ -167,17 +169,22 @@ df -h
 ```shell
 tree -L 2 /Users/zhouwenzhe/src/practiceProject/Untitled/EyouCMS-V1.5.1-UTF8-SP3
 ```
+
 ### 创建文件
+
 ```shell
 mkdir -p ~/.enjoyfood-data/data/file/system/10/13/9 && touch ~/.enjoyfood-data/data/file/system/10/13/9/9Wj7XDmrjByx.glb
 
 
 ```
+
 ### 移动文件
+
 ```shell
 mv /Users/zhouwenzhe/Downloads/WX20230817-134339@2x.png ～/.enjoyfood-data/data/file/system/9/15/5/GDoZROMovroq.png
 
 ```
+
 ### 删除文件
 
 ```shell
@@ -260,19 +267,19 @@ chmod zwz 401 /home
 ### 查看占用端口进程
 
 ```shell
-lsof -i:26657
+lsof -i:10257
 ```
 
 ### 查看进程占用端口
 
 ```shell
-lsof -p 78965 -i -P -n | grep LISTEN
+lsof -p 11086 -i -P -n | grep LISTEN
 ```
 
 ### 查看进程启动命令
 
 ```shell
-ps -p 78965 -f
+ps -p 11086 -f
 ```
 
 ### 关闭进程
@@ -284,7 +291,7 @@ kill 73309
 ### 根据端口删除
 
 ```shell
-kill $(lsof -t -i:10000)
+kill $(lsof -t -i:2380)
 ```
 
 ## shell 管理
@@ -310,9 +317,11 @@ echo 'export PATH="/opt/homebrew/Cellar/protobuf@3.6/3.6.1.3_4/bin:$PATH"' >> ~/
 source ~/.zshrc
 printenv
 ```
+
 ```shell
 echo 'export PATH="/opt/homebrew/Cellar/protobuf@3.6/3.6.1.3_4/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
 ```
+
 ## vim
 
 ### 查找
@@ -371,6 +380,17 @@ killall -HUP mDNSResponder
 ```
 
 ### 拷贝Bearer token到剪贴板
+
 ```shell
 username=chenqing; pwd=admin123; echo 'Bearer' `curl -X POST "http://119.3.106.151:10200/v1/oauth2/token" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"grant_type\": \"password\", \"client_id\": \"PC\", \"client_secret\": \"\", \"scope\": \"\", \"username\": \"${username}\", \"password\": \"${pwd}\", \"refresh_token\": \"\", \"code\": \"\", \"reg_id\": \"\", \"platform_type\": 0}"|jq -r '.access_token'` | pbcopy
+```
+
+### 查看历史命令
+
+```shell
+history
+```
+
+```shell
+history -c
 ```

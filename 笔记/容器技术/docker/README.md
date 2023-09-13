@@ -58,12 +58,6 @@ docker build --no-cache -t zwz-admin:latest --platform linux/amd64  /Users/zhouw
 ```shell
 docker tag zwz-admin:latest vingurzhou/zwzadmin:latest
 ```
-```shell
-docker buildx create --name mybuilder
-docker buildx use mybuilder
-docker buildx build --platform linux/amd64 -t chaoyue/kubecit-service --push .
-
-```
 
 ## 推送镜像
 
@@ -201,4 +195,12 @@ docker network disconnect -f enjoyfood-backend-v1042-docker-compose-test_default
 
 ```shell
 docker scout quickview dnorange/prisma-cli:1.34.7 
+```
+
+## 交叉编译
+```shell
+docker buildx create --name mybuilder
+docker buildx use mybuilder
+docker buildx build --platform linux/amd64 -t chaoyue/kubecit-service --push .
+
 ```

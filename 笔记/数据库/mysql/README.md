@@ -10,20 +10,24 @@
     * [垂直切分](#垂直切分)
     * [查看正在执行语句](#查看正在执行语句)
     * [查看ddl](#查看ddl)
+    * [分类](#分类)
 
 <!-- TOC -->
 
 ## 术语
 
-| 缩写           | 全称                                      | 含义             |
-|--------------|-----------------------------------------|----------------|
-| derived      | Derived Table                           | 派生表            |
-| alias        | AS                                      | 别名             |
-| incompatible | incompatible                            | 不相容            |
-| cast         | Convert a value to a specified datatype | 将一个值转换为指定的数据类型 |
-| ddl          | Data Definition Language                | 数据定义           |
-| b tree       | balance tree                            | 平衡树            |
-| constraint   | constraint                              | 约束             |
+| 缩写           | 全称                                      | 含义                                          |
+|--------------|-----------------------------------------|---------------------------------------------|
+| derived      | Derived Table                           | 派生表                                         |
+| alias        | AS                                      | 别名                                          |
+| incompatible | incompatible                            | 不相容                                         |
+| cast         | Convert a value to a specified datatype | 将一个值转换为指定的数据类型                              |
+| ddl          | Data Definition Language                | 主要有CREATE，DROP，ALTER等对逻辑结构有操作的，包括表结构、视图和索引  |
+| dql          | Data Query Language                     | 主要以SELECT为主                                 |
+| dml          | Data Manipulation Language              | 主要包括INSERT，UPDATE，DELETE                    |
+| dcl          | Data Control Language                   | 主要是权限控制能操作，包括GRANT，REVOKE，COMMIT，ROLLBACK等。 |
+| b tree       | balance tree                            | 平衡树                                         |
+| constraint   | constraint                              | 约束                                          |
 
 ## 远程权限
 
@@ -81,10 +85,15 @@ ORDER BY event_time DESC
 ## 查看ddl
 
 ```sql
-SHOW CREATE TABLE TradeMarketStatistic;
+SHOW
+CREATE TABLE TradeMarketStatistic;
 
 ```
+
 ## 分类
+
 ```sql
-select contractAddress,count(contractAddress) from Grc721AssetsData group by contractAddress
+select contractAddress, count(contractAddress)
+from Grc721AssetsData
+group by contractAddress
 ```
