@@ -1,37 +1,35 @@
 # k8s
 
 <!-- TOC -->
-
 * [k8s](#k8s)
-    * [术语](#术语)
-    * [kubeadm](#kubeadm)
-        * [初始化集群](#初始化集群)
-        * [生成新token](#生成新token)
-        * [加入集群](#加入集群)
-    * [kubectl](#kubectl)
-        * [应用资源](#应用资源)
-        * [删除资源](#删除资源)
-        * [查看资源](#查看资源)
-        * [查看日志](#查看日志)
-        * [node](#node)
-            * [查看](#查看)
-            * [加标签](#加标签)
-        * [namespaces](#namespaces)
-            * [查看](#查看-1)
-        * [configmap](#configmap)
-            * [查看](#查看-2)
-            * [描述](#描述)
-        * [pod](#pod)
-            * [查看](#查看-3)
-            * [描述](#描述-1)
-            * [进入](#进入)
-        * [job](#job)
-            * [查看](#查看-4)
-        * [service](#service)
-            * [查看](#查看-5)
-        * [deployment](#deployment)
-            * [查看](#查看-6)
-
+  * [术语](#术语)
+  * [kubeadm](#kubeadm)
+    * [初始化集群](#初始化集群)
+    * [生成新token](#生成新token)
+    * [加入集群](#加入集群)
+  * [kubectl](#kubectl)
+    * [应用资源](#应用资源)
+    * [删除资源](#删除资源)
+    * [查看资源](#查看资源)
+    * [查看日志](#查看日志)
+    * [node](#node)
+      * [查看](#查看)
+      * [加标签](#加标签)
+    * [namespaces](#namespaces)
+      * [查看](#查看-1)
+    * [configmap](#configmap)
+      * [查看](#查看-2)
+      * [描述](#描述)
+    * [pod](#pod)
+      * [查看](#查看-3)
+      * [描述](#描述-1)
+      * [进入](#进入)
+    * [job](#job)
+      * [查看](#查看-4)
+    * [service](#service)
+      * [查看](#查看-5)
+    * [deployment](#deployment)
+      * [查看](#查看-6)
 <!-- TOC -->
 
 ## 术语
@@ -110,7 +108,7 @@ kubectl delete -f test.yaml
 ### 查看资源
 
 ```shell
-kubectl get deployment,svc,pods -o wide
+kubectl --kubeconfig=/Users/zhouwenzhe/src/zwz-doc/笔记/容器技术/k8s/wlb965.kube.conf get deployment,svc,pods,ingress -o wide 
 ```
 
 ### 查看日志
@@ -183,7 +181,11 @@ kubectl describe pod kube-apiserver-docker-desktop -n kube-system
 kubectl exec -it zwz-admin sh
 
 ```
-
+#### 转发
+将网络流量从本地计算机转发到 Kubernetes 集群中运行的 pod 上的端口，反之亦然。这对于调试或访问集群中运行的服务非常有用
+```shell
+kubectl --kubeconfig=/Users/zhouwenzhe/src/zwz-doc/笔记/容器技术/k8s/wlb965.kube.conf port-forward service/wlb965-mysql 3306:3306
+```
 ### job
 
 #### 查看

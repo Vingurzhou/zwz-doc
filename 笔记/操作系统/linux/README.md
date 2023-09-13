@@ -205,8 +205,10 @@ find / -path "*/file/system/*" -type f
 ### 下载远程文件
 
 ```shell
-scp -P 22 -r root@119.3.106.151:/root/v2.enjoyfood-backend/deploy/enjoyfood-backend-v10.4.2-docker-compose-test/global_config.yaml /Users/zhouwenzhe/Downloads/global_config.yaml
-open -a GoLand /Users/zhouwenzhe/Downloads/global_config.yaml
+scp -P 22 -r lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/pkg/prisma /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg
+```
+```shell
+open -a GoLand /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg/prisma
 ```
 
 ### 上传本地文件
