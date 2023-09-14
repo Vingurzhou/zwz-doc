@@ -52,6 +52,7 @@
     * [解析json](#解析json)
     * [清除 DNS 缓存](#清除-dns-缓存)
     * [拷贝Bearer token到剪贴板](#拷贝bearer-token到剪贴板)
+    * [查看历史命令](#查看历史命令)
 <!-- TOC -->
 
 ## 连接管理
@@ -167,17 +168,22 @@ df -h
 ```shell
 tree -L 2 /Users/zhouwenzhe/src/practiceProject/Untitled/EyouCMS-V1.5.1-UTF8-SP3
 ```
+
 ### 创建文件
+
 ```shell
 mkdir -p ~/.enjoyfood-data/data/file/system/10/13/9 && touch ~/.enjoyfood-data/data/file/system/10/13/9/9Wj7XDmrjByx.glb
 
 
 ```
+
 ### 移动文件
+
 ```shell
 mv /Users/zhouwenzhe/Downloads/WX20230817-134339@2x.png ～/.enjoyfood-data/data/file/system/9/15/5/GDoZROMovroq.png
 
 ```
+
 ### 删除文件
 
 ```shell
@@ -198,8 +204,10 @@ find / -path "*/file/system/*" -type f
 ### 下载远程文件
 
 ```shell
-scp -P 22 -r root@119.3.106.151:/root/v2.enjoyfood-backend/deploy/enjoyfood-backend-v10.4.2-docker-compose-test/global_config.yaml /Users/zhouwenzhe/Downloads/global_config.yaml
-open -a GoLand /Users/zhouwenzhe/Downloads/global_config.yaml
+scp -P 22 -r lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/pkg/prisma /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg
+```
+```shell
+open -a GoLand /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg/prisma
 ```
 
 ### 上传本地文件
@@ -260,19 +268,19 @@ chmod zwz 401 /home
 ### 查看占用端口进程
 
 ```shell
-lsof -i:26657
+lsof -i:10257
 ```
 
 ### 查看进程占用端口
 
 ```shell
-lsof -p 78965 -i -P -n | grep LISTEN
+lsof -p 11086 -i -P -n | grep LISTEN
 ```
 
 ### 查看进程启动命令
 
 ```shell
-ps -p 78965 -f
+ps -p 11086 -f
 ```
 
 ### 关闭进程
@@ -284,7 +292,7 @@ kill 73309
 ### 根据端口删除
 
 ```shell
-kill $(lsof -t -i:10000)
+kill $(lsof -t -i:2380)
 ```
 
 ## shell 管理
@@ -310,9 +318,11 @@ echo 'export PATH="/opt/homebrew/Cellar/protobuf@3.6/3.6.1.3_4/bin:$PATH"' >> ~/
 source ~/.zshrc
 printenv
 ```
+
 ```shell
 echo 'export PATH="/opt/homebrew/Cellar/protobuf@3.6/3.6.1.3_4/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
 ```
+
 ## vim
 
 ### 查找
@@ -371,6 +381,17 @@ killall -HUP mDNSResponder
 ```
 
 ### 拷贝Bearer token到剪贴板
+
 ```shell
 username=chenqing; pwd=admin123; echo 'Bearer' `curl -X POST "http://119.3.106.151:10200/v1/oauth2/token" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"grant_type\": \"password\", \"client_id\": \"PC\", \"client_secret\": \"\", \"scope\": \"\", \"username\": \"${username}\", \"password\": \"${pwd}\", \"refresh_token\": \"\", \"code\": \"\", \"reg_id\": \"\", \"platform_type\": 0}"|jq -r '.access_token'` | pbcopy
+```
+
+### 查看历史命令
+
+```shell
+history
+```
+
+```shell
+history -c
 ```

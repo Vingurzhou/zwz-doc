@@ -39,6 +39,7 @@
   * [选择并应用单个提交（commit）到当前分支](#选择并应用单个提交commit到当前分支)
   * [搜索以.graphql作为文件后缀的文件的更改记录](#搜索以graphql作为文件后缀的文件的更改记录)
   * [把工作区和索引中的内容暂时存到一个堆上](#把工作区和索引中的内容暂时存到一个堆上)
+  * [sync fork](#sync-fork)
 <!-- TOC -->
 
 ## .gitattributes
@@ -346,4 +347,10 @@ git stash pop
 ```shell
 git stash apply 
 git stash drop
+```
+## sync fork
+```shell
+git remote -v
+git remote add upstream https://github.com/cit965/kubecit-service.git
+git fetch upstream
 ```
