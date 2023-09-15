@@ -282,7 +282,10 @@ lsof -p 11086 -i -P -n | grep LISTEN
 ```shell
 ps -p 11086 -f
 ```
-
+### 查看命令启动进程
+```shell
+ps aux | grep 'kubectl'
+```
 ### 关闭进程
 
 ```shell
