@@ -207,13 +207,14 @@ find / -path "*/file/system/*" -type f
 scp -P 22 -r lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/pkg/prisma /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg
 ```
 ```shell
-open -a GoLand /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg/prisma
+scp -P 22 -r root@119.3.106.151:/home/lighthouse/v2.enjoyfood-backend/pkg/prisma /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/deploy
 ```
 
 ### 上传本地文件
 
 ```shell
-scp -P 33789 -r /Users/zhouwenzhe/src/practiceProject/Untitled root@3.85.110.97:/root
+scp -P 22 -r /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/prisma lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend
+scp -P 22 -r /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg/prisma lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/pkg
 ```
 
 ### 复制文件夹
