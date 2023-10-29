@@ -63,7 +63,13 @@
 | Ingress     | Ingress                               | 入口                                                                   |
 | replicas    | replicas                              | 副本集                                                                  |
 | ep          | endpoints                             | 端点                                                                   |
+## kubeconfig
+```shell
+open -a goland /Users/zhouwenzhe/.kube/config
+```
+```shell
 
+```
 ## kubeadm
 
 ### 初始化集群

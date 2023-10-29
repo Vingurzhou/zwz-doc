@@ -107,7 +107,10 @@ docker network ls
 docker network inspect vue_default
 
 ```
-
+## 查新容器信息
+```shell
+docker inspect 6ecbc68620b1
+```
 ## 运行容器
 
 ```shell
@@ -134,7 +137,9 @@ vingurzhou/zwz-admin:latest
 ```shell
 docker start
 ```
-
+```shell
+/usr/local/bin/docker-compose -f /Users/zhouwenzhe/src/zwz-env/docker-compose.yml up -d redis
+```
 ## 进入容器bash
 
 ```shell
@@ -162,7 +167,7 @@ docker logs zwz-admin
 ## 拷贝文件
 
 ```shell
-docker cp /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/build/across-cron zwz-env-ubuntu-1:/usr/local/bin
+docker cp /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/sources.list enjoyfood-backend-system-manager:/etc/apt
 ```
 
 ## 执行命令
@@ -206,4 +211,10 @@ docker buildx create --name mybuilder
 docker buildx use mybuilder
 docker buildx build --platform linux/amd64 -t chaoyue/kubecit-service --push .
 
+```
+
+## 设置配置
+
+```shell
+open -a Goland /Users/zhouwenzhe/.docker/daemon.json
 ```

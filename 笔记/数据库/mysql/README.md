@@ -1,33 +1,35 @@
 # mysql
 
 <!-- TOC -->
-
 * [mysql](#mysql)
-    * [术语](#术语)
-    * [远程权限](#远程权限)
-    * [水平切分](#水平切分)
-    * [读写分离](#读写分离)
-    * [垂直切分](#垂直切分)
-    * [查看正在执行语句](#查看正在执行语句)
-    * [查看ddl](#查看ddl)
-    * [分类](#分类)
-
+  * [术语](#术语)
+  * [远程权限](#远程权限)
+  * [水平切分](#水平切分)
+  * [读写分离](#读写分离)
+  * [垂直切分](#垂直切分)
+  * [查看正在执行语句](#查看正在执行语句)
+  * [查看ddl](#查看ddl)
+  * [分类](#分类)
 <!-- TOC -->
 
 ## 术语
 
-| 缩写           | 全称                                      | 含义                                          |
-|--------------|-----------------------------------------|---------------------------------------------|
-| derived      | Derived Table                           | 派生表                                         |
-| alias        | AS                                      | 别名                                          |
-| incompatible | incompatible                            | 不相容                                         |
-| cast         | Convert a value to a specified datatype | 将一个值转换为指定的数据类型                              |
-| ddl          | Data Definition Language                | 主要有CREATE，DROP，ALTER等对逻辑结构有操作的，包括表结构、视图和索引  |
-| dql          | Data Query Language                     | 主要以SELECT为主                                 |
-| dml          | Data Manipulation Language              | 主要包括INSERT，UPDATE，DELETE                    |
-| dcl          | Data Control Language                   | 主要是权限控制能操作，包括GRANT，REVOKE，COMMIT，ROLLBACK等。 |
-| b tree       | balance tree                            | 平衡树                                         |
-| constraint   | constraint                              | 约束                                          |
+| 缩写           | 全称                                        | 含义                                          |
+|--------------|-------------------------------------------|---------------------------------------------|
+| derived      | Derived Table                             | 派生表                                         |
+| alias        | AS                                        | 别名                                          |
+| incompatible | incompatible                              | 不相容                                         |
+| cast         | Convert a value to a specified datatype   | 将一个值转换为指定的数据类型                              |
+| ddl          | Data Definition Language                  | 主要有CREATE，DROP，ALTER等对逻辑结构有操作的，包括表结构、视图和索引  |
+| dql          | Data Query Language                       | 主要以SELECT为主                                 |
+| dml          | Data Manipulation Language                | 主要包括INSERT，UPDATE，DELETE                    |
+| dcl          | Data Control Language                     | 主要是权限控制能操作，包括GRANT，REVOKE，COMMIT，ROLLBACK等。 |
+| b tree       | balance tree                              | 平衡树                                         |
+| constraint   | constraint                                | 约束                                          |
+| InnoDB       | Innovative DataBase                       | 创新数据库 ，RDBMS的存储引擎                           |
+| MyISAM       | My Indexed Sequential Access Method       | 我的索引顺序访问方法，存储引擎                             |
+| XA           | eXtended Architecture                     | 扩展架构   分布式事物                                |
+| savepoints   | Savepoints in Database Management Systems | 数据库管理系统中的保存点 回滚                             |
 
 ## 远程权限
 
@@ -96,4 +98,40 @@ CREATE TABLE TradeMarketStatistic;
 select contractAddress, count(contractAddress)
 from Grc721AssetsData
 group by contractAddress
+```
+
+## 时间格式化
+```sql
+SELECT *
+FROM CirculationGrc721Statistics
+WHERE STR_TO_DATE(trackAt, '%Y%m%d') BETWEEN '2023-06-01' AND '2023-06-02';
+```
+
+##  unable to load key
+```
+ssh-keygen -p -N "" -m pem -f /path/to/file
+```
+## 查看版本
+```sql
+SELECT VERSION();
+
+```
+## 创建表
+
+```shell
+create table if not exists redeem.nft_redeem_state
+(
+    id                   varchar(50)                         not null
+        primary key,
+    create_time          timestamp default CURRENT_TIMESTAMP not null,
+    update_time          timestamp default CURRENT_TIMESTAMP not null,
+    status               varchar(50)                         not null comment '已赎回',
+    tx_hash              varchar(50)                         not null comment '交易哈希',
+    redeem_id            varchar(50)                         null comment '权益id',
+    token_id             varchar(50)                         null comment 'token id',
+    contract_address     varchar(50)                         null comment '合约地址',
+    redeem_order_info_id varchar(50)                         null comment '订单信息id',
+    constraint redeem_id
+        unique (redeem_id, token_id, contract_address)
+);
 ```

@@ -193,7 +193,7 @@ rm -rf
 ### 查找文件
 
 ```shell
-find  / -name mysqldump
+find  ~ -name daemon.json
 ```
 
 ```shell
@@ -207,13 +207,13 @@ find / -path "*/file/system/*" -type f
 scp -P 22 -r lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/pkg/prisma /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg
 ```
 ```shell
-open -a GoLand /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg/prisma
+scp -P 22 -r root@119.3.106.151:/root/v2.enjoyfood-backend/deploy/enjoyfood-backend-v10.4.4-docker-compose-test/优化后1.log /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend
 ```
-
 ### 上传本地文件
 
 ```shell
-scp -P 33789 -r /Users/zhouwenzhe/src/practiceProject/Untitled root@3.85.110.97:/root
+scp -P 22 -r /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/prisma/system-prisma lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/prisma
+scp -P 22 -r /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg/prisma lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/pkg
 ```
 
 ### 复制文件夹
@@ -282,7 +282,10 @@ lsof -p 11086 -i -P -n | grep LISTEN
 ```shell
 ps -p 11086 -f
 ```
-
+### 查看命令启动进程
+```shell
+ps aux | grep 'kubectl'
+```
 ### 关闭进程
 
 ```shell
@@ -395,3 +398,6 @@ history
 ```shell
 history -c
 ```
+
+## apt-get 500
+关掉vpn代理
