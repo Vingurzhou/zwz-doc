@@ -322,3 +322,21 @@ share.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamical
 
 交叉编译目标 CPU 架构(包括 32位 还是 64位)。
 交叉编译所在操作系统。
+
+### pprof
+抓包cpu
+```shell
+go tool pprof --seconds=60 http://localhost:6062/debug/pprof/profile
+```
+
+抓包 内存
+```shell
+go tool pprof http://localhost:6062/debug/pprof/heap
+```
+看内容
+```shell
+go tool pprof -http=:9999
+```
+```shell
+go tool pprof /file
+```

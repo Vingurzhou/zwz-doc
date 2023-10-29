@@ -111,3 +111,27 @@ WHERE STR_TO_DATE(trackAt, '%Y%m%d') BETWEEN '2023-06-01' AND '2023-06-02';
 ```
 ssh-keygen -p -N "" -m pem -f /path/to/file
 ```
+## 查看版本
+```sql
+SELECT VERSION();
+
+```
+## 创建表
+
+```shell
+create table if not exists redeem.nft_redeem_state
+(
+    id                   varchar(50)                         not null
+        primary key,
+    create_time          timestamp default CURRENT_TIMESTAMP not null,
+    update_time          timestamp default CURRENT_TIMESTAMP not null,
+    status               varchar(50)                         not null comment '已赎回',
+    tx_hash              varchar(50)                         not null comment '交易哈希',
+    redeem_id            varchar(50)                         null comment '权益id',
+    token_id             varchar(50)                         null comment 'token id',
+    contract_address     varchar(50)                         null comment '合约地址',
+    redeem_order_info_id varchar(50)                         null comment '订单信息id',
+    constraint redeem_id
+        unique (redeem_id, token_id, contract_address)
+);
+```
