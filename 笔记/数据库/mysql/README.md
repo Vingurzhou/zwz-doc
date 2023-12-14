@@ -3,13 +3,50 @@
 <!-- TOC -->
 * [mysql](#mysql)
   * [术语](#术语)
+  * [explain](#explain)
+    * [id](#id)
+    * [select_type](#selecttype)
+      * [simple](#simple)
+      * [primary](#primary)
+      * [subquery](#subquery)
+      * [dependent subquery](#dependent-subquery)
+      * [derived](#derived)
+      * [union](#union)
+      * [dependent union](#dependent-union)
+      * [union result](#union-result)
+    * [type](#type)
+      * [system](#system)
+      * [const](#const)
+      * [eq ref](#eq-ref)
+      * [ref](#ref)
+      * [fulltext](#fulltext)
+      * [ref of null](#ref-of-null)
+      * [range](#range)
+      * [index](#index)
+      * [all](#all)
+    * [possible key](#possible-key)
+    * [key](#key)
+    * [key_len](#keylen)
+    * [ref](#ref-1)
+    * [rows](#rows)
+    * [filter](#filter)
+    * [extra](#extra)
+      * [using index](#using-index)
+      * [using where](#using-where)
+      * [using index condition](#using-index-condition)
+      * [using temporary](#using-temporary)
+      * [using filesort](#using-filesort)
+      * [select tables optimized away](#select-tables-optimized-away)
   * [远程权限](#远程权限)
-  * [水平切分](#水平切分)
   * [读写分离](#读写分离)
-  * [垂直切分](#垂直切分)
   * [查看正在执行语句](#查看正在执行语句)
   * [查看ddl](#查看ddl)
-  * [分类](#分类)
+  * [时间格式化](#时间格式化)
+  * [unable to load key](#unable-to-load-key)
+  * [生成column](#生成column)
+  * [时间](#时间)
+  * [upsert](#upsert)
+  * [查询隔离级别](#查询隔离级别)
 <!-- TOC -->
 
 ## 术语
@@ -30,6 +67,207 @@
 | MyISAM       | My Indexed Sequential Access Method       | 我的索引顺序访问方法，存储引擎                             |
 | XA           | eXtended Architecture                     | 扩展架构   分布式事物                                |
 | savepoints   | Savepoints in Database Management Systems | 数据库管理系统中的保存点 回滚                             |
+| partition    |                                           | 分区                                          |
+| ref          | reference                                 | 引用                                          |
+| optimize     |                                           | 优化                                          |
+
+## explain
+
+https://www.cnblogs.com/istitches/p/17153172.html#%E4%B8%80-%E6%9F%A5%E7%9C%8Bsql%E6%89%A7%E8%A1%8C%E9%A2%91%E7%8E%87
+https://dev.mysql.com/doc/refman/8.0/en/explain-output.html
+
+### id
+
+1. 不一样的：从大到小执行
+2. 一样的：从上到下
+3. null：最后执行（表示结果集，不需要使用它来执行）
+4. 会自动优化语句
+
+查看优化后语句
+
+```sql
+show
+warnings;
+```
+
+### select_type
+
+操作类型
+
+#### simple
+
+1. 简单select，
+2. 不包括union
+3. 不包括子查询
+
+#### primary
+
+1. 复杂查询中最外层查询
+2. 使用union时id为1通常为primary
+
+#### subquery
+
+1. 子查询语句
+2. 在select中
+3. 不在from中
+4. 不依赖外部语句
+
+#### dependent subquery
+
+1. 子查询语句
+2. 在select中
+3. 依赖外部语句
+
+#### derived
+
+1. 子查询
+2. 派生表
+3. 在from中
+4. 从外部语句推导出来
+
+关闭对衍生表合并优化
+
+```sql
+set
+seession optimizer switch='derived_off';
+```
+
+#### union
+
+1. 在from中
+2. 在union之后
+3. union前不是
+4. union去重
+5. union all不去重，无union result
+
+#### dependent union
+
+1. 在in中
+2. 在union之后
+3. union前不是
+4. union去重
+5. union all不去重，无union result
+
+#### union result
+
+1. union结束后
+
+### type
+
+1. 至少range
+2. 最好ref
+
+#### system
+
+1. const类型特殊场景
+2. 查一行
+3. 需要精确engine
+4. innodb不精确（all）
+5. memory精确
+
+#### const
+
+1. 查一行
+2. 用primary｜unique index
+3. mysql对查询优化并转常量
+
+#### eq ref
+
+1. 基于primary｜unique index 进行join
+2. 每个索引键值对只有一条记录
+3. 被驱动的
+
+#### ref
+
+1. 基于非unique index join两个表｜通过二级索引（index、unique index）列与常量进行等值匹配
+2. 可能存在多条匹配记录
+
+#### fulltext
+
+#### ref of null
+
+#### range
+
+1. 使用非unique index 扫描部分索引
+
+#### index
+
+1. 扫描整个索引
+2. 一般是二级索引（index、unique index）
+3. 一般使用覆盖索引（查询列都为索引列，回表查询）
+   优化：缩小数据范围
+
+#### all
+
+1. 扫描聚簇索引树
+
+优化：添加索引
+
+### possible key
+
+可能使用的索引
+
+### key
+
+实际使用的索引
+
+### key_len
+
+1. 索引记录的最大长度
+2. 主要是联合索引
+
+![img.png](img.png)
+
+### ref
+
+和key比较的（字段｜常量）
+
+### rows
+
+1. 行数估计值
+2. 越小越好
+
+### filter
+
+1. 符合数据条件的查询百分比
+2. rows*filter/100
+
+### extra
+
+1. 额外信息
+
+#### using index
+
+1. 通过索引
+
+#### using where
+
+1. 不通过索引
+
+#### using index condition
+
+1. 查询列不被索引覆盖
+2. where条件内是索引范围查找
+3. 回表找到所有符合条件数据行
+
+#### using temporary
+
+1. 用临时表
+
+优化：添加索引
+
+#### using filesort
+
+1. 包含orderby
+2. 没利用索引
+3. 数据少从内存排序
+4. 数据多从磁盘排序
+
+优化：索引排序
+
+#### select tables optimized away
+
+1. 使用聚合函数访问索引
 
 ## 远程权限
 
@@ -42,21 +280,9 @@
 7. 修改mysql.cnf的bind-address为0.0.0.0
 8. 重启mysql
 
-## 水平切分
-
-```shell
-分库分表
-```
-
 ## 读写分离
 
 在常见的读写分离架构中，通常会有一个主数据库（Master）和一个或多个从数据库（Slave）。主数据库负责处理写操作（INSERT、UPDATE、DELETE等），并将数据的变化同步到从数据库。从数据库主要处理读操作（SELECT等），从而分担了主数据库的读负载。
-
-## 垂直切分
-
-```shell
-多表连查
-```
 
 ## 查看正在执行语句
 
@@ -92,46 +318,43 @@ CREATE TABLE TradeMarketStatistic;
 
 ```
 
-## 分类
-
-```sql
-select contractAddress, count(contractAddress)
-from Grc721AssetsData
-group by contractAddress
-```
-
 ## 时间格式化
-```sql
-SELECT *
-FROM CirculationGrc721Statistics
-WHERE STR_TO_DATE(trackAt, '%Y%m%d') BETWEEN '2023-06-01' AND '2023-06-02';
-```
 
-##  unable to load key
+## unable to load key
+
 ```
 ssh-keygen -p -N "" -m pem -f /path/to/file
 ```
-## 查看版本
-```sql
-SELECT VERSION();
 
+## 生成column
+
+```sql
+select GROUP_CONCAT(concat('`', COLUMN_NAME, '`'))
+from information_schema.`COLUMNS`
+where TABLE_SCHEMA = 'enjoyfood_assets'
+  and TABLE_NAME = 'redeem';
 ```
-## 创建表
+
+## 时间
+
+在使用 Gorm（Go语言的一个ORM库）向 MySQL 数据库插入 timestamp 值时，可能会遇到时区的问题。Gorm 默认会将时间戳按照本地时区进行处理，而
+MySQL 的 timestamp 类型是无时区概念的，因此可能导致插入的时间值与预期不符
 
 ```shell
-create table if not exists redeem.nft_redeem_state
-(
-    id                   varchar(50)                         not null
-        primary key,
-    create_time          timestamp default CURRENT_TIMESTAMP not null,
-    update_time          timestamp default CURRENT_TIMESTAMP not null,
-    status               varchar(50)                         not null comment '已赎回',
-    tx_hash              varchar(50)                         not null comment '交易哈希',
-    redeem_id            varchar(50)                         null comment '权益id',
-    token_id             varchar(50)                         null comment 'token id',
-    contract_address     varchar(50)                         null comment '合约地址',
-    redeem_order_info_id varchar(50)                         null comment '订单信息id',
-    constraint redeem_id
-        unique (redeem_id, token_id, contract_address)
-);
+time.Now().UTC()
+```
+
+## upsert
+
+```sql
+INSERT INTO your_table (id, name, value)
+VALUES (1, 'example', 'new_value') ON DUPLICATE KEY
+UPDATE name =
+VALUES (name), value =
+VALUES (value);
+```
+
+## 查询隔离级别
+```mysql
+SELECT @@tx_isolation;
 ```

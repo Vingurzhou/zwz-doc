@@ -342,7 +342,7 @@ git log -n 5 --name-only --pretty=format: --diff-filter=AMR | grep '\.graphql$'
 git stash
 ```
 ```shell
-git stash pop
+git stash pop stash@{n}
 ```
 ```shell
 git stash apply 
@@ -353,4 +353,11 @@ git stash drop
 git remote -v
 git remote add upstream https://github.com/cit965/kubecit-service.git
 git fetch upstream
+```
+## 删除不了分支
+```shell
+git checkout a 
+git rebase --abort
+git checkout b
+git git branch -D a
 ```

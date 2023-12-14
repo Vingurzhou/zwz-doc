@@ -218,3 +218,12 @@ docker buildx build --platform linux/amd64 -t chaoyue/kubecit-service --push .
 ```shell
 open -a Goland /Users/zhouwenzhe/.docker/daemon.json
 ```
+
+## 清理未使用的资源
+```shell
+docker system prune -a
+# 删除所有停止的容器
+#docker container prune
+# 删除所有未使用的镜像
+#docker image prune -a
+```

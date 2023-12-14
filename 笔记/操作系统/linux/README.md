@@ -35,6 +35,7 @@
     * [查看占用端口进程](#查看占用端口进程)
     * [查看进程占用端口](#查看进程占用端口)
     * [查看进程启动命令](#查看进程启动命令)
+    * [查看命令启动进程](#查看命令启动进程)
     * [关闭进程](#关闭进程)
     * [根据端口删除](#根据端口删除)
   * [shell 管理](#shell-管理)
@@ -53,6 +54,10 @@
     * [清除 DNS 缓存](#清除-dns-缓存)
     * [拷贝Bearer token到剪贴板](#拷贝bearer-token到剪贴板)
     * [查看历史命令](#查看历史命令)
+  * [apt-get 500](#apt-get-500)
+  * [提升删除速度](#提升删除速度)
+  * [保持不断开](#保持不断开)
+  * [检查磁盘空间](#检查磁盘空间)
 <!-- TOC -->
 
 ## 连接管理
@@ -212,7 +217,7 @@ scp -P 22 -r root@119.3.106.151:/root/v2.enjoyfood-backend/deploy/enjoyfood-back
 ### 上传本地文件
 
 ```shell
-scp -P 22 -r /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/prisma/system-prisma lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/prisma
+scp -P 22 -r /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/prisma/assets-prisma lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/prisma
 scp -P 22 -r /Users/zhouwenzhe/src/yuhuProject/v2.enjoyfood-backend/pkg/prisma lighthouse@43.129.80.158:/home/lighthouse/v2.enjoyfood-backend/pkg
 ```
 
@@ -401,3 +406,23 @@ history -c
 
 ## apt-get 500
 关掉vpn代理
+
+## 提升删除速度
+```shell
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+```
+
+第一行的 KeyRepeat 对应的是「按键重复」，系统设置里调到最快对应的值是 2，你可以调成 0 或者 1（建议调为 1，0 可能会太快）；
+第二行的 InitialKeyRepeat 对应的是「重复前延迟」，系统设置里调到最快对应的值是 15，你可以尝试调成 10 或者更小，不过我还是建议保持 15，因为反应时间太快会容易导致误操作（比如 Esc 键和 Command-Z 这样的快捷键）；
+
+## 保持不断开
+```shell
+while true; do echo 1; sleep 10; done
+```
+
+## 检查磁盘空间
+```shell
+df -h
+```
+
