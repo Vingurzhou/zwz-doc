@@ -32,8 +32,23 @@
 
 ## 架构
 
-![img.png](img.png)
-
+```mermaid
+flowchart TB;
+    producer-->exchange1;
+    producer-->exchange2;
+    subgraph virtualhost2
+    subgraph virtualhost1
+    exchange1-->queue1;
+    exchange2-->queue1;
+    exchange2-->queue2;
+    exchange2-->queue3;
+    end
+    end
+    queue1-->consumer1;
+    queue2-->consumer2;
+    queue3-->consumer1;
+    queue3-->consumer2;
+```
 ## 生产者可用性
 
 * 重连机制

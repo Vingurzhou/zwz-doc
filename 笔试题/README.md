@@ -16,7 +16,7 @@
   * [channel](#channel)
 <!-- TOC -->
 ##  int
-```shell
+```go
 	var a uint = 1
 	var b uint = 2
 	fmt.Println(a - b)

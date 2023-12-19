@@ -3,6 +3,7 @@
 <!-- TOC -->
 * [mysql](#mysql)
   * [术语](#术语)
+  * [索引失效](#索引失效)
   * [explain](#explain)
     * [id](#id)
     * [select_type](#selecttype)
@@ -47,6 +48,10 @@
   * [时间](#时间)
   * [upsert](#upsert)
   * [查询隔离级别](#查询隔离级别)
+  * [锁](#锁)
+    * [行锁](#行锁)
+    * [间隙锁](#间隙锁)
+    * [表锁](#表锁)
 <!-- TOC -->
 
 ## 术语
@@ -70,6 +75,21 @@
 | partition    |                                           | 分区                                          |
 | ref          | reference                                 | 引用                                          |
 | optimize     |                                           | 优化                                          |
+## 索引失效
+* 最左原则
+* select*
+* 索引里有计算
+* 索引里有函数
+* like%在左侧
+* 隐式转换
+* or两边都要索引
+* 两列比较
+* is not null
+* <>
+* not in主键走，二级索引不走
+* not exist
+* 除了主键排序
+* 
 
 ## explain
 
@@ -355,6 +375,24 @@ VALUES (value);
 ```
 
 ## 查询隔离级别
+
+| 隔离级别             | 脏读  | 不可重复读 | 幻读  |
+|------------------|-----|-------|-----|
+| Read Uncommitted | √   | √     | √   |
+| Read Committed   | ×   | √     | √   |
+| Repeatable Read  | ×   | ×     | √   |
+| Serializable     | ×   | ×     | ×   |
+
 ```mysql
 SELECT @@tx_isolation;
 ```
+
+## 锁
+```mysql
+show status like 'innodb_row_lock%';
+```
+### 行锁
+
+### 间隙锁
+
+### 表锁

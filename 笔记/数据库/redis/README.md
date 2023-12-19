@@ -52,3 +52,5 @@ else:
     print(f"Key '{key}' not found in Redis.")
 
 ```
+
+## 扩容机制

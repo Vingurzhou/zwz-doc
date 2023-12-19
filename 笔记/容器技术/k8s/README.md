@@ -35,34 +35,35 @@
 
 ## 术语
 
-| 缩写          | 全称                                    | 含义                                                                   |
-|-------------|---------------------------------------|----------------------------------------------------------------------|
-| node        | node                                  | Kubernetes 集群中的一台机器，这台机器可以是物理机或者是虚拟机                                 |
-| pod         | pod                                   | 源自鲸鱼的群体（一群鲸鱼被称为一个"pod"）                                              |
+| 缩写          | 全称                                    | 含义                                                                |
+|-------------|---------------------------------------|-------------------------------------------------------------------|
+| node        | node                                  | Kubernetes 集群中的一台机器，这台机器可以是物理机或者是虚拟机                              |
+| pod         | pod                                   | 源自鲸鱼的群体（一群鲸鱼被称为一个"pod"）                                           |
 | master      | Master Node                           | 集群中的管理节点，运行着控制和协调整个集群的软件组件，如 kube-apiserver、kube-scheduler 和 etcd 等。 |
-| worker      | Worker Node                           | 集群中的工作节点，运行着应用程序的容器                                                  |
-| metadata    | metadata                              | 描述和管理Kubernetes对象的元数据信息                                              |
-| spec        | specification                         | 定义对象的规范或配置                                                           |
-| policy      | policy                                | 控制和管理Kubernetes资源的规则或策略                                              |
-| immutable   | immutable                             | 不可变                                                                  |
-| Manifest    | Manifest                              | 清单                                                                   |
-| completions | Job Completions                       | 定义Job资源中的完成数目                                                        |
-| Probe       | Probe                                 | 探针                                                                   |
-| Affinity    | Affinity                              | 亲和性                                                                  |
-| Schedule    | Scheduling                            | 调度                                                                   |
-| Operator    | Operator                              | 实现自动化管理的软件模式或模式框架                                                    |
-| disktype    | disktype                              | 磁盘的类型                                                                |
-| HDD         | Hard Disk Drive                       | 硬盘驱动器，传统的机械磁盘                                                        |
-| SSD         | Solid State Drive                     | 固态硬盘                                                                 |
-| NVMe        | Non-Volatile Memory Express           | 一种高性能的存储接口和协议，用于连接固态硬盘（SSD）到计算机系统，提供更低的延迟和更高的数据传输速度                  |
-| SATA        | Serial Advanced Technology Attachment | 一种用于连接硬盘驱动器到计算机系统的接口标准，常用于连接传统硬盘驱动器（HDD）和一些固态硬盘（SSD）。                |
-| SAS         | Serial Attached SCSI                  | 一种用于连接高性能硬盘驱动器和其他外部设备的接口标准，常用于连接企业级硬盘驱动器和存储系统                        |
-| assign      | assign                                | 分配                                                                   |
-| privileged  | privileged                            | 特权                                                                   |
-| escalation  | escalation                            | 升级                                                                   |
-| Ingress     | Ingress                               | 入口                                                                   |
-| replicas    | replicas                              | 副本集                                                                  |
-| ep          | endpoints                             | 端点                                                                   |
+| worker      | Worker Node                           | 集群中的工作节点，运行着应用程序的容器                                               |
+| metadata    | metadata                              | 描述和管理Kubernetes对象的元数据信息                                           |
+| spec        | specification                         | 定义对象的规范或配置                                                        |
+| policy      | policy                                | 控制和管理Kubernetes资源的规则或策略                                           |
+| immutable   | immutable                             | 不可变                                                               |
+| Manifest    | Manifest                              | 清单                                                                |
+| completions | Job Completions                       | 定义Job资源中的完成数目                                                     |
+| Probe       | Probe                                 | 探针                                                                |
+| Affinity    | Affinity                              | 亲和性                                                               |
+| Schedule    | Scheduling                            | 调度                                                                |
+| Operator    | Operator                              | 实现自动化管理的软件模式或模式框架                                                 |
+| disktype    | disktype                              | 磁盘的类型                                                             |
+| HDD         | Hard Disk Drive                       | 硬盘驱动器，传统的机械磁盘                                                     |
+| SSD         | Solid State Drive                     | 固态硬盘                                                              |
+| NVMe        | Non-Volatile Memory Express           | 一种高性能的存储接口和协议，用于连接固态硬盘（SSD）到计算机系统，提供更低的延迟和更高的数据传输速度               |
+| SATA        | Serial Advanced Technology Attachment | 一种用于连接硬盘驱动器到计算机系统的接口标准，常用于连接传统硬盘驱动器（HDD）和一些固态硬盘（SSD）。             |
+| SAS         | Serial Attached SCSI                  | 一种用于连接高性能硬盘驱动器和其他外部设备的接口标准，常用于连接企业级硬盘驱动器和存储系统                     |
+| assign      | assign                                | 分配                                                                |
+| privileged  | privileged                            | 特权                                                                |
+| escalation  | escalation                            | 升级                                                                |
+| Ingress     | Ingress                               | 入口                                                                |
+| replicas    | replicas                              | 副本集                                                               |
+| ep          | endpoints                             | 端点                                                                |
+|  init container           |     init container                                  | 依赖项                                                               |
 ## kubeconfig
 ```shell
 open -a goland /Users/zhouwenzhe/.kube/config

@@ -371,8 +371,13 @@ ufw status
 
 ```shell
 ufw allow 8081
-```
 
+```
+## 网络管理
+### 查看网络
+```shell
+netstat
+```
 ## 其他
 
 ### 解析json
@@ -425,4 +430,5 @@ while true; do echo 1; sleep 10; done
 ```shell
 df -h
 ```
+
 
