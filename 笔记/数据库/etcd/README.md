@@ -15,7 +15,7 @@ etcdctl put key value
 从宿主机取
 
 ```shell
-cat ./global_config.yaml | docker-compose exec -T enjoyfood-backend-etcd sh -c "export ETCDCTL_API=3 && etcdctl put /enjoyfood-backend/global_config"
+cat /Users/zhouwenzhe/src/yuhuProject/Qilin/deploy/qilin-zwz-docker-compose/global_config.yaml | docker exec -i zwz-env-etcd-1 sh -c "export ETCDCTL_API=3 && etcdctl put /qilin/global_config"
 ```
 
 ## 删除键值对
@@ -38,5 +38,24 @@ etcdctl get --prefix="" --keys-only=false "/"
 以 / 为前缀
 
 ```shell
+export ETCDCTL_API=3
 etcdctl get --prefix /
+```
+
+## 查看版本
+```shell
+export endpoint=127.0.0.1:2379
+export key=$(echo -n "/zwz/test" | base64)
+export value=$(cat /Users/zhouwenzhe/src/yuhuProject/Qilin/deploy/qilin-zwz-docker-compose/global_config.yaml | base64)
+```
+```shell
+curl http://$endpoint/version
+```
+## 查看key的值
+```shell
+curl  http://$endpoint/v3/kv/range -X POST -d "{\"key\": \"$key\"}"| jq -r '.kvs[0].value' | base64 -d
+```
+## 设置key的值
+```shell
+curl http://$endpoint/v3/kv/put -X POST -d "{\"key\": \"$key\", \"value\": \"$value\"}"
 ```

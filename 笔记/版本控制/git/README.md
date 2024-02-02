@@ -1,45 +1,47 @@
 # git
 
 <!-- TOC -->
-* [git](#git)
-  * [.gitattributes](#gitattributes)
-  * [commit message](#commit-message)
-    * [type(必须)](#type--必须-)
-    * [scope(可选)](#scope--可选-)
-    * [subject(必须)](#subject--必须-)
-  * [创建ssh密钥](#创建ssh密钥)
-  * [配置 SSH 代理](#配置-ssh-代理)
-  * [验证](#验证)
-  * [克隆某个分支或某个tag](#克隆某个分支或某个tag)
-  * [查看当前配置](#查看当前配置)
-  * [删除用户名和邮箱](#删除用户名和邮箱)
-  * [设置http头](#设置http头)
-  * [创建远程仓库](#创建远程仓库)
-  * [添加远程分支](#添加远程分支)
-  * [修改远程分支](#修改远程分支)
-  * [查看本地和远程分支](#查看本地和远程分支)
-  * [切换分支](#切换分支)
-  * [创建本地和远程分支](#创建本地和远程分支)
-  * [删除本地和远程分支](#删除本地和远程分支)
-  * [下载远程](#下载远程)
-  * [用远程分支强制覆盖当前分支](#用远程分支强制覆盖当前分支)
-  * [被其他分支合并](#被其他分支合并)
-  * [取消远程仓库](#取消远程仓库)
-  * [重置](#重置)
-  * [查看全局配置](#查看全局配置)
-  * [修改通信协议](#修改通信协议)
-  * [代理](#代理)
-  * [设置postbuffer](#设置postbuffer)
-  * [创建分支，线上pr](#创建分支线上pr)
-  * [回滚到上一个commit](#回滚到上一个commit)
-  * [延用上一个commit](#延用上一个commit)
-  * [基于某个commit](#基于某个commit)
-  * [从哪个commit开始进行 rebase 操作](#从哪个commit开始进行-rebase-操作)
-  * [撤销rebase](#撤销rebase)
-  * [选择并应用单个提交（commit）到当前分支](#选择并应用单个提交commit到当前分支)
-  * [搜索以.graphql作为文件后缀的文件的更改记录](#搜索以graphql作为文件后缀的文件的更改记录)
-  * [把工作区和索引中的内容暂时存到一个堆上](#把工作区和索引中的内容暂时存到一个堆上)
-  * [sync fork](#sync-fork)
+- [git](#git)
+  - [.gitattributes](#gitattributes)
+  - [commit message](#commit-message)
+    - [type(必须)](#type必须)
+    - [scope(可选)](#scope可选)
+    - [subject(必须)](#subject必须)
+  - [创建ssh密钥](#创建ssh密钥)
+  - [配置 SSH 代理](#配置-ssh-代理)
+  - [验证](#验证)
+  - [克隆某个分支或某个tag](#克隆某个分支或某个tag)
+  - [查看当前配置](#查看当前配置)
+  - [删除用户名和邮箱](#删除用户名和邮箱)
+  - [设置http头](#设置http头)
+  - [创建远程仓库](#创建远程仓库)
+  - [添加远程分支](#添加远程分支)
+  - [修改远程分支](#修改远程分支)
+  - [查看本地和远程分支](#查看本地和远程分支)
+  - [切换分支](#切换分支)
+  - [创建本地和远程分支](#创建本地和远程分支)
+  - [删除本地和远程分支](#删除本地和远程分支)
+  - [下载远程](#下载远程)
+  - [用远程分支强制覆盖当前分支](#用远程分支强制覆盖当前分支)
+  - [被其他分支合并](#被其他分支合并)
+  - [取消远程仓库](#取消远程仓库)
+  - [重置](#重置)
+  - [查看全局配置](#查看全局配置)
+  - [修改通信协议](#修改通信协议)
+  - [代理](#代理)
+  - [设置postbuffer](#设置postbuffer)
+  - [创建分支，线上pr](#创建分支线上pr)
+  - [回滚到上一个commit](#回滚到上一个commit)
+  - [延用上一个commit](#延用上一个commit)
+  - [基于某个commit](#基于某个commit)
+  - [从哪个commit开始进行 rebase 操作](#从哪个commit开始进行-rebase-操作)
+  - [撤销rebase](#撤销rebase)
+  - [选择并应用单个提交（commit）到当前分支](#选择并应用单个提交commit到当前分支)
+  - [搜索以.graphql作为文件后缀的文件的更改记录](#搜索以graphql作为文件后缀的文件的更改记录)
+  - [把工作区和索引中的内容暂时存到一个堆上](#把工作区和索引中的内容暂时存到一个堆上)
+  - [sync fork](#sync-fork)
+  - [删除不了分支](#删除不了分支)
+  - [terminal prompts disabled](#terminal-prompts-disabled)
 <!-- TOC -->
 
 ## .gitattributes
@@ -173,6 +175,8 @@ git config --list
 ```shell
 git config --global --unset user.name
 git config --global --unset user.email
+git config --unset user.name
+git config --unset user.email
 ```
 
 ## 设置http头
@@ -361,3 +365,11 @@ git rebase --abort
 git checkout b
 git git branch -D a
 ```
+## terminal prompts disabled
+```
+go env -w GOPRIVATE=xxx.com/xxx
+env GIT_TERMINAL_PROMPT=1 go mod tidy
+指定git账号密码
+```
+
+[def]: #commit-message

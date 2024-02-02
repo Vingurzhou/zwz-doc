@@ -70,7 +70,7 @@ protoc --proto_path=./proto \
 ### 查看gRPC 服务列表
 
 ```shell
-grpcurl -plaintext localhost:10202 list
+grpcurl -plaintext localhost:10020 list
 ```
 
 ### 获得服务的描述
@@ -78,8 +78,8 @@ grpcurl -plaintext localhost:10202 list
 ```shell
 grpcurl -plaintext \
     -proto googleapis/google/api/annotations.proto\
-    localhost:10202 \
-    describe v2.enjoyfood.MerchantAssetsService
+    localhost:10020 \
+    describe qilin.api.assets.AssetsService
 ```
 ### 查询节点信息
 
@@ -87,6 +87,6 @@ grpcurl -plaintext \
 grpcurl \
     -plaintext \
     -d "{\"address\":\"cosmos1a62h0l97s9jr4v57nfl2hv2u9tu90k7789sfnx\"}" \
-    localhost:10202 \
-    MerchantAssetsService.GetCirculationGrc721StatisticsITN
+    localhost:10020 \
+    qilin.api.assets.AssetsService.CreateArtwork
 ```
